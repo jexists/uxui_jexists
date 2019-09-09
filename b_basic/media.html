@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- media.html -->
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <!--[if lte IE 9]>
+      <script src="./ie/html5shiv-3.7.3/dist/html5shiv.min.js"> </script>
+      <![endif]-->
+
+  <link rel="shortcut icon" type="image/png" href="./favicon.png">
+  <link rel="apple-touch-icon" href="./favicon.png">
+
+  <title>웹 기초 </title>
+  <!-- CSS============ -->
+  <style type="text/css">
+    
+  </style>
+</head>
+
+<body>
+  <!-- Layout============= -->
+  <h1>웹기초 이해하기</h1>
+  <h2>비디오 및 오디오 파일 불러오기</h2>
+    <!-- html 5부터 생겨났음 
+        audio를 불러와서 끝나는게 아니라 제어하는 controls가 필요 / 재생기
+        브라우져마다 모양이 다르다!!!
+        src 파일불러오기
+        controls 재생장치 controls="controls"
+        autoplay 자동재생 autoplay="autoplay" (접근성XXX 배경음악X 소리가 3초이상은 끊어야한다.)
+        preload 미리불러오기 preload="preload" 유튜브(로딩), 미리 로딩하는거 (끊김없이 볼수있게) -> 최초의 재생이 느리댜.
+        muted : 음속거 모드
+
+        poster = 썸네일 / audio에서는 안되지만 video에서만 가능!
+
+        1초에 빛 깜밖이면 영상 못씀 -> 쓰러짐  피카츄 쇼크
+
+    -->
+
+    <audio controls="controls" src="./media/audio/malhanundero.mp3"></audio>
+
+    
+    <hr />
+
+    <!-- 확장자 type알려줌 / ogg가 안나오면 ->mp3로 위에나오는게 먼저나옴
+          버튼태그 따로 만들고 자바스크립으로 제어가능     -->
+   <audio controls="controls" preload="preload">
+     <source src="./media/audio/malhanundero.ogg" type="audio/ogg"/>
+     <source src="./media/audio/malhanundero.mp3" type="audio/mp3"/>
+     <p>여기서 음악을 들어시면 안됩니다. <br />
+        <a href="http://google.com/chrome">지원하는 브라우저</a>를 이용하세요</p>
+   </audio>
+
+  <br />
+
+   <!-- Video================== -->
+   <video controls preload muted poster="favicon.png">
+     <source src="./media/video/startcoding.webm" type="video/webm"/>
+     <source src="./media/video/startcoding.mp4" type="video/mp4"/>
+     <p> 여기는 영상이 나오지 않습니다. <br />
+     <a href="http://google.com/chrome">지원하는 브라우저</a>를 이용하세요</p>      
+   </video>
+
+  <!-- Script=============== -->
+  <script type="text/javascript">
+    
+  </script>
+</body>
+</html>

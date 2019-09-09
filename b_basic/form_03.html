@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge>
+	<meta charset="UTF-8">
+	<!--[if lte IE 9]>
+		<script src="./ie/html5shiv-3.7.3/dist/html5shiv.min.js"> </script>
+	<![endif]-->
+	<link rel="shortcut icon" type="image/png" href="./favicon.png">
+	<link rel="apple-touch-icon" href="favicon.png">
+	<title>웹 기초 이해하기</title>
+	<!-- CSS=================== -->
+	<style type="text/css">
+		
+	</style>
+</head>
+
+
+<body>
+			<p> <a href="./index.html">웹 기초 이해하기</a></p>
+      <p> <a href="./basic_01.html">HTML 기초 1: 제목과 내용</a></p>
+      <p> <a href="./basic_02.html">HTML 기초 2: 내용요소과 강조</a></p>
+      <p> <a href="./basic_03.html">HTML 기초 3: 목록 만들기 </a> </p>
+      <p> <a href="./table_01.html">HTML, CSS: Table 만들기-1</a></p>
+      <p> <a href="./table_02.html">HTML, CSS: Table 만들기-2</a></p>
+      <p> <a href="./form_01.html">HTML, Form 만들기-1</a></p>
+      <p> <a href="./form_02.html">HTML, Form 만들기-2</a></p>
+      <p> <a href="./form_03.html">HTML, Form 만들기-3</a></p>
+	<!-- layout================ -->
+	<h1> 웹기초이해하기 </h1>
+	<h2>Form기능 이해하기 3 - HTML5 형식에 추가된 기능 이해하기</h2>
+
+
+		<form action="#" method="get">
+
+			<fieldset>
+				<legend>자주사용하는 형식</legend>
+				<ul>
+					<li>
+						<label for="searchBar">검색</label>
+						<input type="search" id="searchBar" name="searchBar" value="" required="required" placeholder="검색하세요" />
+					</li>
+					<li>
+						<label for="telNum">전화번호</label>
+						<input type="tel" id="telNum" name="telNum" value="" required="required" />
+					</li>
+					<li>
+						<label for="urlText">웹사이트</label>
+						<input type="url" id="urlText" name="urlText" value="" required="required" />
+					</li>
+					<li>
+						<label for="mailText">이메일</label>
+						<input type="email" id="mailText" name="mailText" value="" required="required" />
+					</li>
+					
+				</ul>
+
+
+			</fieldset>
+		<!-- ===================== -->
+
+			<fieldset>
+				<legend>아직은 브라우저 제약 많은 형식</legend>
+
+			</fieldset>
+		<!-- ===================== -->
+
+			<fieldset>
+				<legend>사용 가능하지만 그 기능이 현재 애매한 상태</legend>
+				<ul>
+					<li>
+						<label for="num">갯수입력</label>
+						<input type="number" id="num" name="num" value="" min="-2" max="3" step="" required />
+					</li>
+					<li>
+						<label for="ran">갯수입력</label>
+						<input type="range" id="ran" name="ran" value="" min="1" max="" step="" />
+					</li>
+					<li>
+						<label for="colorSel">색상선택</label>
+						<input type="color" id="colorSel" name="colorSel" value="">
+					</li>
+					</li>
+					<li>
+						<label for="dateSel">날짜선택</label>
+						<input type="date" id="dateSel" name="dateSel" value="">
+						<!-- 2019.9.5 현재기준 날짜, 시간과 관련된 type 속성은 사용할수없다. 브라우져마다 다르고 제약이 엄청 많다. -->
+					</li>
+					<li>
+						<label for="message">전달할말</label>
+						<input type="text" id="message" name="message" value="" list="messageSample">
+
+						<datalist id="messageSample">
+							<option value="집가고싶어요"></option>
+							<option value="숙제주시마세요"></option>
+							<option value="쉬고싶어요"></option>
+						</datalist>
+					</li>
+
+				</ul>
+			</fieldset>
+		<!-- ===================== -->
+
+			<!-- 
+				form 영역은 브라우져마다 다 다른다. 
+ 				search 다른 기능없는데 그냥 검색하기 쉽게 바뀜
+				tel 스마트폰으로 할때 숫자 키패드가 나오게함 
+				웹사이트나 이메일 required (필수항목)하면
+				웹사이트 http:
+				이메일 @---. 
+				이런 형식이 아닐경우.,, 안됨..
+				value에다가 하면 안지워져서 placeholder에다가 적는다.
+				num / range 
+				마이너스도 나온다. 최소 최대 단위넘어가기 (몇배)
+				explored 는 num step 안먹는다.
+				color 테마 배경색깔 바꿀때 사용 일부브라우져는 직접입력
+
+				select datalist 차이
+				-select 필요한걸 선택하고 나면 바꿀수없다.
+				- datalist필요한거 선택햇다가 다시 쓸수있다. (원하는 메세지를 쓸수도 있고 선택도 가능한거)
+				--> 
+			<button type="submit">확인 및 전송</button>
+
+		</form>
+	<!-- script================ -->
+</body>
+</html>

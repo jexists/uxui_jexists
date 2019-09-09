@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!-- basic_01.html -->
+<html lang="ko=KR">
+	<head>
+		<meta charset="UTF-8">
+		<title>웹 기초 이해하기</title>
+	</head>
+	<body>
+			<p> <a href="./index.html">웹 기초 이해하기</a></p>
+			<p> <a href="./basic_01.html">HTML 기초 1: 제목과 내용 </a> </p>
+			<p> <a href="./basic_02.html">HTML 기초 2: 내용요소과 강조 </a> </p>
+			<p> <a href="./basic_03.html">HTML 기초 3: 목록 만들기 </a> </p>
+			<p> <a href="./table_01.html">HTML, CSS: Table만들기-1</a></p>
+			<p> <a href="./table_02.html">HTML, CSS: Table만들기-2</a></p>
+     	<p> <a href="./form_01.html">HTML, Form 만들기-1</a></p>
+   	  <p> <a href="./form_02.html">HTML, Form 만들기-2</a></p>
+      <p> <a href="./form_03.html">HTML, Form 만들기-3</a></p>
+		<div id="heading"> <!--div 사용해서 결과가 달라지지 않는다/ 영역을 나눈다.-->
+			<!-- 제목(heading헤드라인) -->
+			<h1>문서에서 가장 중요한 제목: 딱 한번만 사용가능(회장)</h1>
+			<h2>문서에서 두번째로 중요한 제목(이사/임직원)</h2>
+			<h3>문서에서 세번째로 중요한 제목(사장)</h3>
+			<h4>문서에서 네번째로 중요한 제목(부장)</h4>
+			<h5>문서에서 다섯번째로 중요한 제목(차장)</h5>
+			<h6>제목요소중에서 가장 낮은 레벨의 제목(과장)</h6>
+		</div>
+
+		<hr/> <!--horizontal(수평선) 상위내용과 하위내용을 구분한다.(마크다운---) -->
+		<div id="content">
+			<p> paragraph: 내용을 의미하며, 하나의 단락을 형성하는데 사용하는 기능 </p>
+			<p> 중간에 띄어쓰기를 하고 싶어서 &nbsp;         이렇게 처리해보고, 
+				줄바꿈도 하고 <br> 싶어서,
+				---------------
+			이렇게 만들어보아요! </p> <!-- 공백은 스페이스 한번으로 인지한다.  -->
+			<!-- &nbsp; => 특수문자 스페이스 강제로 (10년전에 사용)
+			css로 다르게 컨트롤해야한다. -->
+			<!-- br => 남용금지! -->
+			<pre> 중간에 띄어쓰기를 하고 싶어서         이렇게 처리해보고, 
+				줄바꿈도 하고 싶어서,
+
+				이렇게 만들어보아요! </pre> <!--단점: 가독성X, 탭 사용X, 디자인X -->
+			<pre>작성한 내용을 그대로 표현하는 요소,
+실무에서는 사용할 수 가없다 탭사용불가/이쁘게 . </pre>
+		</div>
+		<p> 웹을 구성하는 기본 언어는 
+			<abbr title="hiper text markup language">HTML </abbr>,과
+			<!-- abbrr: 두문자어(줄임말)를 사용하는 요소/추가적인 내용을 설명해야할때 -->
+			<abbr title="casecading style sheet">CSS </abbr>,
+			java script가 있으며, 해당내용은 
+			<abbr title="그린컴퓨터아카테미"> 그린컴 </abbr>에서
+			<cite title="www.xidoweb.com">시도웹 </cite> 강사가 알려드리고 있습니다.
+		</p>		
+
+		<cite title="추가적인 설명을 나타나게하는것">Title </cite> 
+		<!-- cite: 부가적인 설명을 첨부하는 기능, 요약, 설명, 상세설명, 참고주소 -->
+
+		<br />
+			<!-- FOOTER에 무조건 사용 -->
+		<address> 주소: 웹페이지의 주소, 연락처, 사업자번호 등 정보를 작성하는 공간 </address>
+
+		<address> 
+			<P>주소 </P>
+			<P>웹페이지의 주소 </P>
+			<P>연락처 </P> 
+			<P>사업자번호 </P>
+		</address> <!-- 여러 주소가 많을때 P 태그가 가능하다. -->
+
+
+		<blockquote>인용문 작성하는 공간(마크다운>)</blockquote>
+			<!--인용문: 남의 글이나 말에서 따 온 문장 "" -->
+		<blockquote>
+			<q>인용문1 작성하는 공간</q>
+			<q>인용문2 작성하는 공간</q>
+			<q>인용문3 작성하는 공간</q>
+		</blockquote>
+		
+		<!-- ===================================== -->
+		<!--
+			- block: 하나의 형태를 가질 수 있고, 줄바꿈을 처리할 수 있다, 사이즈를 가질 수 있는 요소 (고체)
+			- inline: 형태(사이즈)를 가질수 없다, 옆으로 나열되어 처리된다. 감싸야하는 요소가 필요하다. (액체, 인라인스케이트)
+
+			* inline 요소는 block 요소를 이용하여 감싸주어야 한다.
+			* inline 요소 내부에는 block 요소를 감쌀 수 없다. (일부 예외)
+			예외의 대표: a 요소 
+
+			* block 요소라고 하더라도, 무조건 block을 감쌀수 있는 것은 아님
+			규칙과 의미에 맞게 사용하여야 한다. (예: div) 
+
+			[SUBLIME 키]
+			필요한 만큰 선택후 shift ctrl [ ] 하면 축약
+		-->
+
+	</body>
+</html>

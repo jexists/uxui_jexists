@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+	<html lnag=ko-KR>
+		<head>
+			<meta charset="UTF-8">
+			<title> 웹페이지 기초 이해하기 </title>
+			<style type="text/css">
+				span{background-color:#fa0;}
+				/*
+				strong{font-weight:normal; color:#acf;}
+			  em{font-style:normal; font-size:1.3rem;}
+			  ins{text-decoration:none;}
+			  ins:hover{color:#afc;}
+			  del{text-decoration:none; font-size:0.5rem;} 
+			  */
+			  img.basic {width: 400px; height: 500px;}  
+			  /*하나의 파일일때는 스페이스를 안해도된다.
+					id 일때 # (img) 생략가능
+					class 일때 .
+				 */
+			</style>
+		</head>
+		<body>
+				<p> <a href="./index.html">웹 기초 이해하기</a></p>
+				<p> <a href="./basic_01.html">HTML 기초 1: 제목과 내용 </a> </p>
+				<p> <a href="./basic_02.html">HTML 기초 2: 내용요소과 강조 </a> </p>
+				<p> <a href="./basic_03.html">HTML 기초 3: 목록 만들기 </a> </p>
+				<p> <a href="./table_01.html">HTML, CSS: Table만들기-1</a></p>
+				<p> <a href="./table_02.html">HTML, CSS: Table만들기-2</a></p>
+				<p> <a href="./form_01.html">HTML, Form 만들기-1</a></p>
+     	  <p> <a href="./form_02.html">HTML, Form 만들기-2</a></p>
+     		<p> <a href="./form_03.html">HTML, Form 만들기-3</a></p>
+
+			<h1> 웹페이지 기초 이해하기 </h1>
+			<h2> 내용 및 강조의 표현 </h2>
+			
+			<!--워드문서기준: 의미가 없다 (감정/이모티콘사용) 인라인 -->
+			<p> 내용에 일부 영역을 잡아서 별도의 추가 표현을 해보려 합니다. <br />
+					글씨를 <b>굵게</b>, <i>기울기</i>, <u>밑줄</u>, <s>취소선</s>을 처리 및 
+					<span>일부만 별도의 색</span>을 처리 <br />
+				하지만 이는 모두! 특별한 의미가 없으므로, 실제 사용에는 권장하지 않습니다. <br/>
+				심지어, <s>s는 현재 완전히 삭제된 요소, 절대 사용하지 않는다.</s>
+			</p>
+			<hr />
+
+			<!-- 진짜 강조를 하고싶을때! 의미: 위험, 주의 (시멘틱 코드)
+				스타일 코드에서 바꿀수 있음 
+				strong{font-weight:normal;}
+			  em{font-style:normal;}
+			  ins{text-decoration:none;}
+			  del{text-decoration:none;}
+
+			  [업그레이드]
+				strong{font-weight:normal; color:#acf;}
+			  em{font-style:normal; font-size:1.3rem;}
+			  ins{text-decoration:none;}
+			  ins:hover{color:#afc;} - /*처리후표기:마우스되면 색깔바뀜*/
+			  del{text-decoration:none; font-size:0.5rem;} 
+			   -->
+			<p>
+				내용에 단순하게 표현하는 것이 아닌, 더욱 디테일한 강조의 표현을 할 경우
+				<strong> 위험, 경고, 확실한 강조의 표기</strong>,  
+				<em> 알림의 표기, 인지하도록 표기, 한번더 상기 </em>
+				<ins> 체크메세지표기, 기억하게 표기 </ins>
+				<del> 처리후표기 </del>
+				<mark> 내용을 주의력을 높이기 위해 표기 (형광펜표기) </mark>
+				같은 내용을 작성하는 것은 따로 있다. <br />
+				좀더 의미있는 코드로 다가가기 위한 형태로서 접근성표기로 따지면, 컴퓨터의 읽기의 형태조차 다르게 표현하고,
+				그것에 따른 의미를 부여하도록 제작하는 시멘틱 코드로 제작하자 의도가 있으며, 
+				span의 경우는 단순하게 시각형태만 처리하는 inline요소의 div 형식, 의미는 없다.
+			</p>
+			<hr />
+
+			<h2> 링크, 이미지 </h2>
+			<p> <a href="./index.html"> index로 이동 </a> </p>
+			<!-- 스크롤했을때 어느 부분으로 이동하기 
+			  (id(#)는 가능 / class(.)는 불가=정확히 인지X (확장자로 인식))
+				div 영역 이름 달기: <div id = "heading"> 
+				a = 닻 문서, 지정된 위치도 가능-->
+			<p> <a href="./basic_01.html#content">basic_01 내용부분으로 이동</a></p>
+
+			<!-- img = 싱글코드 /인라인 요소 / 크기를 가질수있는 인라인요소 / 인라인블락
+				영역 만들어야함!
+			  마크다운: ![이미지설명] (주소)
+			  크기: pixel 안써도 자동인식
+			  같은 폴더에 폴더 만듬 이름: img /images -->
+			<img src="주소" alt="이미지를 설명" />
+			<img src="주소" alt="정확한 이미지의 의도에 맞는 설명" />
+			<div>
+				<!-- 옛날에 사용했음 ! -->
+				<img  src="./img/html_basic_code.png" alt="html_basic_code" 
+						 width="400px" height="500px"
+				/> 
+					<!-- 무조건 CSS에 head/style에 넣어야한다 
+						img{width: 400px; height: 500px;} -->
+				<img class="basic" src="./img/html_basic_code.png" alt="html_basic_code" />
+			</div>
+		</body>
+	</html>

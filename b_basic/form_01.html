@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--form_01.html-->
+<html lang="ko-KR">
+ <head>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta charset="UTF-8">
+
+
+    <!--[if let IE 6]
+      <script src="./ie/html5shiv-3.7.3/dist/html5shiv.min.js"> </script>
+    <![endif]-->
+
+
+   <link rel="shortcut icon" type="image/png" href="./favicon.png">
+   <link rel="apple-touch-icon" href="./favicon.png">
+   <title>웹 기초 이해하기</title>
+
+   <!-- CSS ========================================== -->
+   <style type="text/css">
+    .hidden{font-size: 0}
+   </style>
+ </head>
+
+ <body>
+      <p> <a href="./index.html">웹 기초 이해하기</a></p>
+      <p> <a href="./basic_01.html">HTML 기초 1: 제목과 내용 </a> </p>
+      <p> <a href="./basic_02.html">HTML 기초 2: 내용요소과 강조 </a> </p>
+      <p> <a href="./basic_03.html">HTML 기초 3: 목록 만들기 </a> </p>
+      <p> <a href="./table_01.html">HTML, CSS: Table 만들기-1</a></p>
+      <p> <a href="./table_02.html">HTML, CSS: Table 만들기-2</a></p>
+      <p> <a href="./form_01.html">HTML, Form 만들기-1</a></p>
+      <p> <a href="./form_02.html">HTML, Form 만들기-2</a></p>
+      <p> <a href="./form_03.html">HTML, Form 만들기-3</a></p>
+   <!-- layout ========================================== -->
+   <h1>웹기초이해하기</h1>
+   <h2>form 기초 1</h2>
+    <p> form이란, 양방향 통신이 가능한 형식으로, 필요한 기능을 입력 또는 선택했을 경우 <br />
+   원하는 의사전달을 가능하도록 요청하는 기능 </p>
+    <p> 예) 검색, id/pw, sns 메신저 보내기, 댓글달기, 회원가입, 주문, 설문조사, 동의체크 등 </p>
+    <p> <strong>form 사용시 주의사항</strong>: 백엔드 개발자와 협의를 많이하는 영역이기에 보다 더 정확하게 처리하는 것이 중요</p>
+   <hr />
+   
+   <h3> form 기본양식 </h3>
+   <!--form을 사용하겠다는 유무처리:
+      method: 정보를 다루는 성격 - 공개(get)/보안(post) , 삭제/수정 (9가지종류)
+        get: 공개 / 자료가 많다./ 오픈자료 / 쉽게 접근가능
+          (웹사이트? = 뒤에있는것이 보안처리)
+        post: 보안 /본인이 아니면 볼수없다(우편봉투), 필요한 자료만 있음 / 비공개 / 쉽게 접근 불가능 / 무겁다 (로그인후 보는건 다 post이다)
+      action: database를 관리하는 사람 /보안관리 (PHP, JSP, ASP)\
+              database를 관리 
+              작성 및 처리한 자료를 넘겨주는 경로 (url)
+              자료를 어디에다가 넘겨줄거냐?
+              # 아직 없을경우 (임의)
+    -->
+    <form method="get" action="#"> 
+     
+     <h4>구역형태</h4>
+
+     <fieldset>
+      <legend> form 기능의 부분 제목 / 구역의 제목 </legend>
+      <label for="yourname">사용자의 성함<span class= "hidden">을 입력해주세요</span></label>
+      <input type="text" id="yourname" name="" value="내용을 입력하세요.">
+      <!-- 인풋 싱글 태그, 아이디 비밀번호 
+        무조건 딸려오는 속성 (type=, id, name, value )
+        type = 해당하는 input요소의 기능, 형태를 설정, 정확한 목적에 맞는 type선정
+            예: text(글자가 보임), password(글자가 안보임) color (색상 선택) checkbox 체크박스
+        id = html 문서에서 한번만 사용이 가능한 이름, #하고 위치 찾아감
+            무언가(label 작성: 라벨 읽는건: 레이블)에 대한 연결
+            form 내부에서는 label 과 연결해서 접근성에 좋게 만든다
+        name = form에 있는 action을 통해 전달되는 이름 ("HTML"id/class)
+            관리하는 이름 (관리/사용하기 편하게 만든 이름) / 관리용 이름
+            백엔드 개발자랑 이야기해서 나오는 이름
+        value: 입력한 값을 전달할려는 값 / 전달하려는 값을 저장하는 임시 공간
+              임시저장공간 (미리 입력되있는 글씨 아이디 옛날에는 value에서 해서 자바스크립트로 클릭(포커스)할경우 자동없애는 제어. 
+              내용을 입력하세요 - 지우고 써야하는 불편함 (미리 값을 썻다.)
+              빈공간에 누가 썻다면 자연적으로 써있다.)
+        label 사용자성함을 클릭할때 내용을 입력으로 자동 연결 (접근성에서 중요한 내용)  span 사용해서 안보이기 하기! 
+        
+        input은 크기를 가질수 있는 인라인(inline) 요소
+        input은 여러게를 하면 옆으로 나란히~
+         -->
+
+         <!--input에 있는 type 설명 
+          form은 html 5 이전과 이후로 나뉜다.
+          이전기능: input에 있는 type 형식 
+          <input type ="  ">
+          1)입력 : 말그대로 글자를 입력
+            text : 일반 글자로 보이게 할건지?
+            password: ****
+
+          2)선택 :
+            radio : 주파수  동그라미 한번 선택하면 한개만
+            checkbox : 사각형 다중선택 가능 취소취소 (멀티선택)
+
+          3)버튼
+            reset : 초기화 삭제
+            submit : 확인/전달 (장바구니/결제) image랑 같음 새로운 페이지 / 새로고침
+            image : submit형태를 이미지로 바꾼 형태 (submit과 같음)
+            file : 파일선택하고 업로드
+            button : 확인과 취소 외에는 다 이 버튼 (예 검색, 메뉴, 주소검색) 광고 선택 좌우 
+
+          4)특수형태
+            hidden 숨기는 기능 안보이는 기능 (예 회원가입 개인정보 수정 못하게 하는것 숨겨놓는것 id랑 주민등록번호 / 정보보안/)
+
+          5) 멀티 <input 형식 X>
+            입력 <textarea> </textarea> 카톡
+            선택 <select> <option> 
+            버튼  <button>
+
+          이후기능: input에 있는 type 형식 
+          <input type ="  ">
+          1)입력 : 말그대로 글자를 입력
+            tel : 컴퓨터 쿼터 / 스마트폰: 숫자키보드
+            url : 웹페이지 주소
+            email: 이메일 주소
+            (x)date: 날짜 (X)
+
+          2)선택 :
+           color 색상
+           range: 숫자 입력시 슬라이더 형태
+           (입력)number 물건 수량, 숫자 입력/선택
+           etc....  
+
+          3)버튼
+          더이상없음 (그대로)
+
+          4)특수형태
+          더이상없음 (그대로)
+
+          5) 멀티 <input 형식 X>
+          
+          주의사항: 여유를 두고 작업 : 모양이 다 다르다!!!!
+          이유: 텍스트 윈도우 사각형 맥 동그라미 사각형
+          
+
+         -->
+
+
+         <!-- 정리
+         form 사용할때는 method, action
+         fieldset 제목: legend
+         input은 label과 함께 사용
+         input: type, name, value, id -->
+
+     </fieldset>
+    </form>
+
+
+    <h4>장바구니</h4>
+     <fieldset>
+       <legend> 장바구니 물품항목</legend>
+     </fieldset>
+     <h4>배송주소</h4>
+     <fieldset>
+       <legend>주소지 선택</legend>
+     </fieldset>
+    <h4>결제시스템</h4>
+     <fieldset>
+       <legend>결제방식을 선택</legend>
+     </fieldset>
+
+
+   <!-- style ========================================== -->
+   <script type="text/javascript">
+     
+
+   </script>
+ </body>
+</html>
