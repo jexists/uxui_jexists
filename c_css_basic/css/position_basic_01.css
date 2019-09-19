@@ -1,0 +1,79 @@
+@charset "UTF-8";
+/*position_basic_01.css*/
+
+/* RESET CSS ======================== */
+html, body, h1, h2, h3, h4, h5, h6, 
+ul, ol, li, dl, dt, dd {margin:0; padding: 0; border:0;}
+ul, li, ol {list-style: none}
+a {text-decoration: none; color: #333; font-size: 1.5rem;}
+
+/* COMMON CSS*/
+.clearfix:after,
+.clearfix::after {content:" "; display: block; clear: both;
+	width: 0; height: 0;}
+
+/* LAYOUT DESIGN =========================== */
+body {height: 3000px;}
+#wrap {margin: auto; width: 800px; height: 1200px;
+	background-color: #aef;
+	background-image: linear-gradient(#aef,#5fc);
+	padding: 30px; box-sizing: border-box;}
+
+.position {width: 100%; height: auto; 
+	border: 2px solid #333; box-sizing: border-box;
+	position: relative;}
+.position > li {width: 100px; height: 100px; 
+	text-align: center; line-height: 100px;
+	font-size: 1.2rem; font-weight: bold; float: left;}
+
+.basic {background-color: #777;}
+.static {background-color: #f0c;
+	position: static; top: 20px; right: 10000px; z-index: -50;}
+	/* position:static = 위치를 표기방법과, z-index 모두 적용X
+	position에서 사용할수있는 다양한 기능들을 적용할수없다.
+	z-index는 단위가 없다.
+	position 사용: indicator / 좌우 버튼*/
+
+.fixed {background-color: #fc0;
+	position: fixed; top: 100px; right: 0; z-index: -100;}
+	/*
+	position:fixed; = 브라우저에서 어느 위치든 관계없이, 화면에 붙어서 고정시키는 형태
+	fixed 부모 상태 끝으로 이동 (스크롤해도 그자리에 움직임)
+	top하고 bottom같이 쓸경우는 top으로 인식
+	가운데로 정렬하고 싶을때
+	margin: auto; position: fixed; top: 0; bottom:0; right:0; left:0;
+	z-index : 보안/드래그해서 사진 다운X 
+		-1하면 뒤로 가서 안보인다.;	*/
+
+
+.absolute {background-color: #0aa;
+	position: absolute; top: 100px; right: 50px; z-index: 200;}
+	/*position: absolute = 브라우저에서 원하는 위치에 배치가능, 스크롤 시 
+	일반형태처럼 스크롤 처리된다.
+	자신의 조상(부모격)에 해당하는 아이에 position의 성격을 가지고 있으면 해당 개체에 종속된다. (기준으로 잡혀서 처리한다.)
+	부모에게 relative를 한 순간 부모의 기준해서 위치에 배치
+	*부모에게 기준이 되라는 법은 없음, 위로 올라갈수록
+	패딩, 보더 기준없이 상위에서 움직임*/
+
+	/*hidden에 포지션 absolute를 넣는 이유 
+	블록처리해서 다음글씨가 넘어간다. 그래서 absolt를 해서 붕띄게 만든다.*/
+
+.relative {background-color: #aaf;
+	position: relative; top: -100px; left: 50px; z-index: -100;}
+	/*
+	position: relative = 브라우저에서 위치값을 변경하지 않는 한 변화는 없다.
+	하지만, z-index, top, left, right, bottomm 모두 적용가능
+	static과 유사하지만, positio의 기능 적용이 가능하다. 
+	원래있던 위치에서 움직인다. / 
+	position해도 변화없음
+	top, bottom, left, right 0 -> 변화없음*/
+.sticky {background-color: #cf0;
+	position:-webkit-sticky; 
+	position:-ms-sticky; 
+	position:-moz-sticky; 
+	position:-o-sticky; 
+	position: sticky;
+	top: 10px 
+	behavior:url("../ie/PIE-1.0.0/PIE.htc");
+	}
+	/*아직 표준이 아니다. 잘 안먹기 때문에 자바스크립트로 사용한다.*/
