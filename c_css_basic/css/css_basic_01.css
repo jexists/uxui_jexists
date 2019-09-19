@@ -1,0 +1,108 @@
+@charset "UTF-8";
+/* css_basic_01.css */
+
+.size_check {
+  width: 800px;
+  height: 800px;
+  margin: auto;
+  background-color: #ccc;
+}
+
+h3{margin: 0; padding: 1rem;
+  background-color: #fff}
+
+
+.size_check > p {
+  width: 80%; min-width: 400px; max-width: 700px;
+  height: 200px;
+  background-color: #0cc;
+}
+
+/* ------------ */
+
+.size_check>ul{margin: 0; padding:0; width: 100%; height: 300px; background-color: #fa0; }
+
+.size_check>ul>li{ display:block; float: left;
+  width: 50px; border-width:5px; border-style: solid; border-color: #333;
+text-align: center; line-height: 50px; list-style: none;}
+/* 
+display: 속성은 형태를 변형 처리할때 사용
+- block: 크기를 가지지만, 아래로 쌓인다.
+- inline: 옆으로 나열되지만 크기를 가질수 없다.
+- inline block: 크기와 옆으로 나열, 알수없는 공백이 생긴다.
+- none : 강제로 사라지게 만드는 기능 (글씨도 사라짐)
+[해결]
+float: 옆으로 나열하게 만드는 기능, 인라인 요소일 경우에 float 사용하면 강제로 block 요소로 변경 (display: block 생략가능)
+값) left(부모의 크기를 기준으로 왼쪽부터 정렬) || right (부모의 크기를 기준으로 오른쪽부터 정렬)
+*/
+
+.size_check>ul>li:first-child{background-color: #f07;}
+.size_check>ul>li:nth-child(2){display: none; background-color: #afa;}
+.size_check>ul>li:nth-child(3n-1){visibility: visible; background-color: #f6f;}
+.size_check>ul>li:nth-child(3n){visibility: hidden; background-color: #777;}
+.size_check>ul>li:last-child{visibility: hidden; background-color: #777;}
+
+/* :first-child쓰면 li중 첫번째 하나 선택가능
+nth-child(숫자) 몇번째
+nth-child(3n) 3번째마다
+nth-childe(3n-1) 3번째마다에서 -1
+nth-childe(3n+1) 3번째마다에서 +1
+last-child 쓰면 마지막 
+*/
+
+/* visibility: display속성과 유사한 기능을 가지고 있다 하지만 기본 2가지의 속성을 가진다.
+
+visible - display:block 과 같은 보여지게 만드는 기능
+hidden - display: none과 같음 사라지는 기능 - display와 다른점은 위치하던 아이는 그대로 남아있다. 
+
+*/
+
+.over{width:80%; min-width: 500px; height: auto; background-color: #0df; padding: 1rem; box-sizing: border-box; }
+.over>p{margin: auto; margin-bottom: 400px; width: 450px; height: 200px; border-width: 2px; border-style: solid; border-color: #fa0;}
+.one{overflow:scroll;}
+.two{overflow: hidden;}
+.three{overflow: auto;}
+.four{overflow:auto; overflow-x:hidden;}
+/* 스크롤바 없애기 */
+.five{overflow: hidden; }
+.five>span{ display: block; overflow: hidden; overflow-y: auto; width:100%; height: 100%;background-color: #fff}
+.six{overflow: hidden; }
+.six>span{padding-left: 10px; padding-right: 20px; display: block; overflow: hidden; overflow-y: auto; width:100%; height: 100%;background-color: #fff}
+/*  기사 넘치면... 
+글자넘칠때 텍스트 처리방법 */
+.over > .seven {height: 60px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+
+/* overflow:hidden 
+- 넘치면 지워라
+overflow
+- 지정된 크기를 기준으로 내부의
+영역이 넘친다면, 어떻게 처리할것인가를 판단한다.
+-hidden(넘칠때 숨기는 기능) | visible(기본형이자 넘칠때 보이게 만드는 기능 | auto(넘치면 스크롤이 생기고, 없으면 안생긴다) | scroll (아래 오른쪽에 스크롤생김) 
+넘치는 영역을 따로 지정할수도 있고 통으로 지정 가능
+*/
+
+/* 
+ 글넘어가서 ...
+white-space: 임의 공백이 아닌, 의도하지 않은 공백을 처리하는 방법
+| pre(실제콛드에서 작성한 형태대로 공백을 주어라 (pre태그같은 속성/ )) 
+| nowrap  (여백을 모두 삭제)
+| pre-line (실제 코드에서 작성한 줄바꿈 처리와 동일하게 해라)
+| unset (기본, 크기에 맞게 줄바꿈 처리)
+white-space: nowrap =>의미없는 공백을 한줄로 처리해라
+
+text-overflow ; ellipsis (말줄임표)
+text-overflow: overflow와 유사하지만, 넘치는 영역이 글자일 경우에 처리방법;
+대체로 overflow와 함께 사용
+| ellipsis:  넘칠경우 말줄임표를 처리
+| unset: 기본형으로 처리;
+.over > .seven {height: 30px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}   */
+
+/* 단위 1cm => 10mm => x
+임의 단위는 있다. endmemo.com
+
+[최초의 기본설정]
+16px = 12pt = 100% = 1em = 1rem
+
+*/
+
+/* Display */

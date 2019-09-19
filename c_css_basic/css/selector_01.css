@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+/* selector_01.css */
+
+  /* CSS는 줄바꿈이 자동적으로 안된다. 
+     view > word wrap > 줄바꿈 (HTML은 자동 )   */
+
+h1 {
+    background-color: #777; 
+    color: #fa0;
+    }  
+  /* 이렇게 쓰는것이 다르다. 2가지: 기본 풀려쓰는것 /완전히 줄바꿈*/
+h2 {background-color: #07f; color: #fff;}
+  /* 같은계열.. 보기쉽게 */
+
+.wrap {background-color: #fa0; color: #07f;}
+
+.con {border-width: 3px; border-style: ridge; border-color: #777;}
+
+/* border-syle: solide, dotted(점섬), dashed(직선형), // ridge, double; */
+
+a {color:inherit;}
+
+#list {border-width: 3px; border-style: dashed; border-color: #fa0;}
+#list > .red {color: #f33;}
+#list li> .yellow {color: #f90;}
+#list > .blue {color: #07f;}
+#list > .green > a {color:#0a0;}
+
+.box {background-color: #ddf;}
+.box li > a {color:#f70;}
+
+.bg1 {background-color: #ff0;}
+.bg2 {background-color: #00c;}
+.bg3 {background-color: #a00;}
+
+
+
+
+ /*기본적으로 a 요소는 자체 색이 별도로 존재: 파랑색 ;
+  body에다가 color를 할때 a태그는 컬러가 먹지 않는다
+  a 요소에다가 color하면 색깔이 따로 먹는다. 
+   a {inherit;} 속성값이 inherit이라면, 부모의 속성/값을 따르겠다는 의미 };
+
+   white space : 용량 잡아먹는/ 쓸떼없는 스페이스 ;
+  
+
+  */
+
+  /*정리!!!!
+  
+  전체 선택자: *을 이용하여 선택하면 모든 요소를 선택한다.라는 의미
+    ex) *{color:#a00;}  
+    단 *로 선택하는 것은 사용하지 않는 부분까지 지정하게 되므로, 시스템 성능 저하가 일어나므로, 권장X
+
+     p *{} p안에 있는 모든 속성을 뭘 적용하겠다. 
+
+  type 선택자: html 문서의 요소를 직접 선택하는것 
+    ex) body{} html{} p{} h1{} div{};
+
+  ID/Class 선택자:
+    id => #
+    class => .
+    #.을 이용하여 해당 속성의 이름을 선택하여 사용하는 것
+
+  자손(find) 선택자: 띄어쓰기로 구분하여 자손을 선택
+
+  자식(children) 선택자:특수기호인 >를 이용하여 부모, 자식을 구분 선택;
+
+
+    */
