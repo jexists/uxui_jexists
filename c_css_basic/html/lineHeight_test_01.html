@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- lineHeight_test_01.html -->
+<html lang="ko-KR">
+ <head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- link ===================================== -->
+   <link rel="stylesheet" href="../css/reset.css">
+   <link rel="stylesheet" href="../css/lineHeight_test_01.css">
+
+     <!--[if lte IE 9]>
+        <script src="./ie/html5shiv-3.7.3/dist/html5shiv.min.js"> </script>
+        <script src="../ie/PIE-1.0.0/PIE.js"></script>
+     <![endif]-->
+
+  <!-- link favicon ============================= -->
+   <link rel="shortcut icon" type="image/png" href="../favicon.png">
+  <!-- link touch ============================= -->
+   <link rel="apple-touch-icon" href="../favicon.png">
+
+   <title>웹 기초 이해하기</title>
+
+   <!-- CSS ===================================== -->
+   <style type="text/css">   
+
+ /*방법1. padding-top 패팅주는방법 */
+
+	/*행간 line-height
+방법2. 부모가운데 */   	
+	.text_box{position: relative; width: 300px; height: 40px;
+		margin: 30px auto;
+		background-color: #7cf; text-align: center;
+	 	line-height: }
+	 .text_box>span {display: block; 
+		position: absolute; top:0; bottom: 0; margin: auto;
+	 	width: 100%; height: 2px;
+	 	background-color: #f8f;}
+
+	 .text_box>span>b{display: block; height: 40; 
+	 	transform: translateY(-50%);}
+   </style>
+ </head>
+
+ <body>
+ <!-- layout ================================== -->
+ 	<div class="text_box">
+ 		<span>
+ 			<b>linetext <br>
+ 					text</b>
+ 		</span>
+ 	</div>
+
+
+
+
+
+
+ <!-- style =================================== -->
+   <script type="text/javascript">
+
+   </script>
+ </body>
+</html>

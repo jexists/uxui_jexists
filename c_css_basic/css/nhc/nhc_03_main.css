@@ -1,0 +1,240 @@
+/*nhc_04_main*/
+
+
+/*conBox================================*/
+#conBox {width: 100%; height: auto;}
+
+ .page_scroll {position: fixed; right: 20px; top:0; bottom: 0; z-index: 500;
+  	width: 40px; height: 230px; margin: auto; border-radius: 15px; 
+  	background-color: rgba(0,0,0,0.7);}
+ .page_scroll>ul {width: 20px; height: 148px; margin: auto; padding-top: 10px;}
+ .page_scroll>ul>li {width: 20px; height: 20px; margin-bottom: 20px;}
+ .page_scroll>ul>li:last-child{margin-bottom: 0px;}
+ .page_scroll>ul>li>a {display: block; width: 100%; height: 100%;
+ 		border: 2px solid #fff; box-sizing: border-box; 
+ 		border-radius: 100%}
+
+ 
+ .page_scroll>ul>li>a:focus{outline: none; background-color:#fff;}
+ .page_scroll:after,
+ .page_scroll::after{content: " "; display: block; 
+ 		position: absolute; left: 0; right: 0; margin: auto;
+ 		width: 20px; height: 55px; border-radius: 5px; border: 2px solid #fff;
+ 		animation:mouseMv 700ms linear alternate infinite;}
+
+ 	@keyframes mouseMv {
+ 		0% {bottom: 15px;}
+ 		100% {bottom: 5px;}
+ 	}
+
+ .con_area {width:100%; padding-top: 45px; box-sizing: border-box;}
+ .con_area>h3 {width: 100%; height: 60px; 
+ 		margin-bottom: 17px;
+ 		text-align: center; font-size: 60px; line-height: 60px;
+ 		background-color: rgba(255,255,255,0.7);}
+ .con_area>p {width: 100%; height: 28px; 
+		text-align: center; font-size: 24px; line-height: 28px;
+ 		background-color: rgba(255,255,255,0.3)}
+
+
+/*광고영역 ===============================*/
+ .view_area {position: relative; width: 100%; height: 855px; background-color: #777;}
+	.indicator {position: absolute; z-index: 300; 
+		left: 50%; margin-left: -433px; right: 0; bottom: 65px; 
+		width: 866px; height: 70px;}
+	/*.indicator>ul{width: 100%; height: 100%;}
+	.indicator>ul>li{float:left; width: 140px; height: 100%;
+		margin-right: 4px; line-height:70px; background-color: #fff;}
+	.indicator>ul>li:first-child {margin-left: 3px;}
+	.indicator>ul>li:last-child {margin-right: 0;}
+	.indicator>ul>li>a {display: block; width: 100%; height: 100%;}*/
+
+	.indicator>ul>li {width: 140px; margin-right: 4px; 
+		line-height: 70px; border-radius: 10px;
+		background-color: rgba(0,0,0,0.7);
+		padding: 2px; box-sizing: border-box;}
+	.indicator>ul>li:first-child {margin-left: 3px;}
+	.indicator>ul>li>a {color:#fff;}
+
+
+	.arrow_btn {position: absolute; z-index: 300; 
+		top: 0; bottom: 0; margin: auto;
+		width: 140px;	height: 100px; }
+	.arrow_btn> button {width: 100%; height: 100%;
+		border-radius: 15px; color:#444;
+		font-size: 4.5rem; text-align: center;
+		background-color: rgba(255,255,255,0.4)}
+	.
+
+	.arrow_btn>button:focus{color: #ccc; 
+			text-shadow: 0.2rem 0.2rem 0.2rem rgba(0,0,0,0.7);}
+
+	.next_btn {right: 10%}
+	.prev_btn {left: 10%}
+
+	.view_zone {position: relative; width: 100%; height: 100%;}
+	.view_zone>p {position:absolute ; top:0 ; bottom: 0; left: 0; right: 0; 
+		width: 50%; min-width: 900px; height: 130px; margin: auto;
+		text-align: center; font-size: 54px; font-size: 3rem; color: #fff;}
+	.view_zone>p>em {font-style: normal; font-weight: bold; font-size: 3.5rem}
+
+/*센서소식 ===============================*/
+ .news_area {height: 895px; background-color: #ccc;}
+ 		.news_area>.content {width: 1200px; height: 650px; 
+ 			margin: auto; margin-top: 30px;
+ 			background-color: #aaa}
+
+ 		.center_info {width: 100%; height: 330px; 
+ 			margin-bottom: 40px; background-color: rgba(0,0,0,0.3)}
+		.center_info>div {float: left; width:280px; height: 100%; 
+			margin-right: 30px; background-color: #ddd}
+		.center_info>.info_board_01 {position: relative;
+			width: 580px;}
+		.center_info>.info_board_03 {margin-right: 0;}
+/*공지사항*/
+		.info_board_01>h5 {float:left;
+			width: 120px; height: 40px;
+			margin-right: 2px;
+			background-color: #fff; text-align: center;
+			line-height: 40px;}
+		.info_board_01 >h5.action {background-color: #f55;
+		 color: fff; font-weight: bold;}
+
+		 /*선생님정답*/
+	.info_01_con>ul {width: 100%; height: 100%;}
+	.info_01_con>ul>li {width: 100%; height: 70px;
+		margin-bottom: 20px;}
+	.info_01_con>ul>li>p {float: left;
+		width: 80px; height: 100%;
+		text-align: center;
+		background-color: #555;}
+	.info_01_con>ul>li>dl{float: right;
+		width: 490px; height: 100%;}
+	.info_01_con>ul>li>dl>dt { width: 100%;
+		height: 20px; margin-bottom: 6px;
+		font-weight: bold; overflow: hidden;
+		text-overflow: ellipsis; white-space: nowrap; }
+	.info_01_con>ul>li>dl>dd {width: 100%;
+		height: auto; color: 777px; 
+		font-size: 0.80rem; font-size: 12px;
+		line-height: 120%; }
+/* 내가한거
+		 .date {float:left; width: 80px; height: 70px;
+		 	margin-left: 10px; 
+		 	white-space:normal; text-align: center;
+		 	font-size: 1.25rem; font-size: 20px;  
+		 	background-color: #bbb;}
+		 .date>em {font-size: 32px; font-size: 2rem; 
+		 	line-height: 35px; font-weight: bold;
+		 	font-style: normal;}
+		 .info_01_con>ul {width: 100%; height: 70px;
+		 	margin-bottom: 20px;}
+		 .last_ul {margin-bottom: 0;}
+
+		 .info_01_con>ul>li>dl {float: left; 
+		 	width: 470px; height: 70px;
+		 	margin-left: 10px;
+		 	background-color: #aaa;}
+		 .info_01_con>ul>li>dl>dt {
+		 	width: 100%; height: 30%; font-weight: bold;}
+		 .info_01_con>ul>li>dl>dd {
+		 	width: 100%; height: 70%; margin-top: 5px;
+		 	line-height: 20px;
+		 }
+
+		 내가한거 */
+		.info_board_01> .info_01_con {display: none;
+			position:absolute;
+			left: 0; bottom: 0;
+			width: 100%; height: 260px;}
+		.info_board_01>.info_01_con.action {display: block;}
+
+		.title_zone {width: 100%; height: 44px; margin-bottom: 6px;
+			background-color: #fff; }
+		.title_zone>h5 {float: left; height: 100%; font-size: 24px; 
+			font-size: 1.5rem; line-height: 44px;}
+		.title_zone>.popup_indicator {float: right; width: 100px; height: 100%; 
+			font-size: 16px; font-size: 1rem; line-height: 44px;
+			background-color: #888;}
+
+		.content_zone {width: 100%; height: 230px;
+			background-color: #fff; }
+
+
+		.prog_guide {width: 100%; height: 280px; 
+			background-color: rgba(0,0,0,0.3);}
+		.prog_guide>ul>li {width: 280px;	
+			margin-right: 26px;}
+		.prog_guide>ul>li a {position: relative;
+			padding: 40px; box-sizing: border-box;
+			color: #fff;
+			background-color: #07a;}
+		/*border 30px solid #039;*/
+		.prog_guide>ul>li a:after,
+		.prog_guide>ul>li a::after {
+			content: " "; display: block;
+			position: absolute; top: 0; left: 0; 
+			width: 100%; height: 100%;
+			box-sizing: border-box;
+			border: 0 solid #039;
+			transition:border 300ms ease;	}
+
+		.prog_guide>ul>li a:hover:after,
+		.prog_guide>ul>li a:hover::after {
+			border: 30px solid #039;}
+
+		.prog_guide .icon {width: 100%; height: 64px; 
+			margin-bottom: 10px;
+			font-size: 64px; font-style: 4rem; line-height: 64px;}
+		.prog_guide dl {width: 100%; height: auto;}
+		.prog_guide dl dt {width: 100%; height: 28px; 
+			margin-bottom: 16px; 
+			font-size: 16px; font-size: 1.625rem;
+			font-weight: bold; line-height: 28px;}
+		.prog_guide dl dd {width: 100%; height: auto;
+			font-size: 14px; word-spacing: 2px;}
+
+/*	common CSS 포함해서 줄일수 있다.
+		.prog_guide>ul {width: 100%; height: 100%;}
+		.prog_guide>ul>li { float: left; width: 280px; height: 100%;	
+			margin-right: 26px; background-color: #fff }
+		.prog_guide>ul>li:last-child {margin-right: 0;}*/
+
+
+
+
+/*전시관 VR동영상 ===============================*/
+ .video_area {height: 850px; background-color: #bbb;}
+ 		.video_area>.media {width: 950px; height: 530px; 
+ 			margin: auto; margin-top: 30px;
+ 			background-color: #ccc;}
+
+
+ .counter_area {height: 710px; background-color: #aaa;}
+ 		.counter_area>.content {width: 1100px; height: 390px; 
+ 			margin: auto; margin-top: 80px;
+ 			background-color: #eee;}
+		.counter_area>.content>ul {width: 100%; height: 100%;}
+		.counter_area>.content>ul>li {float: left;
+			width: 215px; height: 100%; margin-right: 80px;
+			background-color: #888;} 
+		.counter_area>.content>ul>li:last-child {margin-right: 0;}
+
+		.gage {width: 215px; height: 215px; 
+			margin-bottom: 20px;
+			background-color: #ccc;}
+		.gage + dl {width: 215px; height: 150px; background-color: #bbb;
+			text-align: center;}
+		.gage + dl > dt {font-size: 18px; font-weight: bold;}
+
+
+ .top_button {position: fixed; bottom: 50px; right: 20px; z-index: 500;
+ 		width: 54px; height: 54px; 
+ 		border: 2px solid #ccc; box-sizing: border-box;
+ 		background-color: #fff; border-radius: 13px;}
+ .top_button>a {display: block; width: 100%; height: 100%; 
+ 		border-radius: 10px; 
+ 		padding:3px; padding-top: 5px; box-sizing: border-box;}
+  .top_button>a:focus{outline: none; background-color:#ccc;}
+  .top_button>a>i {width: 100%, height: 100%;
+  	font-size: 2.5rem; color: #444;}

@@ -1,9 +1,38 @@
 @charset "UTF-8";
 /*nhc_go_kr_main.css*/
 
+@import url("./nhc/nhc_01_wrap.css");
+@import url("./nhc/nhc_02_header.css");
+@import url("./nhc/nhc_03_main.css");
+@import url("./nhc/nhc_04_footer.css");
+
+/*import에다가 적으면 안먹어서... 
+따로 만들어야함*/
+
+/* 16px = 100% = 12px = 1em =1rem
+1rem "explore은 안먹는다.
+
+ wai-aria
+aria-hidden="true" -> 음성차단
+
+letter-spacing 글자의 사이 
+word-spacing 단어단어 사이
+
+noto sans 본고딕
+
+RESET FONT 
+font-family: "Noto Sans KR", sans-serif;
+font-family: "myriad pro", "돋움", sans-serif;
+font-family: myriad, "돋움", sans-serif;
+명조: serif
+고딕: sans-serif;
+
+
+*/
 /*예습 
 font (font-sizing / line-height)
 transform:translateX ;
+일회성 transition
 */
 /* 천연기념물 SUMMARY
 width: 1900px; height:3560px; = 고정X - auto시작/중간에서 변경 
@@ -22,9 +51,43 @@ position:abosute, fixed을 사용하면 float을 사용X 독립되어서..
 	디바이스로 해서 확인
  div#wrap
  ul>li>a
+ */
 
 
+/*행간 line-height
+방법1. padding-top 패팅주는방법
+방법2. 
 */
+/*dl>dt+dd*/
+/*.gage + {dl>(dt+dd)}*/
+
+/*css
+.gate{}
+.gate + dl{} 인접선택자
+.gate ~ dl{} 형제선택자
+	.gate의 동생 dl을 선택: dl은 동생 중의 순서는 상관없다
+ [html]
+    <div class="gage"></div>
+     <dt></dt>
+     <dd></dd>
+
+ [css]
+  .gage {width: 215px; height: 215px; 
+  	margin-bottom: 20px;
+  	background-color: #ccc;}
+  .gage + dl {width: 215px; height: 150px; background-color: #888;}
+
+ +을 할때 div밑에 바로 있어서 먹히고 
+ div 밑에 p나 다른것이 잇으면 안먹는다.
+
+ 그런 ~하면 먹는다. 
+	*/
+
+
+/*text-shadow: X, Y, blur, color
+	text-shadow: 0.2rem,0.2rem,0.2rem,rgba(0,0,0,0.7);*/
+
+
 
 /* 중요!!!!
 position 사용시 가운데 배치하는방법
@@ -40,107 +103,8 @@ position 사용시 가운데 배치하는방법
  방법3-2) left:50%; transform:translateX(-50%); 좌,우 가운데
 */
 
-/*RESET CSS=======================*/
-
-
-/*COMMON CSS=======================*/
-.clearfix:after,
-.clearfix::after {content:" "; display: block; clear: both;
-	width: 0; height: 0; }
-
-.hidden {display: block; overflow: hidden; position: absolute;
-	width: 0; height: 0; }
-
-/*DESIGN CSS=======================*/
-
-/*wrap================================*/
-#wrap {width: 100%;min-width: 1200px; height: auto; margin: auto;}
-
-/*headBox================================*/
-#headBox {position: relative;
-	width: 100%; height: auto; padding-top: 40px;}
-
- .banner_area {position:relative; width: 100%; height: 80px; background-color: #fff;}
-	h1 {float: left;
-		width: 280px; height: 80px; background-color: #aaa;}
-	#gnbBox {position: absolute; top: 0; left: 0; right: 0; margin: auto;
-		width: 950px; height: 80px; 
-		background-color: #ccc;}
-	.site_map {float:right; 
-		width: 240px; height: 80px; background-color: #bbb}
-
- .unb_area {position: absolute; top: 0; left: 0;
- 		width: 100%; height: auto; background-color: #888;}
-	.unb {float: right; 
-		width: 350px; height: 40px; 
-		padding: 0 65px; box-sizing: border-box;
-		background-color: #eee;}
 
 
 
-/*conBox================================*/
-#conBox {width: 100%; height: auto;}
-
- .page_scroll {position: fixed; right: 20px; top:0; bottom: 0; z-index: 500;
-  	width: 40px; height: 230px; margin: auto; border-radius: 15px; 
-  	background-color: rgba(0,0,0,0.7);}
- .page_scroll>ul {width: 20px; height: 148px; margin: auto; padding-top: 10px;}
- .page_scroll>ul>li {width: 20px; height: 20px; margin-bottom: 20px;}
- .page_scroll>ul>li:last-child{margin-bottom: 0px;}
- .page_scroll>ul>li>a {display: block; width: 100%; height: 100%;
- 		border: 2px solid #fff; box-sizing: border-box; 
- 		border-radius: 100%}
-
- 
- .page_scroll>ul>li>a:focus{outline: none; background-color:#fff;}
- .page_scroll:after,
- .page_scroll::after{content: " "; display: block; 
- 		position: absolute; left: 0; right: 0; margin: auto;
- 		width: 20px; height: 55px; border-radius: 5px; border: 2px solid #fff;
- 		animation:mouseMv 700ms linear alternate infinite;}
-
- 	@keyframes mouseMv {
- 		0% {bottom: 15px;}
- 		100% {bottom: 5px;}
- 	}
-
- .view_area {width: 100%; height: 855px; background-color: #ddd;}
- .con_area {width:100%; padding-top: 45px; box-sizing: border-box;}
- .con_area>h3 {width: 100%; height: 60px; 
- 		margin-bottom: 17px;
- 		text-align: center; font-size: 60px; line-height: 60px;
- 		background-color: rgba(255,255,255,0.7);}
- .con_area>p {width: 100%; height: 28px; 
-		text-align: center; font-size: 24px; line-height: 28px;
- 		background-color: rgba(255,255,255,0.3)}
-
- .news_area {height: 895px; background-color: #ccc;}
- 		.news_area>.content {width: 1200px; height: 650px; 
- 			margin: auto; margin-top: 30px;
- 			background-color: #aaa}
- .video_area {height: 850px; background-color: #bbb;}
- 		.video_area>.media {width: 950px; height: 530px; 
- 			margin: auto; margin-top: 30px;
- 			background-color: #ccc;}
- .counter_area {height: 710px; background-color: #aaa;}
- 		.counter_area>.content {width: 1100px; height: 390px; 
- 			margin: auto; margin-top: 80px;
- 			background-color: #eee;}
-
- .top_button {position: fixed; bottom: 50px; right: 20px; z-index: 500px;
- 		width: 54px; height: 54px; 
- 		border: 2px solid #ccc; box-sizing: border-box;
- 		background-color: #fff; border-radius: 13px;}
- .top_button>a {display: block; width: 100%; height: 100%; 
- 		border-radius: 10px;}
-  .top_button>a:focus{outline: none; background-color:#ccc;}
 
 
-
-/*footBox================================*/
-#footBox {width: 100%; height: auto; 
-	padding-top: 20px; padding-bottom: 60px;
-	background-color: #555;}
-	#footBox>.content {width: 1200px; height: 90px; 
-		margin:auto;
-		background-color: #fff;}

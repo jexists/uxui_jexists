@@ -1,0 +1,45 @@
+/*nhc_02_header.css*/
+
+
+/*headBox================================*/
+#headBox {position: relative;
+	width: 100%; height: auto; padding-top: 40px;}
+
+ .banner_area {position:relative; width: 100%; height: 80px; background-color: #fff;}
+	h1 {float: left;
+		width: 280px; height: 80px; background-color: #aaa;}
+	#gnbBox {position: absolute; top: 0; left: 0; right: 0; margin: auto;
+		width: 950px; height: 80px; 
+		background-color: #ccc;}
+	 #gnbBox>ul {width: 100%; height: 100%;}
+	 #gnbBox>ul>li {float: left; height: 100%; margin-right: 50px;}
+	 #gnbBox>ul>li:last-child {margin-right: 0;}
+
+		#gnbBox>ul>li:nth-child(1){width: 125px;}
+		#gnbBox>ul>li:nth-child(2){width: 95px;}
+		#gnbBox>ul>li:nth-child(3){width: 125px;}
+		#gnbBox>ul>li:nth-child(4){width: 125px;}
+		#gnbBox>ul>li:nth-child(5){width: 105px;}
+		#gnbBox>ul>li:nth-child(6){width: 125px;}
+
+	 #gnbBox>ul>li>a {display: block; height: 100%; 
+	 	/* 위에 li에다가 사이즈를 넣을때는  padding: 0 28px; 필요없다.*/ 
+	 	box-sizing: border-box; background-color: #aaa;
+	 	text-align: center; color: #111; line-height: 80px;}
+
+	.site_map {float:right; 
+		width: 240px; height: 80px; background-color: #bbb}
+
+ .unb_area {position: absolute; top: 0; left: 0;
+ 		width: 100%; height: auto; background-color: #888;}
+	.unb {float: right; 
+		width: 350px; height: 40px; 
+		padding: 0 19px; box-sizing: border-box;
+		background-color: #eee;}
+	 .sns {float: left; width: 34px; height: 40px;}
+	 .sns>a {display: block; width: 100%; height: 100%;
+	 	font-size: 1.8rem; color: #05a;}
+	 .unb_list {float: right; width: 260px; height: 40px;
+	 	background-color: #555;}
+
+
