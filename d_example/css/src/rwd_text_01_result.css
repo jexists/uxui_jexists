@@ -1,0 +1,79 @@
+@charset "UTF-8";
+/*rwd_text_01_result_css*/
+
+/*반응형 기준
+ - pc: 769px ~ 960px
+ - table: 481px ~ 768px;
+ - mobile: ~ 480px;
+
+ vw계산방법: 기준이 되는 크기에서 높이값/기준가로값 *100 = vw;
+ vw높이 설정시 min-height, max-height사용여부 판단
+*/
+
+#wrap{width: 100%; max-width: 60rem; height: auto; background-color: #ccc;}
+#headBox{position: relative;
+  width: 100%; height: 9.375rem; background-color: #c3f;}
+h1 {width: 6.25rem; height: 9.375rem; background-color: #8f8;
+  transition: all 200ms ease;}
+.menu_btn {display: none; position: absolute; top:0; bottom: 0; right: 1.75rem;
+  margin:auto; width: 45px; height: 45px;}
+.menu_btn>button {width: 100%; height: 100%; background-color: #fff;}
+#contentBox{width: 100%; height: auto;}
+ #viewBox{position: relative; left: 50%; margin-left: -50vw; 
+  width: 100vw; /*max-width: 60rem;*/
+  height: 46.875vw; max-height: 28.125rem; 
+  background-color: #fdd;
+  background-image: url(../../img/coding_brain_img.jpg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;}
+  /*background-size:cover, contain, size직접주기*/
+  
+
+
+
+
+ #listBox{width: 100%; height: auto; background-color: #765;}
+ /*자동으로 하는 이유: 구글 이미지 더 보기 : 알아서 늘어나라*/
+  #listBox>ul {width: inherit; height: auto;}
+  /*inherit 부모의 값을 똑같이 쓴다. 
+  퍼센트랑 달라 그냥 값만 같음 크기는 다를수있다*/
+  #listBox>ul>li {float: left; width: 25%; height: 37.5rem;}
+  #listBox>ul>li:nth-child(2n+1) {background-color: #f84;}
+  #listBox>ul>li:nth-child(2n) {background-color: #5f5;}
+
+ #infoBox {display: none; width: 100%; height: auto; 
+    background-color: #351;}
+ #infoBox>.news{width: 100%; height: 6.25rem;
+  background-color: #ccc;}
+ #infoBox>.check{width: 100%; height: 12.5rem;
+  background-color: #eee;}
+#footBox{width: 100%; height: 6.25rem; background-color: #af1;}
+#footBox>h2 {width: 6.25rem; height: 100%; background-color: #03f;
+  transition: all 200ms ease;}
+/*960일때 높이값을 450 
+
+
+
+*/
+
+/* 768 ====================================== */
+@media screen and (min-width:481px) and (max-width:768px) {
+  #contentBox {height: auto;}
+  #viewBox {height:39.0625vw; max-height: 18.75rem;}
+  #listBox>ul>li {height: 25rem;}
+  #infoBox {display:block;}
+}
+
+/* ====================================== */
+@media screen and (max-width:480px){
+  #wrap {min-width: 15rem;}
+  .menu_btn{display:block;}
+  #heaBox{height: 6.25rem;}
+  h1{width: 100%; height: 100%;}
+  #contentBox{height: auto;}
+  #viewBox {height: 25rem;}
+  #listBox>ul>li{width: 50%; height: 12.5rem;}
+  #infoBox {display:block;}
+  #footBox>h2 {width: 50%; min-width:9.375rem; margin: auto;}
+}
