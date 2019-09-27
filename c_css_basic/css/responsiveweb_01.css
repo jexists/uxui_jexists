@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/*responsiveweb_01.css*/
+
+html, body {width: 100%; height: 100%;}
+#wrap {width: 100%; height: 100%; background-color: #ccc;
+	color:#000; text-shadow: 0.2rem 0.2rem 0.2rem #181818;}
+
+@media screen and (max-width: 480px) {
+	#wrap {width: 50%; height: 100%; background-color: #fca;
+		color: #00f; text-shadow: none}
+}
+
+@media screen and (min-width: 481px) and (max-width: 800px){
+	#wrap {width: 50%; height: 50%; background-color: #2a7;
+		text-shadow: none;}	
+}
+/*마지막것이 먹는다. 그래서 max-width 써야함...
+기준: 최초에 쓴것을 .... 바로 위에것은 다른것..*/
+/*
+media 쿼리 : 조회 (내가 필요한것을 찾아가는 구문);
+@media : 디바이스 기기 종류
+@media screen (화면) 
+@media print (인쇄)
+@media handheld (핸드폰/손으로 드는 )
+@media tv (tv)
+@media horizontal (가로형 기기들)
+@media vertical (세로형 기기들)
+
+max-width 최대의 크기
+
+{내용}
+
+연산자 
+and 하나로 결함
+, (or) 쉼표로 분리된 각각 개별 
+not 전체 부정
+only   
+*/

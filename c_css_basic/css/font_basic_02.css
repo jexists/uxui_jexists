@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/*font_basic_02.css*/
+
+/*font data summary
+ *웹폰트
+  *font-face{}: 서체를 강제로 정의할대 사용하는 기능
+		(비디오 요소와 마찬가지로 외부 폰트 문서를 불러와서 설정하는 기능0);
+	@font-face {font-family: ) 불러온 폰트파일의 이름을 내 마음대로 제정하는것
+		서체이름 다시 지정할수있다. / 불러온 폰트파일의 이름을 직접 만드는것
+	@font-face {src:   ) 사용할 서체의 위치를 불러오는것. 
+	@font-face {src:url()   ) 사용할 서체 브라우저 환경에 맞게 세팅.
+	@font-face {src:url(); format() ;  ) 불러온(url) 서체의 format 방식을 정리
+		*format: 	eot - explored (IE6-8버전)하위버전 ;
+							woff - 일반 브라우저, IE 하위버전 9
+							woff2 - 일반 브라우저, IE 하위버전 10
+							ttf - 일반 브라우저, 윈도우, 맥용 
+							svg - 특정브라우저에서 font 호환율이 낮을 경우 이미지 형식으로 대체 (벡터형식)
+
+
+
+	<video>
+	  <source src=".ogg" type: "video/ogg"/>
+	  <source src=".webm" type: "video/webm">
+	  <source src=".mp4">
+	</video>
+	}
+		
+
+*/
+
+p{font-family: "GyeonggiTitle"; color:#fa0; }
+.convert_01 {font-weight: normal;}
+.convert_02 {font-weight: bold;}
+.convert_03 {font-weight: 300;}
+.convert_04 {font-weight: l; color: #fa0;}

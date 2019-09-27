@@ -15,8 +15,9 @@ normalise css; 일반적인 / reset css + common css
 html, body {margin: 0; padding: 0; 
 	width: 100%; height: 100%
 	color:; #333;
-	font-family: "Noto Sans KR", "myrial pro", "arial",
-	"돋움", "dotum", sans-serif;}
+	font-family: "Gothic Al", sans-serif;}
+	/*	{font-family: "Noto Sans KR", "myrial pro", "arial",
+	"돋움", "dotum", sans-serif;}*/
 h1,h2,h3,h4,h5,h6,
 ul, li, ol, dl, dt, dd, 
 p, pre, img {margin: 0; padding: 0; border:0;}
@@ -51,3 +52,25 @@ legend {position: absolute; width: 0; height: 0; overflow: hidden;}
 input {box-sizing: border-box; text-indent: 0.5rem; cursor: pointer;}
 button {border:0; background-color: #777; color: #fff; cursor: pointer; }
 select, text-area {box-sizing: border-box; }
+
+
+/*input:hover{background-color: #fdc;}
+input:focus{background-color: #fcd;}*/
+
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="search"]:hover,
+input[type="url"]:hover,
+input[type="email"]:hover,
+input[type="tel"]:hover,
+text-area:hover,
+select:hover {background-color: #fdc;}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="url"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+text-area:focus,
+select:focus {background-color: #fcd;}

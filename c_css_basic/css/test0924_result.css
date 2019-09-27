@@ -1,0 +1,151 @@
+@charset "UFT-8";
+/*test0924_result*/
+
+#conBox {padding: 1rem; background-color: #dfdfdf;}
+
+h3 {margin-top: 1rem; margin-bottom: 0.5rem;}
+.box_wrap {margin:auto; width: 100%; min-width: 800px;
+	border: 1px solid #333; margin-bottom: 1rem;}
+
+	/*1번 풀이============================= */
+#wrap_01 {width: 600px; height: auto; padding: 10px;
+	background-color: #ccc;}
+#headBox_01 {width: 100%; height: 100px; background-color: #fac;}
+#contentBox_01 {width: 100%; height: 200px; background-color: #cca; }
+#footBox_01 {width: 100%; height: 100px; background-color: #cfa}
+
+/*2번 풀이============================= */
+.wrap_02 {width: 600px; height: auto; padding: 10px;
+	background-color: #ccc;}
+	.wrap_02:after,
+	.wrap_02::after{content: " "; display: block; width: 0; height: 0; clear: both;} 
+#headBox_02 {float: left; width: 20%; height: 600px; background-color: #fac; }
+#contentBox_02{float: left; width: 60%; height: 600px; background-color: #7cf;}
+#footBox_02 {float: left; width: 20%; height: 600px; background-color: #caf;}
+
+	/*3번 풀이============================= */
+.wrap_03 {width: 600px; height: 600px; padding: 10px; 
+	margin: auto;
+	background-color: #ccc;}
+#headBox_03 {float: left; width: 80%; height: 300px; background-color: #fac; }
+#contentBox_03 {float: left; width: 80%; height: 300px; background-color: #7cf;}
+#footBox_03 {float: left; width: 20%; height: 600px; margin-top: -300px;
+	background-color: #caf;}
+
+	/*4번 풀이============================= */
+.wrap {position: relative; width: 800px; height: 600px; background-color: #f0a;}
+.modal {position: absolute; top: 30%; left: 50%; margin-left: -250px; 
+	width: 500px; height: 150px; background-color: #0af;}
+
+/*5번 풀이*/
+.wrap_02 {position: relative; width: 800px; height: 600px; background-color: #f0a;}
+.side_indicator {position: absolute; top:50%; transform: translateY(-50%); 
+	right: 30px;
+	width: 50px; height: auto; background-color: #0af;}
+.side_indicator >ul {width: 100%; height: auto; padding: 10px;
+	box-sizing: border-box;}
+.side_indicator >ul >li{width: 30px; height: 30px; margin-bottom: 30px;}
+.side_indicator >ul >li:last-child{margin-bottom: 0;}
+.side_indicator >ul >li > a{display: block; width: 100%; height: 100%;
+	border-radius: 30px; background-color: #fff;}
+.side_indicator >ul >li > a > span {display: block; width: 0; height: 0; 
+	overflow: hidden;}
+
+
+/*6번 풀이*/
+.wrap_03{position: relative; width: 800px; height: 600px; background-color: #fa6;}
+.wrap_03>.side_indicator_02 {position: absolute; right: 30px; 
+	/* top: 0; bottom: 0; margin: auto; 결과물은 꽉 차개 된다. */
+	/*top: 50%; margin-top: -150px; *height: 300px; 높이가 정해져야한다.*/
+	/*마진&패딩 위아래에 관련되있으면  %를 쓰면 어렵다. */
+	top: 50%; transform: translateY(-50%);
+	width: 50px; height: auto; min-height: 100px;
+	/*background-color: #0af;*/}
+.side_indicator_02>ul {width: auto; height: auto; 
+	padding: 10px;	background-color: #fff; border-radius: 10px;}
+	/*box-sizing border 안쓰는 대신 width 100% > auto로 설정*/
+.side_indicator_02>ul>li {width: 100%; height: 30px;
+	margin-bottom: 30px; /*background-color: #fad;*/}
+.side_indicator_02>ul>li:last-child {margin-bottom: 0;}
+.side_indicator_02>ul>li>a {display: block; position: relative; 
+	width: 100%; height: 100%;
+	background-color: #863; border-radius: 100%;}
+.side_indicator_02>ul>li>a>span {display:block; overflow: hidden; 
+	position: absolute; top: 0; right: 50px; /*margin-left:-350px;*/
+	width: 0; height: 100%; padding: 0;
+	text-align: right; 
+	background-color: #0cf; border-radius: 20px;
+	line-height: 30px;
+	transition: all 300ms ease; opacity: 0;
+	white-space: nowrap;}
+
+.side_indicator_02>ul>li:hover>a,
+.side_indicator_02>ul>li:focus>a {background-color: #fac;}
+
+.side_indicator_02>ul>li>a:hover>span,
+.side_indicator_02>ul>li>a:focus>span {width: auto; padding: 10px;
+	background-color: #fff; opacity: 1;}
+
+
+/*7번 문제============*/
+.wrap_04 {position: relative; width: 800px; height: 600px;}
+.titlebox {position: absolute; top: 30%; left: 20px; z-index: 200;
+	width: 450px; height: 200px; padding: 20px; box-sizing: border-box;
+	background-color: rgba(255,5,255,0.5);
+	/*background-color: #f0f6; 하나 글씨 더 쓰면 반투명 먹는다. 
+	(explored 안먹는다.)*/
+	color: #fff; overflow: hidden; }
+	.titlebox>h1 {font-size: 1.5rem; text-transform: capitalize;}
+	.tiltebox>p {font-size: 1rem;}
+
+.img_01 {position: absolute; bottom: 0; right: 220px; z-index: 100;
+	width: 250px; height: 400px; background-color: #399;}
+.img_02 {position: absolute; bottom: 0; right: 20px;
+	width: 250px; height: 500px; background-color: #91f;}
+
+
+	/*border-radius===============================*/
+	.bdr {width: 100%; height: auto; background-color: #9a3;}
+	.bdr:after,
+	.bdr::after {content: " "; display: block; clear: both;}
+	.bdr>li {float: left; width: 150px; height: 150px; 
+		background-color: #fff ; margin:1rem; }
+	.bdr>li:nth-child(1){border-radius: 100px;}
+	/*절반수치를 넘어가면 안전적으로 동그라미로 넘어간다.*/
+	.bdr>li:nth-child(2){width: 200px; border-radius:30%; }
+	/*절반수치를 넘어가면 안전적으로 동그라미가 된다. 
+	  가로세로의 비율이 안맞을경우에는 이상하다. */
+	.bdr>li:nth-child(3){width: 200px; border-radius: 10% 30%; }
+	.bdr>li:nth-child(4){border-radius: 10px 30px 50px 0; }
+	.bdr>li:nth-child(5){border-top-left-radius: 40px; }
+	.bdr>li:nth-child(6){border-radius: 10px 50px 25px;}
+	.bdr>li:nth-child(7){border-top-left-radius: 70px; 
+		border-bottom-left-radius: 150px;} /*타협해서 처리*/
+	.bdr>li:nth-child(8){border-top-left-radius: 30px 100px;}
+	/*삼각형만들기 보더 주고 다른거 투명*/
+	.bdr>li:nth-child(9){box-sizing: border-box; 
+		border:75px solid transparent;
+		border-left-color: #fa0; 
+		background-color: transparent;}
+
+	
+/*margin: 10px 50px 상하 좌우*/
+/*border-radius: 10px 50px  상좌하우  상우하좌*/
+
+/*margin: 10px 20px 30px 40px 상 우 하 좌 */
+/*border-radius: 10px 20px 30px 40px 상좌 상우 하우 하좌*/
+
+/*모서리는 하나의 선만 존재하는 것이 아니라 두개의 선의 연결로 처리: 
+위,아래 먼저 작성 왼 오른 뒤에 작성
+border-top-left-radius
+border-top-right-radius
+border-bottom-right-radius
+border-bottom-left-radius
+explore 하위버전 안먹는다. 
+*/
+
+.line_height {position: relative; width: 400px; height: 100px;
+	background-color: #999;}
+.line_height>p {position: absolute; top:50%; transform:translateY(-50%);
+	width: 100%; height: auto;
+	background-color: #fff; text-align: center;}
