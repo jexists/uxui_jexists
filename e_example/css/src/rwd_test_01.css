@@ -1,0 +1,50 @@
+@charset"UTF-8";
+/*rwd_test_01.css*/
+
+#wrap {width: 100%; height: 100%;}
+#headBox {width: 100%; height: 9.375rem; background-color: #333;}
+h1 {width: 6.25rem; height: 100%; background-color: #666;}
+#contentBox {width: 100%; height: 65.625rem;}
+.con_box{width: 100%; height: 28.125rem; background-color: #555;}
+.art_box{width: 100%; height: 37.5rem; background-color: #3dd;}
+.art_box>ul {width: 100%; height: 100%;}
+.art_box>ul>li {float:left; width: 25%; height: 100%;}
+.art_box>ul>li:nth-child(2n) {background-color: #ced;}
+#footBox {width: 100%; height: 6.25rem; background-color: #333;}
+#footBox>h2 {width: 6.25rem; height: 100%; background-color: #444;}
+.phon1{width: 100%; height: 6.25rem; background-color: #efa;}
+.phon2{width: 100%; height: 12.5rem; background-color: #aec;}
+
+@media screen and (min-width: 769px) {
+	#wrap {max-width:60rem;}
+	.phon1 {display: none; overflow: hidden;
+		position: absolute; width: 0; height: 0;}
+	.phon2 {display: none; overflow: hidden;
+		position: absolute; width: 0; height: 0;}
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px){
+	#wrap {max-width:48rem;}
+	#contentBox {height: 62.5rem;}
+	.con_box{height: 18.75rem;}
+	.art_box{height: 25rem; }
+	.art_box>ol {width: 100%; height: 100%;}
+}
+
+@media screen and (max-width: 480px){
+	#wrap {max-width:30rem;}
+	#headBox {position: relative; height: 6.25rem; }
+	#headBox>h1 {width: 100%; }
+	.cplogo {position: absolute; top:0; bottom: 0; right: 1.71875rem; margin: auto;  
+		width: 2.8125rem; height: 2.8125rem; 
+		background-color: #fff;}
+	#contentBox {height: 68.75rem;}
+	.con_box{height: 25rem; }
+	.art_box{height: 25rem; }
+	.art_box>ul {width: 100%; height: 25rem;}
+	.art_box>ul>li {width: 50%; height: 50%; 
+		border: 1px solid #333; box-sizing: border-box;}
+	.art_box>ol {width: 100%; height: 100%;}
+	#footBox>h2 {width: 50%; margin: 0 auto;}
+}
+

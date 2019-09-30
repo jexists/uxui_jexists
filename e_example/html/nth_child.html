@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!-- nth-child.html -->
+<html lang="ko-KR">
+<head>
+  <noscript>
+    <p>현재 접속하고 있는 사이트의 기능의 일부가 원활하게 실행되고 있지 않습니다. <br />
+    자바스크립트의 기능을 활성화 해주세요.</p>
+    <p><a href="http://enable-javascript.com/ko/" target="_blank">
+    브라우저에서 자바스크립트 활성화하는 방법</a></p>
+  </noscript>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="웹페이지 슬습에 따른 목차구성">
+  <meta name="keyword" content="html, css, js, web, design, 웹디자인">
+  <meta name="author" content="jexists">
+  <meta name="generator" content="illustrator, photoshop, sublimetext">
+
+  <!-- link ===================================== -->
+   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap&subset=korean" rel="stylesheet">
+   <link rel="stylesheet" href="../css/base/reset.css">
+   <link rel="stylesheet" href="../css/base/common.css">
+   <link rel="stylesheet" href="../fonts/fontawesome/css/all.min.css">
+   <link rel="stylesheet" href="../css/src/nth-child.css">
+
+   <!--[if lte IE 9]>
+      <script src="./ie/html5shiv-3.7.3/dist/html5shiv.min.js"> </script>
+      <script src="../ie/PIE-1.0.0/PIE.js"></script>
+      <script src="../ie/Respond-1.4.2/dest/respond.min.js"></script>
+
+   <![endif]-->
+
+
+  <!-- link favicon ============================= -->
+   <link rel="shortcut icon" type="image/png" href="../favicon.png">
+  <!-- link touch ============================= -->
+   <link rel="apple-touch-icon" href="../favicon.png">
+   <title>문서제목</title>
+   <style>
+    .n_child{padding: 1rem; background-color: #acc;}
+    .n_child>ul{border: 1px solid #333;}
+    .n_child>ul>li{margin:0.2rem; border: 1px solid #333;}
+    .n_child>ul>li:nth-child(3n){background-color: #fa0;}
+    .n_child>ul>li:nth-child(3n-1){background-color: #af0;}
+    .n_child>ul>li:nth-child(4n+1){text-indent: 3rem;}
+
+    .n_child>ul>li:nth-of-type(5){border-left:5px solid #f00;}
+    .n_child>ul>li:nth-of-type(5n){border-left:5px solid #fa0;}
+
+
+    .n-type {padding: 1rem; background-color: #ca7;}
+    .n-type>*{border: 1px solid #777; margin:0.3rem;}
+    /*.nth:nth-child(4n){background-color: #fff;}*/
+    p:nth-child(3n){background-color: #333;}
+    /*p:nth-of-type(2n){background-color: #fff;}*/
+/*
+    :nth-child(){};
+    :first-child{}};
+    :last-child{};
+    :nth-last-child(){}; 뒤에서 부터 역순
+
+    :nth-of-type(){};
+    :nth-of-type{};
+    :last-of type{};
+    :nth-last-of-type(){}; 뒤에서부터 역순으로 동일 요소
+
+
+*/
+   </style>
+   <!-- nth-child: 처음부터 연속되어진 동일한 성격(타입type/클라스class)일 경우에 사용가능
+    nth-of-type: 형제중에 중간에 다른 요소가 섞여있더도,
+        동일한 요소일때는 순소로 인지하여 사용가능
+
+    -->
+
+    <!-- 
+    *{}전체선택자
+    div, a, p {} 타입선택자 
+    .box{} 클래스 선택자
+    #Box{} 아이디 선택자
+    ul a 자손 선택자
+    ul > li 자식 선택자
+    dt+dd 인접형제선택자: 해당하는 바로 뒤에있는 형제
+    dt~dd 형제선택자  뒤에있는 모든 형제 선택
+    a[href="*"]{} 속성선택자
+    li:nth-child(){} nth선택자
+    p:nth-of-type(){} nth선택자
+    슈도코드(의사전달) 
+    a:hover{}, a:focus:{}, a:active{}, a:visited{}
+    가상선택자 a::before{contnet: " "} a::after{content:" "}
+
+
+  -->
+</head>
+<body>
+<!-- layout=================== -->
+  <div id="wrap">
+    <header id="headBox">
+      <h1><a href="../index.html">제목</a></h1>
+    </header>
+    <main class="n_child">
+      <h2>nth-child</h2>
+      <ul>
+        <li>list 01</li>
+        <li>list 02</li>
+        <li>list 03</li>
+        <li>list 04</li>
+        <li>list 05</li>
+        <li>list 06</li>
+        <li>list 07</li>
+        <li>list 08</li>
+        <li>list 09</li>
+        <li>list 010</li>
+        <li>list 011</li>
+        <li>list 012</li>
+        <li>list 013</li>
+        <li>list 014</li>
+        <li>list 015</li>
+        <li>list 016</li>
+        <li>list 017</li>
+        <li>list 018</li>
+        <li>list 019</li>
+        <li>list 020</li>
+      </ul>
+      
+      <br />
+      <hr />
+      <br />
+
+      <h2> nth-of-type </h2>
+      <!-- p.nth{p요소성격의 동일한 class}*10 -->
+      <div class="n-type">
+        <h3> 제목 중간에 하나</h3>
+      <p class="nth">p요소성격의 동일한 class를 가진 p_01</p>
+      <p class="nth">p요소성격의 동일한 class를 가진 p_02</p>
+      <p class="nth">p요소성격의 동일한 class를 가진 p_03</p>
+        <div class="nth">div하나</div>
+      <p class="nth">p요소성격의 동일한 class를 가진 p_04</p>
+      <p class="nth">p요소성격의 동일한 class를 가진 p_05</p>
+      <p class="nth">p요소성격의 동일한 class를 가진 p_06</p>
+        <pre>pre요소하나</pre>
+      <p class="nth">p요소성격의 동일한 class를 가진 p_07</p>
+      <p class="nth">p요소성격의 동일한 class를 가진 p_08</p>
+        <button class="nth" type="button">버튼삽입</button>
+      <p class="nth">p요소성격의 동일한 class를 가진 p_09</p>
+      <p class="nth">p요소성격의 동일한 class를 가진 p_10</p>
+      </div>
+    </main>
+    <footer id="footBox">
+      <h2>정보</h2>
+    </footer>
+  </div>
+
+
+<!-- Script=================== -->
+  <script>
+  
+  </script>
+</body>
+</html>
