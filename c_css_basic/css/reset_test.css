@@ -14,7 +14,7 @@ normalise css; 일반적인 / reset css + common css
 /*1. body, html*/
 html, body {margin: 0; padding: 0; 
 	width: 100%; height: 100%
-	color:; #333;
+	color: #333;
 	font-family: "Gothic Al", sans-serif;}
 	/*	{font-family: "Noto Sans KR", "myrial pro", "arial",
 	"돋움", "dotum", sans-serif;}*/
@@ -45,7 +45,8 @@ button:focus {outline:2px solid #f06;}
 
 
 /* html5 =============================== */
-header, footer, aside, nav, section, article, figure, figcaption {display: block;}
+header, footer, aside, nav, section, article, figure, figcaption {
+	display: block; margin: 0; padding: 0;}
 /* form ================================ */
 form, fieldset, legend {margin: 0; padding: 0; border: 0;}
 legend {position: absolute; width: 0; height: 0; overflow: hidden;}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!-- bg_basic_01.html -->
+<html lang="ko-KR">
+<head>
+  <noscript>
+    <p>현재 접속하고 있는 사이트의 기능의 일부가 원활하게 실행되고 있지 않습니다. <br />
+    자바스크립트의 기능을 활성화 해주세요.</p>
+    <p><a href="http://enable-javascript.com/ko/" target="_blank">
+    브라우저에서 자바스크립트 활성화하는 방법</a></p>
+  </noscript>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="웹페이지 실습에 따른 목차구성">
+  <meta name="keyword" content="html, css, js, web, design, 웹디자인">
+  <meta name="author" content="jexists">
+  <meta name="generator" content="illustrator, photoshop, sublimetext">
+
+  <!-- link ===================================== -->
+   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap&subset=korean" rel="stylesheet">
+   <link rel="stylesheet" href="../css/reset_test.css">
+   <!-- <link rel="stylesheet" href="../css/base/common.css"> -->
+   <link rel="stylesheet" href="../fonts/fontawesome/css/all.min.css">
+   <link rel="stylesheet" href="../css/bg_basic_01.css">
+
+   <!--[if lte IE 9]>
+      <script src="./ie/html5shiv-3.7.3/dist/html5shiv.min.js"> </script>
+      <script src="../ie/PIE-1.0.0/PIE.js"></script>
+      <script src="../ie/Respond-1.4.2/dest/respond.min.js"></script>
+
+   <![endif]-->
+
+
+  <!-- link favicon ============================= -->
+   <link rel="shortcut icon" type="image/png" href="../favicon.png">
+  <!-- link touch ============================= -->
+   <link rel="apple-touch-icon" href="../favicon.png">
+   <title>웹 기초 이해하기</title>
+</head>
+<body>
+<!-- layout=================== -->
+ <div id="wrap">
+ 	<header id="headBox">
+ 		<h1><a href="../index.html">웹기초 이해하기</a></h1>
+ 		<h2>Background Image이해하기</h2>
+ 	</header>
+ 	<main id="contentBox">
+ 		<h2>html 이전 이미지 불러오기 기초</h2>
+ 		<div class="before_img">
+ 			<figure class="img_01">
+ 				<figcaption>이미지 제목</figcaption>
+ 				<img src="../img/waterfall(1-v).jpg" alt="아이콘 요소로 닌자 아이콘">
+ 			</figure>
+ 			<!-- figure을 하면서 더 이미지를 설명할수있다. -->
+ 		</div>
+ 		<br />
+ 		<hr />
+ 		<h2>CSS 이미지 불러오기 기초1</h2>
+ 		<div class="css_img">
+ 			<p>안녕하세요 우하하하하</p>
+ 		</div>
+ 		<br />
+ 		<hr />
+ 		<h2> CSS 이미지 불러오기 기초2</h2>
+ 		<div class="css_img2">
+ 			<p class="hidden">IE 하위버전에서는 아에 되지 않는 기능
+				 추가로 background 이미지를 넣을때 뒤로 들어간다.
+ 			</p>
+ 		</div>
+ 		<br />
+ 		<hr />
+ 		<h2>하나의 형태에 여러개의 이미지 삽입하기</h2>
+ 		<p>관리하기 쉽댜.</p>
+ 		<div class="css_img3">
+ 			<ul class="hidden_wrap">
+ 				<li><a href="#">
+ 					<span>Lorem ipsum dolor sit.</span></a></li>
+ 				<li><a href="#">
+ 					<span>Lorem ipsum dolor sit.</span></a></li>
+ 				<li><a href="#">
+ 					<span>Lorem ipsum dolor sit.</span></a></li>
+ 				<li><a href="#">
+ 					<span>Lorem ipsum dolor sit.</span></a></li>
+ 				<li><a href="#">
+ 					<span>Lorem ipsum dolor sit.</span></a></li>
+ 				<li><a href="#">
+ 					<span>Lorem ipsum dolor sit.</span></a></li>
+ 			</ul>
+ 			
+ 		</div>
+
+ 	</main>
+ 	<footer id="footBox">
+ 		<h2>정보</h2>
+ 	</footer>
+ </div>
+
+<!-- 
+image:
+짧은 주기로 이미지를 바꿀때
+backend랑 상의할때
+
+background image
+
+파워포인트 마스터 페이지 같은 느낌
+포지션 사용안해도 된다.
+
+IR(image Replace) 기법 : 이미지가 날라갔을때 대치하는 방법
+의미가 포함되어 있는 이미지를 배경으로 처리하고 대신 전경에 상응하는 텍스트를 넣는 방법
+
+1)w:0 ; h:0 overflow: h (display Block; position abolute)
+2)text-indeent:-9999px -> -9999rem으로 바꿔라 (점점 화면이 커짐)
+3)font-size:0  ->XXXXX
+4)display:none ->글씨를 못읽음. XXX
+
+
+IS(image sprite) 기법 :
+이미지를 잘라서 필요한부분만 사용하는것
+조각난 이미지 파일들을 하나의 파일로 병합 후 배경으로 처리해서 웹 문서 전송 속도를 높이는 기법
+이미지들을 하나의 이미지로 배경 처리해서 최적화 시킬수 있는 기법
+
+이 때 의미가 있는 이미지는 전경에 상응하는 텍스트를 포함시켜서 접근성을 확보해야 하기 때문에 IR(Image Replacement) 기법이 함께 사용 됩니다.
+1. 무조건 한파일로 할 필요는 없다. 이미지들의 종류와 사용방법에따라 나눠서 하는게 좋다.
+2.스프라이트 기법을 사용하는게 맞는지 하나의 이미지로 가는게 맞는지 잘생각하고 사용해야한다.
+3.스프라이트 기법을 사용하는 이유는 홈페이지 최적화를 위해 사용하는데 이미지간에 간격을 너무 많이 띄어서 사용하면, 그걸 쓰는 이유는 없어진다. 간격을 많이 띄면 코딩하기는 편해
+
+ -->
+
+<!-- Script=================== -->
+  <script>
+  
+  </script>
+</body>
+</html>
