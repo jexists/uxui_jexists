@@ -26,6 +26,8 @@ a:focus{outline: 2px solid #f06;}
 
 abbr{text-decoration: none; text-transform: uppercase;}
 
+address {font-style: normal;}
+
 hr{margin:0; padding: 0
 	border-bottom: 1px solid #777;}
 
