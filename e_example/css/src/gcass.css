@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+#wrap {position: relative;
+	width: 980px; height: 850px; margin: auto;}
+
+#headBox {float: left; width: 250px; height: 710px;
+	margin-top: 30px; padding: 50px; 
+	box-sizing: border-box;
+	background-color: #777;}
+ #nav_main>h1{width: 150px; height: 100px;
+ 	margin-bottom: 5px; background-color: #fff;}
+ #nav_main>h1>a{width: 100%; height: 100%;}
+ .nav_cont{width: 150px; height: 320px;}
+ .nav_cont>li{width: 150px; height: 50px;
+ 	margin-bottom: 5px;}
+ .nav_cont>li:nth-child(2n+1){background-color: #cd3;}
+ .nav_cont>li:nth-child(2n){background-color: #dfc;}
+ .nav_cont>li:last-child{margin-bottom: 0;}
+
+ .qna_area {width: 110px; height: 110px;
+ 	border-radius: 100%; 
+ 	background-color: #fff;}
+
+#subBox {position: absolute; top:0; left: 0;
+	width: 100%; min-width: 980px; height: 30px;
+	background-color: #888;}
+ .nav_sub {float: right; width: 440px; height: 100%;
+ 	text-align: center; line-height: 30px;}
+ .nav_sub>li {float: left; padding-right: 5px;}
+ .nav_sub>li:nth-child(1) {width: 95px; height: 100%;
+ 	background-color: #888;}
+ .nav_sub>li:nth-child(2) {width: 95px; height: 100%;
+ 	background-color: #555;}
+ .nav_sub>li:nth-child(3) {width: 240px; height: 100%;
+ 	padding-right: 0;
+ 	background-color: #FFF30D;}
+
+#contentBox {float: left; width:730px; height: 710px;
+	margin-top: 30px;
+	background-color: #bbb;}
+#footBox {width: 100%; height: 110px;
+	background-color: #ccc; clear: both;}
