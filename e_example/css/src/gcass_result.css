@@ -10,7 +10,8 @@
 .temp:after,
 .temp::after {content: " "; display: block;
   clear: both;}
-#headBox {float: left; width: 250px; height: 710px;
+#headBox {
+  float: left; width: 250px; height: 710px;
   padding: 50px 50px 100px 20px; box-sizing: border-box;
   background-color: #777;}
 #headBox>h1 {width: 100%; height: 110px;}
@@ -19,6 +20,7 @@
  background-repeat: no-repeat;
  background-position: 50% 50%;}
  /*h1>a>span CLASS HIDDEN 처리*/
+
 
  #gnb{width: 100%; height: auto;
   margin-top: 35px;}
@@ -29,32 +31,93 @@
  #gnb>ul>li:last-child{height: 112px; 
   margin-bottom: 0;}
  #gnb>ul>li>a{/*display: block; 
-  width: 100%; height: 100%;*/ background-color: #caa;}
+  width: 100%; height: 100%;*/
+  background-image: url(../../img/gnb.png);
+  background-repeat: no-repeat;
+  background-position-x: 10px}
+ #gnb>ul>li>a:hover,
+ #gnb>ul>li>a:focus{
+    background-image: url('../../img/gnb_on.png');
+    outline: none;}
+ #gnb>ul>li:nth-child(1)>a {background-position-y: 2px;}
+ #gnb>ul>li:nth-child(2)>a {background-position-y: -62px;}
+ #gnb>ul>li:nth-child(3)>a {background-position-y: -124px;}
+ #gnb>ul>li:nth-child(4)>a {background-position-y: -186px;}
+ #gnb>ul>li:nth-child(5)>a {background-position-y: -248px;}
+ #gnb>ul>li:nth-child(6)>a {background-position-y: -293px;}
  /*#gnb>ul>li>a>span{} CLASS HIDDEN처리*/
 
 /* viewBox======================== */
 #viewBox {float: right; width: 730px; height: 710px;
   padding: 50px; box-sizing: border-box;
-  background-color: #adadad;}
- .view_link {float: right; width: 610px; height: 595px;
-  background-color: #fff;}
+  background-color: #adadad;
+  background-image: url(../../img/view_pattern.png);
+  background-repeat: repeat-x;
+  background-position: 0 -10px;}
+ .view_link {float: right; width: 610px; height: 595px;}
  .view_link>a {/*display: block; */
-  position: relative;
-  /*width: 100%; height: 100%;*/}
+  /*width: 100%; height: 100%;*/
+position: relative;}
  .com_img {position: absolute; bottom: 0; left: 0; 
   width: 330px; height: 520px;
-  background-color: #ccc;}
+  background-image: url(../../img/com_img.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transition: all 400ms ease;
+  }
+ .view_link>a:hover .com_img{left: 10px; bottom: -100px;
+  transform: rotate(360deg) scale(0.5);
+  }
+  /*transition-property: all; 
+  어떤속성을 줄거니? all / left
+  transition-duration: ; 시간
+  transition-timing-function 시간의 따른 함수
+- linear (동일한 속성) 
+- ease (점점 빠르게갔다가 점점 느리게/ 자연스럽게)
+- ease-in
+- ease-out
+- ease-in-out (들어가는 속도와 나가는 속도가 같다)
+  transition-delay: 500ms 지연 (1초);}.*/
+/*transition, animation, js-animate 기능에서
+시간에 따른 흐름의 형태 파악하는 사이트
+https://easings.net/
+https://cubic-bezier.com/*/
+
  .text_img {float: right; width: 353px; height: 554px;
-  background-color: #fac;}
+  background-image: url(../../img/text_img.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;}
 /* sideBox===========================*/
 #sideBox {position:absolute; top: 0; left: 0; 
   width: 100%; height: 30px; 
   background-color: #888;}
+  
+  /*100%로 대충 만들기 ..*/
+ #sideBox:before,
+ #sideBox::before {content: " ";
+  display: block; position: absolute; z-index: -100;
+  top: 0; left: 50%; margin-left: -50vw;
+  width: 100vw; height: 100%; 
+  background-color: inherit;}
+
  .lnb {float: right; width: 435px; height: 100%;}
  .lnb>li {float: left; width: 96px; height: 100%;
-  background-color: #acc;}
+  margin: auto;
+  background-color: #acc;
+  background-image: url("../../img/subBox.png");
+  background-position-y:0 ;
+  background-repeat: no-repeat;}
  .lnb>li:last-child {width: 243px;}
- .lnb>li>a {display: block; width: 100%; height: 100%;}
+ /*.lnb>li>a {display: block; width: 100%; height: 100%;
+  background-image: url("../../img/subBox.png");
+  background-position-y:0 ;
+  background-repeat: no-repeat;}*/
+ .lnb>li>a{display:block; width: 90%; height: 100%;}
+ .lnb>li:nth-child(2){background-position-x:-96px; }
+ .lnb>li:nth-child(3){background-position-x: 100%;}
+
+ .lnb>li>a:hover,
+ .lnb>li>a:focus {margin:auto;}
  /*.lnb>li>a>span CLASS HIDDEN 처리*/
 
 /*footBox======================*/
@@ -62,7 +125,6 @@
   width: 100%; height: 110px;
   padding: 15px 40px 25px; 
   box-sizing: border-box;
-  background-color: #f7f;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 0.75rem; line-height: 120%;
   font-weight: normal;}
@@ -73,25 +135,32 @@
 #footBox>h2 {float: left;
   width: 72px; height: 50px;
   margin-right: 46px;
-  background-color: #eed;}
+  background-image: url(../../img/footer_logo.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;}
  .info {float: left;
   width: 70px; height: 50px;
   margin-right: 26px;
-  padding-top: 15px; box-sizing: border-box;
-  background-color: #acf;}
+  padding-top: 15px; box-sizing: border-box;}
  .info>li{float: left; width: 45%; height: 100%;}
  .info>li:last-child{float: right;}
- .info>li<a{}
+ .info>li>a{display: block; width: 100%; height: 100%;
+  background-image: url("../../img/location_and_sns.png");
+  background-position: 3px 0;
+  background-repeat: no-repeat;
+  background-size: auto 100%;}
+ .info>li:nth-child(1)>a{}
+ .info>li:nth-child(2)>a{background-position: 100% 0;}
 
  .info_company {float: left;
-  width: 340px; height: 50px;
-  background-color: #fed;}
- .info_company>p{}
+  width: 340px; height: 50px; padding-top: 10px;
+  box-sizing: border-box;}
+ .info_company>p{line-height: 20px;
+  font-size: 1rem;}
 
  .family_area {position: relative; float: right;
   width: 300px; height: 150px;
-  margin-top: -66px;
-  background-color: #edf;}
+  margin-top: -66px;}
  .family_area>dl{width: 100%; height: auto;
   font-size: 1rem; text-indent: 1rem;}
  .family_area>dl:after,
