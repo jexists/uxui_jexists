@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/*border_radius.css*/
+
+/*border-radius===============================*/
+	.bdr {width: 100%; height: auto; background-color: #9a3;}
+	.bdr:after,
+	.bdr::after {content: " "; display: block; clear: both;}
+	.bdr>li {float: left; width: 150px; height: 150px; 
+		background-color: #fff ; margin:1rem; }
+	.bdr>li:nth-child(1){border-radius: 100px;}
+	/*절반수치를 넘어가면 안전적으로 동그라미로 넘어간다.*/
+	.bdr>li:nth-child(2){width: 200px; border-radius:30%; }
+	/*절반수치를 넘어가면 안전적으로 동그라미가 된다. 
+	  가로세로의 비율이 안맞을경우에는 이상하다. */
+	.bdr>li:nth-child(3){width: 200px; border-radius: 10% 30%; }
+	.bdr>li:nth-child(4){border-radius: 10px 30px 50px 0; }
+	.bdr>li:nth-child(5){border-top-left-radius: 40px; }
+	.bdr>li:nth-child(6){border-radius: 10px 50px 25px;}
+	.bdr>li:nth-child(7){border-top-left-radius: 70px; 
+		border-bottom-left-radius: 150px;} 타협해서 처리
+	.bdr>li:nth-child(8){border-top-left-radius: 30px 100px;}
+	/*삼각형만들기 보더 주고 다른거 투명*/
+	.bdr>li:nth-child(9){box-sizing: border-box; 
+		border:75px solid transparent;
+		border-left-color: #fa0; 
+		background-color: transparent;}
+
+	
+/*margin: 10px 50px 상하 좌우*/
+/*border-radius: 10px 50px  상좌하우  상우하좌*/
+
+/*margin: 10px 20px 30px 40px 상 우 하 좌 */
+/*border-radius: 10px 20px 30px 40px 상좌 상우 하우 하좌*/
+
+/*모서리는 하나의 선만 존재하는 것이 아니라 두개의 선의 연결로 처리: 
+위,아래 먼저 작성 왼 오른 뒤에 작성
+border-top-left-radius
+border-top-right-radius
+border-bottom-right-radius
+border-bottom-left-radius
+explore 하위버전 안먹는다. 
+*/
+
+.line_height {position: relative; width: 400px; height: 100px;
+	background-color: #999;}
+.line_height>p {position: absolute; top:50%; transform:translateY(-50%);
+	width: 100%; height: auto;
+	background-color: #fff; text-align: center;}
