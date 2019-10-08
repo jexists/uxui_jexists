@@ -25,12 +25,30 @@ yarn global add node-sass
 
 $ npm install --global node-sass (node-sass 다운받기)
 
+> npm install --global brower-sync node-sass
+
 $node-sass -v  (node-sass 버전 알아보기)
 
 $node-sass  --watch **--output-sytle nested** scss --output css
 
 > node-sass 실행해라 / --watch (실시간) / scss --output css (내보내라) / style을 ensted라는 스타일로 
 > 노드사스를 실시간으로 감지하고 내보낼때 기능을 nested 스타일로 하고 scss을 css폴더로 해라
+
+#### node-scss 지우는 방법
+
+$ npm uninstall --global node-sass
+
+웹사이트: 
+
+https://yarnpkg.com/lang/en/ > node-sass 4.12.0 
+
+[yarn으로 SASS다운받기] 
+
+> 안될경우에는 컴퓨터로 직접다운 https://yarnpkg.com/en/docs/install#windows-stable
+
+$npm install --global yarn
+
+$yarn global add node-sass
 
 
 
