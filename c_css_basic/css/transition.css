@@ -1,0 +1,32 @@
+@charset"UTF-8";
+
+.juae {width: 100%; height: auto; margin:auto;}
+.juae:after,
+.juae::after{content: " "; display:block; width: 0; height: 0; clear: both;}
+.juae>li {float: left; width: 70px; height: 70px; 
+	margin:10px; background-color: #777; border-radius: 10px;
+	color: #fff; line-height: 70px; text-align: center;}
+
+.juae>li {transition: all 300ms ease}
+.juae>li:hover {transition: all 1000ms ease;}
+
+.juae>li:nth-child(1):hover{transform: rotate(45deg);}
+.juae>li:nth-child(2):hover{transform: translateY(-50px);}
+.juae>li:nth-child(3):hover{transform: scale(0.5);}
+.juae>li:nth-child(4):hover{transform: scale(2);}
+.juae>li:nth-child(5):hover{box-shadow: 5px 5px 5px 2px #aaa;}
+.juae>li:nth-child(6):hover{background-color: #2af;}
+.juae>li:nth-child(7):hover{transform:perspective(100px) rotateX(45deg);}
+.juae>li:nth-child(8):hover{transform:perspective(100px) rotateY(45deg);}
+.juae>li:nth-child(9):hover{transform: rotate(719deg);}
+.juae>li:nth-child(10):hover{background-color: rgba(200,200,200,0.5);}
+/*.juae>li:nth-child(10):hover{opacity:0.3;}*/
+/*opacity하면 글씨까지 opacity가 먹음*/
+.juae>li:nth-child(11){background-color: rgba(200,200,200,0.5);}
+.juae>li:nth-child(11):hover{background-color: rgba(100,100,100,1);}
+.juae>li:nth-child(12):hover{width: 300px; background-color: #2af;}
+/*.juae>li:nth-child(12):hover{transform:scaleX(50); background-color: #2af;}*/
+/*.juae>li:nth-child(12):hover{transform:scaleX(50); background-color: #2af;}*/
+.juae>li:nth-child(13){animation: }
+.juae>li:nth-child(14){animation: }
+.juae>li:nth-child(15){animation: }
