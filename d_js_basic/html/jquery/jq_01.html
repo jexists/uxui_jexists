@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- content.html -->
+<!-- jq_01.html -->
 <html lang="ko-KR">
 <head>
   <noscript>
@@ -12,17 +12,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="웹페이지 실습에 따른 목차구성">
+  <meta name="description" content="웹페이지 슬습에 따른 목차구성">
   <meta name="keyword" content="html, css, js, web, design, 웹디자인">
   <meta name="author" content="jexists">
   <meta name="generator" content="illustrator, photoshop, sublimetext">
 
   <!-- link ===================================== -->
    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap&subset=korean" rel="stylesheet">
-<!--    <link rel="stylesheet" href="../css/base/reset.css">
-   <link rel="stylesheet" href="../css/base/common.css"> -->
-   <link rel="stylesheet" href="../font/fontawesome/css/all.min.css">
-   <!-- <link rel="stylesheet" href="../css/src/content.css"> -->
+   <link rel="stylesheet" href="../../css/base/reset.css">
+   <link rel="stylesheet" href="../../css/base/common.css">
+   <link rel="stylesheet" href="../../font/fontawesome/css/all.min.css">
+   <!-- <link rel="stylesheet" href="../../css/src/jq_01.css"> -->
 
    <!--[if lte IE 9]>
       <script src="./ie/html5shiv-3.7.3/dist/html5shiv.min.js"> </script>
@@ -30,50 +30,49 @@
       <script src="../ie/Respond-1.4.2/dest/respond.min.js"></script>
 
    <![endif]-->
-
+   
 
   <!-- link favicon ============================= -->
    <link rel="shortcut icon" type="image/png" href="../favicon.png">
   <!-- link touch ============================= -->
    <link rel="apple-touch-icon" href="../favicon.png">
-   <title>웹기초이해하기-javascript</title>
+   <title>웹기초이해하기-jQuery</title>
 </head>
 <body>
 <!-- layout=================== -->
 <div id="wrap">
 	<header id="headBox">
-		<h1><a href="#">자바스크립트 이해하기</a></h1>
+		<h1><a href="../../index.html">jQuery 기초이해하기</a></h1>
 	</header>
 	<main id="contentBox">
-		<h2>자바스크립트 기초1</h2>
-		<ol>
-			<li><a href="./script/basic_01.html">기초개념</a></li>
-			<li><a href="./script/basic_02.html">자료형 기본1</a></li>
-      <li><a href="./script/data_type_01.html">자료형 기본2</a></li>
-      <li><a href="./script/object_basic_01.html">배열,객체 이해하기</a></li>
-      <li><a href="./script/data_type_02.html">형타입 기억하기</a></li>
-      <li><a href="./script/function_basic_01.html">함수의 기능</a></li>
-      <li><a href="./script/grammar_basic_01.html">문법</a></li>
-      <li><a href="./script/grammar_basic_02.html">문법 반복문</a></li>
-      <li><a href="./script/juae.html">낙서장</a></li>
-		</ol>
-    <hr />
-    <h2>자바스크립트 기초2</h2>
-    <hr />
-    <h2>jQuery 기초 이해하기</h2>
-    <ol>
-      <li><a href="./jquery/jq_01.html">jQuery 세팅 및 간단테스트</a></li>
-    </ol>
+		<h2>부제</h2>
 	</main>
 	<footer id="footBox">
-		<h2>정보</h2>
+		<h2>jQuery 파일 불러오기, 간단 세팅 및 테스트</h2>
 	</footer>
 </div>
 
 
 <!-- Script=================== -->
-  <script>
-  
-  </script>
+<!-- cdn으로 불러오는 방법 -->
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script> -->
+<script src="../../js/base/jquery-3.4.1.min.js"></script>
+<!-- 구조 -->
+<script src="../../js/base/jquery-ui.min.js"></script>
+<!-- 애니메이션 -->
+
+<!-- <script>
+(function($){
+
+})(jQuery);
+
+// 
+function jQuery(){}
+var $ = jQuery;
+$() == jQuery()
+jQuery(function(){})
+</script> -->
+
+<script src="../../js/src/jquery/jq_01.js"></script>
 </body>
 </html>
