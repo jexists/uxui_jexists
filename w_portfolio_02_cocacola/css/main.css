@@ -1,0 +1,31 @@
+@charset "UTF-8";
+/* main.css */
+/* 공통=============== */
+#wrap { width: 100%; height: auto; background-color: #eee; }
+
+#headBox { width: 100%; height: 80px; background-color: #aaa; }
+
+.head_area { width: 100%; height: 100%; padding: 20px 30px; box-sizing: border-box; background-color: #fff; }
+
+#headBox h1 { width: 130px; height: 40px; background-color: #888; }
+
+#contentBox { width: 100%; height: auto; }
+
+#adBox { width: 100%; height: 560px; background-color: #ddd; }
+
+#brandBox { width: 100%; height: 640px; background-color: #ccc; }
+
+#storyBox { width: 100%; height: 640px; background-color: #bbb; }
+
+#companyBox { width: 100%; height: 640px; background-color: #aaa; }
+
+#snsBox { width: 100%; height: 640px; background-color: #999; }
+
+#footBox { width: 100%; height: 150px; background-color: #888; }
+
+/* 모바일 480px~767px (280) =============== */
+@media screen and (max-width: 767px) { #wrap { min-width: 280px; } }
+
+/* 패드 768px~1279px =============== */
+/* PC 1280px~1919px (1024)=============== */
+/* TV 1920px~ =============== */
