@@ -1,0 +1,61 @@
+/* basic_02.scss */
+
+// $url:;
+
+$urlbase:"../../img/main/";
+$url1: $urlbase + "icon/";
+.icon_01{background-image: url("../../img/background-image.jpg")}
+.icon_02{background-image: url("../../img/background-image.jpg")}
+.icon_03{background-image: url("../../img/background-image.jpg")}
+
+.icon_01{background-image: url($urlbase + "login1.jpg");}
+.icon_02{background-image: url($url1 + "login1.jpg");}
+
+$myUrl :("icon","model","nature","box");
+.icon_03{background-image: url($urlbase + nth($myUrl,2) + "login1.jpg");}
+
+%box{display: block; width: 100%; height: 100%;}
+
+ul{@extend %box;}
+li{@extend %box;}
+
+.box:after{content: " "; @extend %box;}
+.box::after{content: " "; @extend %box;}
+
+
+//mix in 만드는 방법 @mix in name{}
+@mixin mybox($u,$r){
+	display: block; width: 100%; height: 100px;
+	background-image: url($u);
+	background-repeat: $r;
+	background-position: 50% 50%;
+	background-size: contain;
+	background-attachment: fixted;
+}
+
+//@mix in을 불러올때에는 @include name
+.my_01 {float: left; @include mybox($urlbase + "i.jpg",no-reapeat);}
+
+
+
+@mixin unit($u){
+	width: $u+px; width:($u/16)+rem;
+}
+
+.testUnit{@include unit(960);}
+
+// @mixin media($a, $b){
+// 	@media screen and (min-width: $a+px) and (max-width:$b+px) {
+
+// 	}
+// };
+
+// @include media(300,400);
+
+#wrap{
+	width: 100%; height: 100%;
+	@media screen and (min-width:600px) {
+		width:600px;
+		@content;
+	}
+}

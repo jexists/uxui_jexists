@@ -1,0 +1,22 @@
+/* basic_02.scss */
+.icon_01 { background-image: url("../../img/background-image.jpg"); }
+
+.icon_02 { background-image: url("../../img/background-image.jpg"); }
+
+.icon_03 { background-image: url("../../img/background-image.jpg"); }
+
+.icon_01 { background-image: url("../../img/main/login1.jpg"); }
+
+.icon_02 { background-image: url("../../img/main/icon/login1.jpg"); }
+
+.icon_03 { background-image: url("../../img/main/modellogin1.jpg"); }
+
+ul, li, .box:after, .box::after { display: block; width: 100%; height: 100%; }
+
+.box:after { content: " "; }
+
+.box::after { content: " "; }
+
+.my_01 { float: left; display: block; width: 100%; height: 100px; background-image: url("../../img/main/i.jpg"); background-repeat: no-reapeat; background-position: 50% 50%; background-size: contain; background-attachment: fixted; }
+
+.testUnit { width: 960px; width: 60rem; }
