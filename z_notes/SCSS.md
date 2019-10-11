@@ -1,5 +1,7 @@
 #### SASS / SCSS
 
+-CSS가 복잡해지고 스타일 시트가 커지고 유지 보수하기가 어려워 짐에 따라 CSS 전처리 기가 많이 
+
 전처리기 3대장: Less, Sass(SCSS), Stylus
 
 SASS / SCSS 하나의 컴파일러
@@ -50,6 +52,27 @@ $npm install --global yarn
 
 $yarn global add node-sass
 
+### node-scss 실행
+
+최초 기본 상태 **$node-sass scss --output css** (기본스타일: nested)
+
+#### --output-style
+
+// nested, expanded, **compact**, compressed
+
+> **$ node-sass --output-style compact scss --output css**
+
+>**1. 중첩 스타일 (nested)** : 기본적인 출력 스타일로 중첩 정도에 따라 들여쓰기 함.
+>**2. 확장 스타일 (expanded)** : 기존 CSS 스타일과 거의 동일
+>**3. 축약 스타일 (compact)** : CSS 규칙을 한 줄에 표시해서 코드의 공간을 최소화함
+>**4. 압축 스타일 (compressed)** : 가독성은 고려하지 않음. css 파일 용량을 최대한 줄이기 위한 스타일
+
+#### 실시간 감지
+
+**$node-sass --watch --output-style compact scss --output css**
+
+
+
 
 
 ```scss
@@ -70,7 +93,7 @@ SCSS (& = 변수 var 같은것)
 -css에서 적어도 scss에서 적어서 저장하면 scss에 없는것들은 사라진다.  
 
 ```scss
-// sample.scss(카피X)
+// sample.scss /(scss전용주석 / 카피X) 
 /*sample.css (카피됨)*/
 
 $full : 80%;
@@ -124,5 +147,176 @@ $myp : (0, 10px, 40px, 100px); //SCSS에서 배열 쓰는 방법
   background-position: 0 40px; }
 .list_04 {
   background-position: 0 100px; }
+```
+
+
+
+191011 - 간단하게 세팅, 폴더구조, 파일불러오기, 변수, 리스트, 객체, 인터폴레이션(#), extend, @mixin
+
+pug(들여쓰기잘못해도 망함) / ejs(애매.?)
+
+### 가상 간단하게 쓰기 
+
+```scss
+html, body{color:$textColor;}
+h1{color:$textColor;}
+#headBox h1 a{color:$textColor;}
+#headBox h1 a:hover{color:lighten($textColor,30%);}
+#headBox h1 a:active{color:darken($textColor,30%);}
+//shortcuts
+#headBox h1 a{
+	color:$textColor;
+	&:hover{color:lighten($textColor,30%);}
+	&:active{color:darken($textColor,30%);}
+    &:focus{color:&textColor;}
+}
+```
+
+#### .product_list ul li a span{}
+
+```scss
+//.product_list ul li a span{}
+.product_list{width: 100%;}
+.product_list>ul{width: 100%;}
+.product_list>ul>li{width: 100%;}
+.product_list>ul>li>a{display: block; width: 100%;}
+.product_list>ul>li>a>span{display: block; width: 0;}
+
+//.product_list ul li a span{}
+.product_list{width: 100%;
+	&>ul {width: 90%;}
+	&>ul>li{width: 100%;}
+} //.product_list
+
+//.product_list ul li a span{}
+.product_list{width: 100%;
+	&>ul {width: 90%;
+	 &>li{width: 100%;
+	 	&:nth-child(2){text-align: center}
+	 	&:after,
+	 	&::after{content: "1234"}
+	  &>a{display: block; width: 100%;
+	   &:hover{color:rgba($textColor,0.5);}
+	   &:active{background-color: #fff;}
+	   &>span{display: block; width: 90%;}
+	  } // a
+	 } //li
+	} //ul
+} //.product_list
+
+주의점: 
+& 누구기준인것인가
+}마지막 주석 잘달아라..
+```
+
+#### URL 정리
+
+```sass
+$urlbase:"../../img/main/";
+$url1: $urlbase + "icon/";
+.icon_01{background-image: url("../../img/background-image.jpg")}
+.icon_02{background-image: url("../../img/background-image.jpg")}
+.icon_03{background-image: url("../../img/background-image.jpg")}
+
+.icon_01{background-image: url($urlbase + "login1.jpg");}
+.icon_02{background-image: url($url1 + "login1.jpg");}
+
+$myUrl :("icon","model","nature","box");
+.icon_03{background-image: url($urlbase + nth($myUrl,2) + "login1.jpg");}
+```
+
+#### 자주쓰는 것 (복잡하게 쓰지말자)
+
+```sass
+%box{display: block; width: 100%; height: 100%;}
+ul{@extend %box;}
+li{@extend %box;}
+
+.box:after{content: " "; @extend %box;}
+.box::after{content: " "; @extend %box;}
+
+/////////////////////////// 결과
+ul, li, .box:after, .box::after { display: block; width: 100%; height: 100%; }
+.box:after { content: " "; }
+.box::after { content: " "; }
+```
+
+#### @MIXIN 만드는것 @include 불러오는것
+
+@mixin name{}
+
+```sass
+//mix in 만드는 방법 @mix in name{}
+@mixin mybox(){
+	display: block; width: 100%; height: 100px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: contain;
+	background-attachment: fixted;
+}
+
+//@mix in을 불러올때에는 @include name
+.my_01 {float: left; @include mybox();}
+#wrap {@include mybox();}
+```
+
+@mix in  업그레이드
+
+```scss
+//mix in 만드는 방법 @mix in name{}
+@mixin mybox($u,$r){
+	display: block; width: 100%; height: 100px;
+	background-image: url($u);
+	background-repeat: $r;
+	background-position: 50% 50%;
+	background-size: contain;
+	background-attachment: fixted;
+}
+
+//@mix in을 불러올때에는 @include name
+.my_01 {float: left; @include mybox($urlbase + "i.jpg",no-reapeat);}
+```
+
+#### rem&px변환
+
+```sass
+@mixin unit($u){
+	width: $u+px; width:($u/16)+rem;
+}
+
+.testUnit{@include unit(960);}
+
+/////////////////////////// 결과
+.testUnit { width: 960px; width: 60rem; }
+```
+
+```sass
+@mixin whpx($w, $h){
+	width:$w + px; width:($w / 16) + rem; height:$h + px; height:($h / 16) + rem;}
+@mixin wpx($w){
+	width:$w + px; width:($w / 16) + rem;}
+@mixin hpx($h){
+	height:$h + px; height:($h / 16) + rem;}
+```
+
+
+
+#### media 쿼리(?)
+
+```sass
+$mob: 480;
+$tab: 768;
+	@media screen and (min-width:$mob+1) and (max-width:$b+px) {
+
+	}
+	
+//============================
+#wrap{
+	width: 100%; height: 100%;
+	@media screen and (min-width:600px) {
+		width:600px;
+		@content;
+	}
+}
 ```
 

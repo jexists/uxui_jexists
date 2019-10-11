@@ -1294,3 +1294,291 @@ myBtn.addEventListener("click", function(){
 });
 ```
 
+191011 - 반복문
+
+### 문법: 반복문
+
+while = do~while
+**while(){}**
+
+for = for~in / forEach / for~of (es6)
+**for(){}**
+
+#### while (반복문)
+
+조건이 거짓이 될수있는 상황이 없을경우는 계속 끝까지 반복한다.
+꼭 거짓이 될수있는 상황을 만들어라! -> 과열된댜!!
+
+최초의 값이 어떻한 조건을 보고있고 그 조건을 수행하고 그 후에 연산하게 되어있다. 
+**최초 -> 조건 -> 수행 -> 연산** -> 조건 -> 수행 "계속 반복" (조건이 거짓이 되어야 빠져나온다.)
+
+```javascript
+var n = 0;
+console.log(n);
+
+while(n<=100){
+	console.log(n);
+	n++;
+} //0~100 나옴
+//조건이 거짓이 될수있는 상황이 없을경우는 계속 끝까지 반복한다.
+//꼭 거짓이 될수있는 상황을 만들어라! -> 과열된댜!!
+//===============
+while(n<=100){
+var n = 0;
+	console.log(n);
+	n++;
+} 
+console.log(n); //undefined
+//============
+while(n<=100){
+var n = 0;
+	console.log(n);
+	n++;
+} // n 이 숫자인지 아닌지 define가 없기때문에 수행을 안한다. 
+
+//===============
+var n = 0;
+console.log(n);
+
+while(n<=100){
+	console.log(n);
+	n++;
+} 
+console.log(n); // =101
+//마지막까지 한후 n++ 이기때문에 101이 도출된다.
+
+//최초의 값이 어떻한 조건을 보고있고 그 조건을 수행하고 그 후에 연산하게 되어있다. 
+//최초 -> 조건 -> 수행 -> 연산 -> 조건 -> 수행 계속 반복 (조건이 거짓이되어야 빠져나온다.)
+```
+
+#### do while 반복문
+
+while(){} 
+do{  } while(  )  //일단수행하고 보고 조건을 이렇게 생겼어..
+
+```javascript
+var n = 0;
+do{
+	console.log(n);
+	n++
+} while(n<100) // 0~99까지 나옴
+//참이든 거짓이든 일단 한번은 수행해라 
+    
+var n = 0;
+do{
+	console.log(n);
+	n++
+} while(n>100) //0
+//조건이 거짓이라도 한번 수행
+    
+//=====================
+do{
+    var n = 0;
+  	console.log(n);
+	n++;
+} while(n>100) //0으로 무한반복
+```
+
+#### for문
+
+최초 -> 조건 -> 수행 -> 연산 -> 조건 -> 수행 계속 반복 (조건이 거짓이되어야 빠져나온다.)
+한군데 모아서 하기때문에 실수 줄여준다.
+
+```javascript
+var n = 0;
+for (n <= 10){
+	console.log(n);
+	n++
+} //토큰에러 (문법에러)
+
+//================= 정답 (while문 형식으로 할경우)
+var n = 0;
+for (;n <= 10;){
+	console.log(n);
+	n++
+} // =0~10
+
+//===============실제로 for문 사용시
+for(var n = 0; n <=10; n++){
+}
+console.log(n); //11 밖에서 알면안된다..~~~~ 내부에서 끝낼려면
+//===
+for(let n = 0; n <=10; n++){
+}
+console.log(n); //not defined (error)
+//
+for(let n = 0; n <=10; n++){
+console.log(n); // =0~10
+}
+console.log(n); //not defined (error)
+//== 밖에서 알려주고 싶을때~~~~~
+let n = 0
+for(; n <=10; n++){
+console.log(n); // =0~10
+}
+console.log(n); // =11
+//최초 -> 조건 -> 수행 -> 연산 -> 조건 -> 수행 (반복)
+
+```
+
+**while문하고 for문 차이점:** //while문은 권장X
+while(이중작업: 느려진다.)은 따로 써야하지만 for문은 한군데 모아서 하기때문에 실수 줄여준다.
+
+#### for~in 문
+
+-배열에서는 for~in을 사용하지 않는다. (느려진다. )
+
+
+
+for(;조건;){}     =>     for(변수값; 조건 ; 연산){}
+
+for(;in;){}
+
+```javascript
+var arr =["사과","배","바나나", "오렌지"];
+
+for (var i in arr){
+	console.log(i);
+} // =0.1.2.3
+
+// 안에있는 문자가 나오게 할려면 ==================
+var arr =["사과","배","바나나", "오렌지"];
+
+for (var i in arr){
+	console.log(arr[i]);
+} // =사과. 배. 바나나. 오렌지
+
+//배열형식 브라우저 속도 느려진다. 절대 쓰지마라
+//중괄호기법
+//배열형식이 아닌 객체형식을 쓰는것이 좋다. 
+
+// 배열형식일때 권장 ================
+var arr =["사과","배","바나나", "오렌지"];
+
+for (let i=0; i<4; i++){
+	console.log(arr[i]);
+}
+```
+
+```javascript
+// for in 문: 색깔이 나오게 하고 싶을때
+let obj = { 
+ "red":"사과",
+ "yellow":"바나나",
+ "orange":"오렌지",
+ "green":"키위",
+ "purple":"포도"};
+
+for (let i in obj) {
+	console.log(i);
+}; //앞쪽에 있는 속성명을 가져온다. (영어: 색깔들)
+
+// for in 문: 과일들이 나오게 하고싶을때====================
+let obj = { 
+ "red":"사과",
+ "yellow":"바나나",
+ "orange":"오렌지",
+ "green":"키위",
+ "purple":"포도"};
+
+for (let i in obj) {
+	console.log(obj[i]);
+}; //앞쪽에 있는 속성명을 가져온다. (한글: 과일들)
+
+//for문으로는 undefine으로 나오기때문에 for in으로 사용해야한다.
+```
+
+#### for문
+
+for(let i =0; i<10; i++){} //= 숫서를 가지고 있는 형태 일반형식, 배열
+
+#### for in문
+
+for(let i in object){} //객체일때 사용
+
+#### for each문 (매서드 .())
+
+[].forEach(function(){})  // 함수안에 함수를 또 써야한다. 
+
+```javascript
+var myArr = ['빨강','파랑','노랑','녹색','보라'];
+
+myArr.forEach(function(data){
+	console.log(data)
+}); //빨강, 파랑, 노랑, 녹색, 보라 한개씩 뿌려준다.
+```
+
+## 반복문 요점정리 
+
+```javascript
+//while 문 *권장XX
+var i = 0;
+while (i<10){...;i++;}
+
+//do while문
+var i = 0;
+do{...;i++} while(i<10);
+
+//for문
+for(let i =0; i<10; i++){...} //= 숫서를 가지고 있는 형태 일반형식, 배열
+
+//for in문
+for(let i in obj){...} //= 객체일때 사용
+
+//forEach문
+[변수].forEach(function(data){...(data에 관련수행)}); //= 배열(함수안에 함수를 또 써야한다.)
+```
+
+```javascript
+//사용하는 예제
+var pr = [
+    {img:'pr1.jpg', text:'lerem5', price:'10000'}
+    {img:'pr1.jpg', text:'lerem5', price:'10000'}
+    {img:'pr1.jpg', text:'lerem5', price:'10000'}
+];
+```
+
+#### 자바스크립트에 CSS스타일 넣어보기
+
+```javascript
+//과거형
+//var product = document.getElementById('prdocut');
+
+//현재형
+let product = document.querySelector('#product');
+product.style.width = "100%";
+product.style.height = "auto"; // 단위안써도 자동px (쓰는것 권장)
+product.style.minHeight = "300px"; //min-height -> minHeight
+product.style.backgroundColor = "#f96"; //자바스크립(-)X => camelCase로 변경
+
+let ul = document.createElement('ul'); // ul 태그 생성
+product.appendChild(ul); //ul 생성해서 넣기
+ul = document.querySelector('#product>ul');
+ul.style.width = "90%";
+ul.style.height = "auto";
+ul.style.minHeight = "400px";
+ul.style.margin = "auto";
+ul.style.backgroundColor = "#77f";
+
+/*
+let li = document.createElement('li');
+ul.appendChild(li); //여기에 ul은 태그가 아니라 ul변수
+li = document.createElement('li'); //생성하고 
+ul.appendChild(li); //자식요소로 옮긴다 (집어넣는다)
+li = document.createElement('li');
+ul.appendChild(li);
+//그래서 반복문을 사용해라
+*/
+
+let ar= ['우유', '쥬스','차','커피', '슬러시','요거트'];
+console.log( ar.length ); //length(변수의 목록의 개수)
+
+// 반복문 사용
+for (let i=0; i<ar.length; i++){
+	let li = document.createElement('li');
+	let myText = document.createTextNode(ar[i]);
+	li.appendChild(myText);
+	ul.appendChild(li);
+}
+```
+

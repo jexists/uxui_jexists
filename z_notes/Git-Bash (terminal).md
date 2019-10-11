@@ -249,3 +249,11 @@ $ cp ../e_example/js/b
 > ./ 현재
 > ../상위위치
 > / 최상 
+
+
+
+ls 한후 cd 글씨쓰고 tab 누르면 글씨 나옴
+
+
+
+mkdir dist public www
