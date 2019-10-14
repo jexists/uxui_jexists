@@ -1,69 +1,9 @@
 /* main.css */
 
-$bc: (#fff,#eee,#ddd,#ccc,#bbb,#aaa,#999,#888,#777,#666,#555,#444,#333,#222,#111);
+@import "src/coke_01_var";
+@import "src/coke_01_common";
+@import "src/coke_01_mobile";
+@import "src/coke_01_pad";
+@import "src/coke_01_pc";
+@import "src/coke_01_tv";
 
-@mixin whp{
-	width: 100%; height:  100%;}
-
-/* 공통=============== */
-#wrap{width: 100%; height: auto;
-	background-color: nth($bc,2);}
-#headBox{width: 100%; height: 80px;
-	background-color: nth($bc,6);}
- .head_area{@include whp; padding: 20px 30px;
- 	box-sizing: border-box; background-color:nth($bc,1);}
-#headBox h1{width: 130px; height: 40px;
-	background-color: nth($bc,8);}
-// 해더박스==================
-#contentBox{width: 100%; height: auto;}
-#adBox{width: 100%; height: 560px;
-	background-color: nth($bc,3);}
-#brandBox{width: 100%; height: 640px;
-	background-color: nth($bc,4);}
-#storyBox{width: 100%; height: 640px;
-	background-color: nth($bc,5);}
-#companyBox{width: 100%; height: 640px;
-	background-color: nth($bc,6);}
-#snsBox{width: 100%; height: 640px;
-	background-color: nth($bc,7);}
-#footBox{width: 100%; height: 150px;
-	background-color: nth($bc,8);}
-/* 모바일 480px~767px (280) =============== */
-@media screen and (max-width:767px) {
-#wrap{min-width: 280px;}
-// #contentBox
-// #adBox
-// #brandBox
-// #storyBox
-// #companyBox
-// #snsBox
-// #footBox
-}  
-
-/* 패드 768px~1279px =============== */
-@media screen and (min-width: 768px) and (max-width:1279px) {
-// #wrap
-// #headBox
-// #contentBox
-// #adBox
-// #brandBox
-// #storyBox
-// #companyBox
-// #snsBox
-// #footBox
-}
-
-/* PC 1280px~1919px (1024)=============== */
-@media screen and (min-width: 1280px) and (max-width:1919px) {
-// #wrap
-// #headBox
-// #contentBox
-// #adBox
-// #brandBox
-// #storyBox
-// #companyBox
-// #snsBox
-// #footBox
-}
-
-/* TV 1920px~ =============== */

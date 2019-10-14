@@ -1,0 +1,4 @@
+/* TV 1920px~ =============== */
+/* media screen and (min-width: 1920px) */
+@media screen and (min-width: 1920px) { .head_area { width: 90%; }
+  #brandBox > p { width: 20%; height: auto; } }
