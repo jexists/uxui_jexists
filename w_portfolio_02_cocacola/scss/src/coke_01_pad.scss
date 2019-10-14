@@ -9,9 +9,13 @@
 // #adBox
 // #brandBox
  #brandBox>p{width: 50%;}
- .brand_box{padding: 4vh;}
+ .brand_box{padding: 4vh;
+ 	&>li{margin: 0 10px;}}
 // #storyBox
+ .cs_wrap>li {width: 200px; height: 200px;}
 // #companyBox
 // #snsBox
+.sns_big{display: none;}
+.sns_area{padding:100px; box-sizing: border-box;}
 // #footBox
 }

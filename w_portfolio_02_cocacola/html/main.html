@@ -2,15 +2,9 @@
 <!-- main.html -->
 <html lang="ko-KR">
 <head>
-  <noscript>
-    <p>현재 접속하고 있는 사이트의 기능의 일부가 원활하게 실행되고 있지 않습니다. <br />
-    자바스크립트의 기능을 활성화 해주세요.</p>
-    <p><a href="http://enable-javascript.com/ko/" target="_blank">
-    브라우저에서 자바스크립트 활성화하는 방법</a></p>
-  </noscript>
-  
+ 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=0.5">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="웹페이지 실습에 따른 목차구성">
   <meta name="keyword" content="html, css, js, web, design, 웹디자인">
@@ -39,11 +33,17 @@
    <title>코카콜라</title>
 </head>
 <body>
+   <noscript>
+    <p>현재 접속하고 있는 사이트의 기능의 일부가 원활하게 실행되고 있지 않습니다. <br />
+    자바스크립트의 기능을 활성화 해주세요.</p>
+    <p><a href="http://enable-javascript.com/ko/" target="_blank">
+    브라우저에서 자바스크립트 활성화하는 방법</a></p>
+  </noscript>
 <!-- layout=================== -->
 <div id="wrap">
  <header id="headBox">
   <div class="head_area">
- 	 <h1><a href="../index.html">코카콜라</a></h1>
+ 	 <h1><a href="../index.html"><span class="hd">코카콜라</span></a></h1>
    <nav>
      <h2 class="hd">네비게이션 및 검색창</h2>
      <div class="gnb"></div>
@@ -73,7 +73,7 @@
    <section id="brandBox" class="box_size">
     <h3 class="box_title"><span class="hd">코카콜라 회사 제품소개 및</span>brand</h3>
     <p class="box_text">No1. 글로벌 종합 음료회사로 탄산, 스포츠음료, 생수, 주스, 차, 커피 등 보유하고 있습니다. </p>
-    <article class="brand_area">
+    <div class="brand_area">
      <ul class="brand_box cf">
       <li class="coke"><button type="button">+</button></li>
       <li class="sprite"><button type="button">+</button></li>
@@ -87,7 +87,7 @@
         }
       </script> -->
       
-    </article>
+    </div>
     <div class="brand_more">전체제품보기</div>
    </section> <!-- // brandBox 제품소개&브랜드박스 -->
 
@@ -170,7 +170,7 @@
    <li><a href="#">사이트맵</a></li>
  </ul>
  <div class="foot_ls cf">
- <h3>코카콜라</h3>
+ <h3><span class="hd">코카콜라</span></h3>
  <ul class="sns_link">
    <li><a href="#">페이스북</a></li>
    <li><a href="#">인스타그램</a></li>
