@@ -51,11 +51,3 @@ li{@extend %box;}
 // };
 
 // @include media(300,400);
-
-#wrap{
-	width: 100%; height: 100%;
-	@media screen and (min-width:600px) {
-		width:600px;
-		@content;
-	}
-}
