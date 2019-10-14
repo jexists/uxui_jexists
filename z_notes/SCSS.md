@@ -12,6 +12,24 @@ SASS(Syntactically Awesome Style Sheets) = {}, ; 없고 한줄로 쓰면 에러
 **SCSS**  - CSS 같은 문법 + Sass기능 지원 / {} 로 범위를 구분 (Less 비슷)
 SCSS = CSS + @  {} (중괄호)와 ; (세미콜론) 유
 
+---
+
+#### 웹사이트
+
+https://velopert.com/1712
+
+[https://medium.com/@jsh901220/react%EC%97%90-scss-%EC%A0%81%EC%9A%A9%EB%B0%8F-%EA%B8%B0%EB%B3%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-1-c7bd2895f5a6](https://medium.com/@jsh901220/react에-scss-적용및-기본-사용법-1-c7bd2895f5a6)
+
+[https://gomcine.tistory.com/entry/Sass-%EB%AC%B8%EB%B2%95-%EC%A0%95%EB%A6%AC-mixin-include-expend-partial-import?category=693292](https://gomcine.tistory.com/entry/Sass-문법-정리-mixin-include-expend-partial-import?category=693292)
+
+https://www.udemy.com/course/css-sass-scss/?LSNPUBID=nbJH6*TrzAA&ranEAID=nbJH6*TrzAA&ranMID=39197&ranSiteID=nbJH6.TrzAA-VrJUpIduSjHQZWSc0Huwgw
+
+https://sass-lang.com/guide
+
+https://github.com/SassDoc/
+
+---
+
 
 
 SCSS는 HTML에서 먹지않는다. 그래서 SCSS => CSS로 보낼것이다. 
@@ -320,3 +338,44 @@ $tab: 768;
 }
 ```
 
+#### 중간에 import가능!!!
+
+```scss
+// i.scss
+
+@import "./var";
+@import "./commonLayout";
+
+
+
+@media screen and (max-width: 480px){
+	@import "myData.scss";
+
+}
+```
+
+
+
+
+
+---
+
+# PARCEL 세팅 및 사용법 익히기
+
+**번들러**: 컴퓨터에게는 하나의 파일이든 큰 속도 차이없이 인식을 하지만,
+개발자 입장에서는 몇천줄의 파일을 작성하고 관리해야한다면 매우 어려운 일입니다.
+이러한 것들을 필요한 기능별로 분리하고 가독성을 위해 추가로 나누기 위해 처리하는 기능을 가진 기능이 번들러라고 한다.
+
+대표적인 예) parcel / webpack
+
+Parcel 장점:
+
+1.접근이 매우쉽다. = 별도의 설정없이 시작파일(Entry File)만 지정하면 바로 빌드 처리한다.
+2.번들속도가 빠르다 = 멀티코어 컴파일 가능
+3.Assets 기반 번들리 = html, css, javascript같은 유형의 에셋기술 지원
+4.자동변환 = babel, postCss 지원
+5.모듈자동 업데이트 
+6.압축화, 난독화
+7.코드불활
+
+사용전 필요한 준비물: node.js+yarn(npm)
