@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<!-- jq_02.html -->
+<!-- jq_03.html -->
 <html lang="ko-KR">
 <head>
-  
+   
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="웹페이지 슬습에 따른 목차구성">
+  <meta name="description" content="웹페이지 실습에 따른 목차구성">
   <meta name="keyword" content="html, css, js, web, design, 웹디자인">
   <meta name="author" content="jexists">
   <meta name="generator" content="illustrator, photoshop, sublimetext">
@@ -16,7 +16,7 @@
    <link rel="stylesheet" href="../../css/base/reset.css">
    <link rel="stylesheet" href="../../css/base/common.css">
    <link rel="stylesheet" href="../../font/fontawesome/css/all.min.css">
-   <!-- <link rel="stylesheet" href="../../css/src/jq_02.css"> -->
+   <!-- <link rel="stylesheet" href="../css/src/jq_03.css"> -->
 
    <!--[if lte IE 9]>
       <script src="./ie/html5shiv-3.7.3/dist/html5shiv.min.js"> </script>
@@ -31,72 +31,43 @@
   <!-- link touch ============================= -->
    <link rel="apple-touch-icon" href="../favicon.png">
    <title>웹기초이해하기-jQuery</title>
+   <style>
+   	#resultBox{width: 300px; height: 300px; background-color: #acc;
+   		padding: 2rem; margin: 3rem; /*box-sizing: border-box;*/
+   		border:0.625rem solid #051;}
+   </style>
 </head>
 <body>
-
-  <noscript>
+	<noscript>
     <p>현재 접속하고 있는 사이트의 기능의 일부가 원활하게 실행되고 있지 않습니다. <br />
     자바스크립트의 기능을 활성화 해주세요.</p>
     <p><a href="http://enable-javascript.com/ko/" target="_blank">
     브라우저에서 자바스크립트 활성화하는 방법</a></p>
   </noscript>
-
 <!-- layout=================== -->
 <div id="wrap">
 	<header id="headBox">
-		<h1><a href="../../index.html">javascript 기초이해하기</a></h1>
+		<h1><a href="../../index.html">jQuery 기초</a></h1>
 	</header>
 	<main id="contentBox">
-		<h2>jQuery 기본이해하기</h2>
-		<h3>선택자</h3>
-		<div class="box">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, natus.</p>
+		<h2>jQuery 기초</h2>
+		<div id="myBox">
+			
+
 		</div>
-
-		<ul>
-			<li>list_1</li>
-			<li>list_2</li>
-			<li>list_3</li>
-			<li>list_4</li>
-		</ul>
-
-		<dl>
-			<dt>title_1</dt>
-			<dd>1Lorem ipsum dolor sit.</dd>
-			<!-- <dt>title_1</dt> -->
-			<dd>2Lorem ipsum dolor sit.</dd>
-			<!-- <dt>title_1</dt> -->
-			<dd>3Lorem ipsum dolor sit.</dd>
-		</dl>
+		<div id="resultBox">
+			
+		</div>
 	</main>
 	<footer id="footBox">
-		<h2>선택자</h2>
+		<h2>정보</h2>
 	</footer>
-
-<hr/ >
-
-<h3>부모선택자</h3>
-<div id="first">
-  <div class="sub2">
-    <div class="area">
-      <ul>
-        <li>list1</li>
-        <li>list2</li>
-        <li>
-          <a href="#">
-            <strong>list3</strong>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
 </div>
 
 
 <!-- Script=================== -->
   <script src="../../js/base/jquery-3.4.1.min.js"></script>
   <script src="../../js/base/jquery-ui.min.js"></script>
-  <script src="../../js/src/jquery/jq_02.js"></script>
+  <script src="../../js/src/jquery/jq_03.js"></script>
 </body>
 </html>
