@@ -1,5 +1,7 @@
 # jQuery
 
+중요 웹사이트: [https://oscarotero.com/jquery/:jquery cheat sheet](https://oscarotero.com/jquery/)
+
 [http://code.jquery.com](http://code.jquery.com/) 제이쿼리 코드 jQuery 3.x & jQuery UI 1.12.1  (오른쪽 링크저장)
 
 > jQuery 3.x 
@@ -58,6 +60,14 @@ var $ = jQuery;
 $() == jQuery()
 jQuery(function(){})
 </script>
+```
+
+#### jQuery 불러오는 순서
+
+```html
+  <script src="../../js/base/jquery-3.4.1.min.js"></script>
+  <script src="../../js/base/jquery-ui.min.js"></script>
+  <script src="../../js/src/jquery/불러올 jQuery"></script>
 ```
 
 #### jQuery 쓰는 형식 3가지 방법
@@ -121,6 +131,22 @@ document.querySelector('#wrap')
 ```
 
 ### 선택자
+
+//자식: children
+//자손: find
+//인접형태(동생): next
+//형제(동생들):nextAll
+
+//부모: parent
+//조부모(부모위의 부모/그위도 포함): parents, parentsUntil, chlosest
+//형제 (바로위 형제) :prev
+//형제 (형들):prevAll
+//다른 형제 (나를 제외):sibling
+
+parent():부모만 (값을 작성하지 않아도 동작)
+parents([selector]): 부모이자 조상에 해당하는 요소, 선택값을 작성하면 선택요소만
+parentsUntil([selector]):parents와 기본은 같은 내용, 선택값을 작성하면 선택 요소 자식까지
+closest(selector): 선택값이 없으면 동작하지 않음, 선택값을 작성하면 선택요소만 (1.8까지) 
 
 ```jQuery
 (function($){
@@ -203,5 +229,571 @@ style.text(" body{background-color:#afc;} \
              h1{color:#079; padding:3rem; }\ ");
 
 })(jQuery);
+```
+
+parent선택자 연습
+
+```html
+<h3>부모선택자</h3>
+<div id="first">
+  <div class="sub2">
+    <div class="area">
+      <ul>
+        <li>list1</li>
+        <li>list2</li>
+        <li>
+          <a href="#">
+            <strong>list3</strong>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+```
+
+```javascript
+(function($){
+let first = $('#first');
+let str = first.find('strong');
+$('#first').css({"padding":"0.5rem", "backgroundColor":"#fcc"});
+$('#first').find('strong').css({"color":"#07f"});
+// ================
+str.parent().css({"backgroundColor":"#ccf"});
+str.parents(/*'#first'*/).css({"padding":"0.3rem", "border":"1px solid #333"});
+//()가운데에 아무것도 안써서 모든 부모에 다 먹는다
+str.parentsUntil(/*$('#first')*/).css({'padding':'0.3rem', 'border':'1px dotted #99f'});
+str.closest('#first').css({'padding':'0.2', 'border':'5px dotted #99f'});
+//누구가를 지칭하지않으면 반응이없다. parents,closest 거의같은데
+//parents는 지칭하지않으면 부모부모부모 closest 지칭하면 나옴
+//closest 메모리가 덜 그래서 parents가 더 많이 사용함
+})(jQuery);
+```
+
+## 생성 (요소, 값) 
+
+#### 생성 (요소, 값) -순수한 자바스크립트(es6기반의 코드)
+
+**document.querySelector('아이디나 클라스적기');** 아이디나 클라스 선택해라 
+
+**document.createElement('tag');** //tag element을 document에 생성해라
+
+**document.createTextNode('입력할 내용적기');** //document 입력하라 내용을 적어라
+
+**(넣을곳).appenChild(넣을내용);** //넣을내용을 넣을곳에다 넣어주어라
+
+```javascript
+(function($){
+	//$()
+	$('#myBox').css({'width':'80%','height':'900px',
+		'margin':'auto', 'backgroundColor': '#ddd'});
+
+	//생성 (요소, 값)
+	const myBox = document.querySelector('#myBox');
+	const myh2 = document.createElement('h2');
+	let h2Text = document.createTextNode('jQuery text 생성하기');
+	myh2.appendChild(h2Text);
+	myBox.appendChild(myh2);
+
+})(jQuery);
+```
+
+#### 생성 (요소, 값) - jQuey형식
+
+html(), append(), prepend(), appendTo(), prependTo(), before(), after()
+
+text()
+
+**append랑 text차이점**
+append는 태그랑 글씨 가능
+text는 글자만 쓸수있음 태그안먹음
+
+◎ append() - 컨텐츠를 선택된 요소 내부의 끝 부분에서 삽입 
+**.append()** : $(**A**).**append**(**B**) // A 사이의 마지막에 B 가 추가 된다.
+**.appendTo()** : $(**A**).**appendTo**(**B**) // A 가 B 사이의 마지막에 추가 된다.
+
+◎ prepend() - 콘텐츠를 선택한 요소 내부의 시작 부분에서 삽입 
+**.prepend()** : $(**A**).**prepend**(**B**) // A 사이의 처음에 B 가 추가 된다.
+**.prependTo()** : $(**A**).**prependTo**(**B**) // A 가 B 사이의 처음에 추가 된다.
+
+◎ after() - 선택한 요소 뒤에 컨텐츠 삽입 
+◎ before() - 선택된 요소 앞에 컨텐츠 삽입
+
+```생성요소차이점 정리
+<p>  중앙    </p>  이렇게 태그가 있을경우
+append() 는  <p>  중앙  여기에 값이들어감	</p>
+prepend() 는 <p>	 여기에 값이들어감  중앙  	</p>
+after() 는   <p>  중앙  </p> 여기에 값이들어감
+before() 는  여기에 값이들어감	<p>  중앙  </p> 
+//중앙 이라는 글자 대신 다른 태그가 들어가 있다면 결과물의 배치 달라짐
+--------------------------------------
+부모자식관계
+$(A).append(B) : 위에서 언급한 메소드이다. 부모 A태그 가장 뒤에 B태그를 위치시킴
+$(A).prepend(B) : 부모 A태그 가장 앞에 B태그를 위치시킴
+$(A).appendTo(B) : to로 인해 헷갈릴 수 있는 메서드다 주의하자. A태그를 부모 B태그 가장 뒤에 위치시킴
+$(A).prependTo(B) : A태그를 부모 B태그 가장 앞에 위치시킴
+======================================
+형제관계
+$(A).before(B) : A객체 앞에 B를 위치시킴
+$(A).after(B) : A객체 뒤에 B를 위치시킴
+$(A).insertBefore(B) : A객체를 B앞에 위치시킴
+$(A).insertAfter(B) : A객체를 B뒤에 위치시킴
+[출처] 자바스크립트 - append, prepend, after, before - 추가|작성자 산들바람
+```
+
+//참고 [생성요소 차이점 정리](http://blog.naver.com/PostView.nhn?blogId=oihijkoh&logNo=220958834611&parentCategoryNo=&categoryNo=1&viewDate=&isShowPopularPosts=true&from=search)
+
+	const myBox = $('#myBox');
+	myBox.append('<h2></h2>');
+	const myh2 = myBox.children('h2');
+	//myh2.append('jQuery를 통해 글자를 생성하기'); 가능한데 다른거를 써라
+	myh2.text('<i>jQuery를 통해 글자를 생성하기안녕</i>')
+	//append랑 text차이점 append는 태그랑 글씨 가능
+	//text는 글자만 쓸수있음 태그안먹음
+#### html() - 내용파악 / 지우고 새롭게 생성
+
+​	myBox.html('<p>요소를 생성하였습니다.</p>')
+//내용이 있는 상태에서 작성하면 내용을 지우고 작성하게 된다.
+//기존요소를 삭제하고 새롭게 추가하는 기능
+​	let con = mybox.html()
+​	console.log(con) //myBox태그랑 내용을 알수있음
+//내용을 파악할때 사용한다.
+
+```java
+//생성할때==============
+myBox.html('<p>요소를 생성하였습니다.</p>')
+//내용파악===============
+let con = myBox.html()
+	console.log(con)  //myBox태그랑 내용을 알수있음
+```
+
+#### append()
+
+myBox.append('<p> 요소를 append생성하였습니다.</p>');
+//기존요소를 두고, 내부에 뒤에 추가 
+
+#### appendTo()
+
+//방에 아버지께서 들어가신다. & 내용이 있으면 내용이 움직인다.
+
+```javascript
+	let myt = $('h2');
+	myt.appendTo(myBox)
+// let myBefore = myBox.before();  XXXXX
+// let myAfter = myBox.after();   XXXXX
+let myBefore = myBox.prev(); //이전요소 파악할때 사용
+let myAfter = myBox.next(); //다음요소 파악할때 사용
+console.log(myBefore, myAfter);
+```
+
+#### prepend()
+
+myBox.prepend('<p>요소를 prepend추가생성하였습니다.</p>');
+//기존요소를 두고, 내부에 앞에 추가
+
+### 요점정리
+
+```요점정리
+append(), prepend(), appendTo(), prependTo()
+값을 내부에 삽입하는 기능, 해당요소를 만들어서 삽입 
+또는 기존의 요소를 끌어와서 삽입하는 기능
+*To 가 붙으면 주어의 위치가 바뀌는 것을 의미
+```
+
+
+
+## 확인(크기, 속성)
+
+//width(), height(),
+//innerWidth(),outerWidth(),outerWidth(true), innerHeight(), outerHeight(),outerHeight(true),
+//위와 유사: css('width'), css('height')
+//attr(), removeAttr()
+
+//parseInt(), parseFloat();
+
+```width
+ const resultBox = $('#resultBox');
+ let resultWidth = resultBox.width(); //()값변경가능
+ console.log(resultWidth); 
+ //박스사이즈: 300 나온값: 216 bec 보더랑 박스사이즈때문에 
+ ============
+ const resultBox = $('#resultBox');
+ let resultWidth = resultBox.width(350);  //(값변경가능)
+ //padding, border를 제외한 width값
+```
+
+#### innerWidth(),outerWidth(),outerWidth(true)
+
+```width
+ const resultBox = $('#resultBox');
+ let resultWidth = resultBox.width(); //()값변경가능
+ //padding, border를 제외한 width값
+ console.log(resultWidth); //=216
+ //박스사이즈: 300 나온값: 216 bec 보더랑 박스사이즈때문에 
+
+ let resultinnerWidth = resultBox.innerWidth(); 
+ //padding 값을 포함한 width값 
+ console.log(resultinnerWidth);//=280
+
+ let resultoutWidth = resultBox.outerWidth();
+ //padding, border값 포함 
+ console.log(resultoutWidth) //=300
+
+ let resultouttrueWidth = resultBox.outerWidth(true);
+  //마진값을 포함한 가로값
+ console.log(resultouttrueWidth) //=396
+
+```
+
+CSS형식으로 크기, 속성확인
+
+```
+//가로값 + px
+ let resultBoxWidth = resultBox.css('width');
+ console.log(resultBoxWidth); //300px값으로 나옴
+ ==================
+  let resultBoxWidth = resultBox.css('width')*2;
+ console.log(resultBoxWidth); //NaN (ERROR)
+ ====================
+ //가로값 = 반응은 하지만 box사이징 값이 쓰나 안쓰나 같다. 헷갈림
+ let resultBoxWidth = resultBox.css('width');
+ let pasWidth = parseInt(resultBoxWidth);
+ console.log(pasWidth); // 300값이나옴 (px안나옴~~) //boxsizing 쓰나 안쓰나 같은 값으로 나온다.
+ 
+ 
+```
+
+box-sizing 안한값 확인하는방법
+
+```css형식으로 크기 속성확인
+ let resultBoxWidth = resultBox.css('width');
+ let resultPaddingWidth = parseInt(resultBox.css('paddingLeft')) + parseInt(resultBox.css('paddingRight'));
+ let pasWidth = parseInt(resultBoxWidth);
+ let myWidth =  pasWidth + resultPaddingWidth;
+ console.log(myWidth); // 364값이나옴
+ 
+ ======================
+  let resultBoxWidth = resultBox.css('width');
+ let resultPaddingWidth = parseInt(resultBox.css('paddingLeft')) + parseInt(resultBox.css('paddingRight'));
+ let pasWidth = parseInt(resultBoxWidth) + resultPaddingWidth;
+ console.log(pasWidth); // 364값이나옴
+```
+
+
+
+```javascript
+ let myat = resultBox.attr('id');
+ console.log(myat); // = resultBox
+ //================
+ let myat = resultBox.attr('class');
+ console.log(myat); // = undefined (class가 없기때문에)
+//================
+//클라스 추가하기
+ let myat = resultBox.attr('class','adC');
+ console.log(myat); 
+//속성 여러개 추가하기
+ let myat = resultBox.attr({'class':'adC'});
+ console.log(myat); 
+
+ let myat = resultBox.attr({'class':'adC','data-class':'user_attr'});
+ console.log(myat); // = undefined (class가 없기때문에)
+```
+
+data-class 사용하는 방법
+
+```class
+ let url = "http://www.naver.com"
+ resultBox.attr({'class':'adC','data-class':'url'});
+ // console.log(myat); // = undefined (class가 없기때문에)
+
+ resultBox.on('click', function(){
+	// resultBox를 클릭하면 뭘하세요
+	resultBox.append('<a href="url">클릭하면 이동</a>') 
+	// url을 글자로 인식한다. //url 인식불가
+	resultBox.append('<a href="' + url + '">클릭하면 이동</a>') //
+	//밖에다 ' ' 써야 안에 ""가 먹는다. 
+	
+	"" '' 잘 사용해라~~~~~!!!!!!!!!
+	
+resultBox.append(`<a href="${url}">클릭하면 이동</a>`) 
+//${url} 사용시 백팁사용! 그래서 변수로 이해함
+
+요점정리해서 같은 의미
+resultBox.append('<a href="' + url + '">클릭하면 이동</a>') //"" '' 구분잘해라
+resultBox.append(`<a href="${url}">클릭하면 이동</a>`)  //백팁사용
+		
+```
+
+#### 요점정리해서 같은 의미
+
+```javascript
+resultBox.append('<a href="' + url + '">클릭하면 이동</a>') //"" '' 구분잘해라
+resultBox.append(`<a href="${url}">클릭하면 이동</a>`)  //백팁사용
+
+resultBox.removeAttr('id');
+```
+
+#### jQuery 기초개념: 매소드 체인, 콜백
+
+**매소드 체인**: 하나의 함수 또는 메소드를 체인처럼 연결하여 처리하는 것
+
+> 메소드를 체인처럼 연결하겠다.
+> 하나의 선택자에서 .으로 연결하는 형태
+> 예) $().find().animate();
+
+**콜백함수**:하나의 함수내에서 다시 함수를 호출하여 사용하는 기능
+
+>순서의 흐름을 가지고 만들때 
+>
+>예)
+>$().find().animate({},function(){ //아래로 얼마큼가라 
+>	$().animate({},function(){ //위로 얼마큼가라
+>		$().animate();
+>	})
+>});
+
+**재귀함수**: 
+
+## 변경 & 삭제하기
+
+**empty**: 선택한거 제외 내부의 기능을 삭제 & 내용물이 깨끗하게 사라진다.
+
+**remove**: 선택한 것을 그대로 삭제 & 전체 지우기
+
+```예제
+myBox.empty(); //myBox 내용물이 깨끗하게 사라진다.
+myBox.remove(); //myBox 자체가 사라진다.
+```
+
+
+
+# 이벤트
+
+## 이벤트 이해하기
+
+**이벤트란?**  웹서비스를 이용했을 경우, 발생되는 다양한 상황 또는 다양한 처리들을 의미
+
+> 클릭 click (왼쪽버튼)
+> 더블 클릭 dblclick
+> 다른 클릭 
+> 마우스 휠
+> 마우스 이동
+> 키보드키 누르기
+> 브라우저 스크롤 이동
+> 브라우저 크기가 변경
+
+> *이벤트에 있는것은 어느것 하나도 대문자가 없다. 
+
+마우스
+
+> click(왼쪽버튼)
+> dblclick (더블클릭)
+>
+> mousedown 마우스 키다운 (마우스에 관련된 모든버튼: 휠, 오른버튼, 왼쪽버튼 )
+> mouseup 마우스 키위
+> mousewheel 마우스 휠 (firefox인지X => DOMMouseScroll)
+
+키보드
+
+> keypress 키보드 누르는 상황 (제한: 문자쪽에만 쓰는것 abc1234 특수키X)
+> keydown 키보드 누르것 
+> keyup 키보드 눌렀다가 띄는 순간
+
+
+
+>focus
+>hover
+>selected
+>changed
+
+브라우저
+
+>scroll
+>resize (반응형)
+
+> load
+
+*링크 기능 또는 버튼의 기능을 가진 요소는 기본 이벤트가 할당되어있다.
+-> focus / 링크이동등
+
+###### 제이쿼리
+
+> 선택자.on("이벤트 종류",무언가 수행) //인과응보 콜백
+> 선택자.on("이벤트 종류",function(){해당하는 이벤트 처리시(예:클릭) 수행하는 기능작성}); //on 매소드
+
+```javascript
+const conBox = $('#contentBox');
+conBox.on('mouseenter',function(){
+	conBox.css({'backgroundColor':'#aaf'})
+});
+// mouseover&mouseenter비슷하면서 다른기능
+
+conBox.on('mouseleave',function(){
+	conBox.css({'backgroundColor':'transparent'})
+});
+// mouseout&mouseleave비슷하면서 다른기능
+
+
+//==============&(this) 그것 중복해서 사용할때 씀
+const conBox = $('#contentBox');
+conBox.on('mouseenter',function(){
+	$(this).css({'backgroundColor':'#aaf'})
+});
+conBox.on('mouseleave',function(){
+	$(this).css({'backgroundColor':'transparent'})
+});
+
+```
+
+```animate
+const conBox = $('#contentBox');
+conBox.on('mouseenter',function(){
+	$(this).css({'backgroundColor':'#aaf', transition:'all 400ms ease'});
+});
+// mouseover&mouseenter비슷하면서 다른기능
+
+conBox.on('mouseleave',function(){
+	$(this).animate({'backgroundColor':'transparent'}, 900);
+});
+```
+
+이벤트: 클릭(click)
+
+```javascript
+const con = $('#contentBox');
+const conUl = con.children('ul');
+const conLi = conUl.children('li');
+// console.log(conLi); //배열형식으로 나온다.
+// const conLi = conUl.children('li:nth(0)');
+
+//conLi.nth(0).css({}) //XXX 
+// conLi.eq(0).css({'backgroundColor':'#fff'})
+```
+
+```클릭
+conLi.eq(0).on('click',function(){ //클릭
+	$(this).css({'backgroundColor':'#fff'});
+});
+```
+
+```더블클릭
+conLi.eq(1).on('dblclick',function(){ //더블클릭
+	$(this).css({backgroundColor:'#777'});
+});
+```
+
+```마우스눌렀을때
+conLi.eq(2).on('mousedown',function(){ //마우스눌렀을때 (휠/오른쪽/왼쪽 다)
+	$(this).css({backgroundColor:'#07f'});
+});
+
+conLi.eq(2).on('mouseup',function(){ //마우스안눌렀을때 (휠/오른쪽/왼쪽 다)
+	$(this).css({backgroundColor:'#fa0'});
+});
+```
+
+```다양한 값보기
+conLi.eq(2).on('mousedown',function(evt){
+	console.log(evt);
+	$(this).css({backgroundColor:'#07f'});
+});
+//마우스 뭘로 눌렀을때 마다 button buttons의 숫자가 다르다. 
+//===============================
+conLi.eq(2).on('mousedown',function(evt){
+	console.log(evt.button);
+	$(this).css({backgroundColor:'#07f'});
+});
+//키를 눌럿을때마다 다르다 (왼:0 휠:1 오른쪽:2)
+```
+
+if문 스위치문
+
+```스위치문
+conLi.eq(2).on('mousedown',function(evt){
+	console.log(evt.button);
+	switch(evt.button){
+		case 0: //왼쪽버튼
+		$(this).css({backgroundColor:'#07f'});
+		break;
+		case 1: //휠버튼
+		$(this).css({backgroundColor:'#f70'});
+		break;
+		case 2: //오른쪽버튼
+		$(this).css({backgroundColor:'#000', 'color':'#fff'});
+		break;
+		default: //그 외버튼
+		$(this).css({backgroundColor:'#aaa'});
+		break;
+	};
+});
+
+==================같은것 if 문일때
+if (evt.button ===0){
+		$(this).css({backgroundColor:'#07f'});
+	} else if (evt.button ===1){
+		$(this).css({backgroundColor:'#f70'});
+	} else if (evt.button ===2){
+		$(this).css({backgroundColor:'#000', 'color':'#fff'});
+	} else{
+		$(this).css({backgroundColor:'#aaa'});
+	}
+});
+```
+
+mousewhill 기능 사용한 웹사이트: https://scrollmagic.io/
+
+```javascript
+conLi.eq(3).on('mousewheel DOMMouseScroll',function(evt){
+	console.log(evt);
+	$(this).css({backgroundColor:'#041'});
+});
+```
+
+mousemove
+
+```java
+conLi.eq(4).on('mousemove',function(event){
+	console.log(event); //pageXY screenXY offsetXY clientXY
+});
+pageXY 예제: https://halo.cool/en
+=============================================================================
+conLi.eq(4).on('mousemove',function(event){
+	console.log(event.offsetX, event.offsetY); //선택된 도형
+	//$(this)의 왼쪽 상단을 기준좌표 선택된 도형기준
+	console.log(event.pageX, event.pageY); //브라우저 기준
+	//브라우저 기준으로 왼쪽 상단 
+	//pageXY screenXY offsetXY clientXY
+});
+```
+
+```	let x = event.offsetX;
+	let x = event.offsetX;
+	let y = event.offsetY;
+	// $('.ball').css({"transform":"translate("+ x +"%," + y +"%)"}); //같은것
+	$('.ball').css({"transform":`translate(-${x}%,-${y}%)`}); //같은것 `빽팁
+});
+```
+
+keypress 사용시 : 비밀번호 ,  주문 갯수 , 구글 인터넷 안될때 게임, tab 누를때
+
+```keypress
+=========== keypress : 오로지 숫자, 영문만 인지한다
+conLi.eq(5).children('input').on('keypress',function(evt){
+	console.log(evt);
+});
+enter포함한 숫자 영어는 먹는다. //ctrl&shift안먹는다
+console.log(evt)
+=> key : & keyCode 뭘눌렀는지 나옴
+
+========== keyup (한글&alt&ctrl 다먹음)
+conLi.eq(5).children('input').on('keyup',function(evt){
+	console.log(evt);
+});
+===========console key랑 key code보기
+conLi.eq(5).children('input').on('keyup',function(evt){
+	console.log(evt.key, evt.keyCode);
+});
+
 ```
 

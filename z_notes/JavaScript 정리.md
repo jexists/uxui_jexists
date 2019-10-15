@@ -1582,3 +1582,33 @@ for (let i=0; i<ar.length; i++){
 }
 ```
 
+
+
+#### 생성 (요소, 값) -순수한 자바스크립트(es6기반의 코드)
+
+**document.querySelector('아이디나 클라스적기');** 아이디나 클라스 선택해라 
+
+**document.createElement('tag');** //tag element을 document에 생성해라
+
+**document.createTextNode('입력할 내용적기');** //document 입력하라 내용을 적어라
+
+**(넣을곳).appenChild(넣을내용);** //넣을내용을 넣을곳에다 넣어주어라
+
+```javascript
+(function($){
+	//$()
+	$('#myBox').css({'width':'80%','height':'900px',
+		'margin':'auto', 'backgroundColor': '#ddd'});
+
+	//생성 (요소, 값)
+	const myBox = document.querySelector('#myBox');
+	const myh2 = document.createElement('h2');
+	let h2Text = document.createTextNode('jQuery text 생성하기');
+	myh2.appendChild(h2Text);
+	myBox.appendChild(myh2);
+
+})(jQuery);
+```
+
+
+
