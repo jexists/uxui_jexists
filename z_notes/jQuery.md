@@ -53,7 +53,11 @@ $(function(){
 
 })(jQuery);
 
-// 
+//==================================================================
+(function($){
+
+}(jQuery));
+//==================================================================
     
 function jQuery(){}
 var $ = jQuery;
@@ -797,3 +801,481 @@ conLi.eq(5).children('input').on('keyup',function(evt){
 
 ```
 
+아코디언메뉴
+
+### focus: 초점이 잡힌 상태 (a, button, form 내부의 요소)
+
+```focus
+// jq_05_event.js
+
+(function($){
+	let menu = $('.menu');
+	let menuUl = menu.children('ul');
+	let menuLi = menuUl.children('li');
+
+//focus: 초점이 잡힌 상태 (a, button, form 내부의 요소)
+	menuLi.children('a').on('focus', function(){
+		
+		$(this).parent('li').css({'backgroundColor':'#0af',
+			'borderRadius':'0.5rem'});
+		$(this).css({'color':'#fff', 'fontWeight': 'bold',
+			'outline':'0'});
+//========================같은내용=========================
+menuLi.children('a').on('focus', function(){
+	let mythis = $(this);
+	mythis.parent('li').css({'backgroundColor':'#0af',
+		'borderRadius':'0.5rem'});
+	mythis.css({'color':'#fff', 'fontWeight': 'bold',
+		'outline':'0'});
+	});
+}(jQuery));
+```
+
+### blur: 초점이 잡힌 요소가 풀리는 상황
+
+```blur
+// 단순하게 변수 하나 만들어서 하는 방법
+
+(function($){
+	let menu = $('.menu');
+	let menuUl = menu.children('ul');
+	let menuLi = menuUl.children('Li');
+	let menuLink = menulLi.children('a');
+
+//focus: 초점이 잡힌 상태 (a, button, form 내부의 요소)
+	menuLi.children('a').on('focus', function(){
+		let mythis = $(this);
+		mythis.parent('li').css({'backgroundColor':'#0af',
+			'borderRadius':'0.5rem'});
+		mythis.css({'color':'#fff', 'fontWeight': 'bold',
+			'outline':'0'});
+	});
+
+		//blur: 초점이 잡힌 요소가 풀리는 상황
+	menuLi.children('a').on('blur', function(){
+		let mythis = $(this);
+		mythis.parent('li').css({'backgroundColor':'#fff',
+			'borderRadius':'0'});
+		mythis.css({'color':'#777', 'fontWeight':'normal'});
+	});
+}(jQuery));
+
+=같은내용: 원래 CSS 변수를 미리 적는다.=================================
+
+(function($){
+	let menu = $('.menu');
+	let menuUl = menu.children('ul');
+	let menuLi = menuUl.children('li');
+	let menuLink = menuLi.children('a');
+
+	let mLiBg = menuLi.css('backgroundColor');
+	let mLiBdr = menuLi.css('borderRadius');
+	let mLinkColor = menuLink.css('color');
+	let mLinkWeight = menuLink.css('fontWeight');
+	menuLink.css({'outline':'0'});
+	console.log(mLiBg, mLiBdr, mLinkColor, mLinkWeight)
+
+//focus: 초점이 잡힌 상태 (a, button, form 내부의 요소)
+	menuLi.children('a').on('focus', function(){
+		let mythis = $(this);
+		mythis.parent('li').css({'backgroundColor':'#0af',
+			'borderRadius':'0.5rem'});
+		mythis.css({'color':'#fff', 'fontWeight': 'bold',
+			'outline':'0'});
+	});
+
+		//blur: 초점이 잡힌 요소가 풀리는 상황
+	menuLi.children('a').on('blur', function(){
+		let mythis = $(this);
+		mythis.parent('li').css({'backgroundColor':mLiBg,
+			'borderRadius':mLiBdr});
+		mythis.css({'color':mLinkColor, 'fontWeight':mLinkWeight});
+	});
+}(jQuery));
+
+
+// 보안처리: =========================================================
+// jq_05_event.js
+
+(function($){
+	let menu = $('.menu');
+	let menuUl = menu.children('ul');
+	let menuLi = menuUl.children('li');
+	let menuLink = menuLi.children('a');
+
+	let mLiBg = menuLi.css('backgroundColor');
+	let mLiBdr = menuLi.css('borderRadius');
+	let mLinkColor = menuLink.css('color');
+	let mLinkWeight = menuLink.css('fontWeight');
+	menuLink.css({'outline':'0'});
+	console.log(mLiBg, mLiBdr, mLinkColor, mLinkWeight);
+
+let set = {
+	licolor:mLiBg, //menuLi.css('backgroundColor')
+	liborder:mLiBdr,
+	linkcolor:mLinkColor,
+	linkbold:mLinkWeight,
+};
+
+	// set.licolor
+
+//focus: 초점이 잡힌 상태 (a, button, form 내부의 요소)
+	menuLi.children('a').on('focus', function(){
+		let mythis = $(this);
+		mythis.parent('li').css({'backgroundColor':'#0af',
+			'borderRadius':'0.5rem'});
+		mythis.css({'color':'#fff', 'fontWeight': 'bold',
+			'outline':'0'});
+	});
+
+		//blur: 초점이 잡힌 요소가 풀리는 상황
+	menuLi.children('a').on('blur', function(){
+		let mythis = $(this);
+		mythis.parent('li').css({'backgroundColor':set.licolor,
+			'borderRadius':set.liborder});
+		mythis.css({'color':set.linkcolor, 'fontWeight':set.linkbold});
+	});
+}(jQuery));
+```
+
+#### hover (mouseenter/ 권장)
+
+```hover
+//3가지 같은 내용==============================
+	let mytop = $('top_link').children('button');
+//두가지 쓰는 방법===
+	mytop.on('mouseenter',function(){});
+	mytop.on('mouseleave',function(){});
+
+//매소드 체인을 이용한 기능===
+	mytop.on('mouseenter',function(){})
+		 .on('mouseleave',function(){});
+
+//hover사용하는 경우 (사용X 권장!)===
+	mytop.hover(function(){},  //마우스 올렸을 경우
+				function(){}); //마우스 벗어났을경우
+```
+
+```hover예제
+	let mytop = $('.top_link').children('button');
+	
+	//hover사용하는 경우
+	let topColor = mytop.css('backgroundColor');
+
+	mytop.hover(function(){
+		$(this).animate({'backgroundColor':'#305'});
+	},  //마우스 올렸을 경우
+			function(){
+		$(this).animate({'backgroundColor':topColor});
+	}); //마우스 벗어났을경우
+```
+
+#### Click
+
+```click
+	mytop.on('click'); //지금버전 
+	mytop.'click'(); //옛날버전
+```
+
+```이벤트 지우기
+	//Click 은 미리 사전에 지정된 해당이벤트가 있다 그것을 삭제해야한다.
+	mytop.on('click',function(event){
+		event.preventDefault(); //선행되는 이벤트 제거
+	});
+```
+
+### animate
+
+.css() => css 기능을 거의 다 쓸 수 있다.
+
+.animate() => css기능을 쓸수 있지만 모두 쓸수없다. (2버전까지 먹는다. /벤터프릭픽스 다는얘들X)
+
+> transform, transition, animation, borderRadius
+> 흔히 말하는 css3기능은 동작하지 않는다.
+> 또한, backgroundColor, color 등 색상관련된 기능은 먹지만 jquery-ui에서 사용되는 기능
+> (jQuery-ui가 없으면 사용안된다."../js/base/jquery-ui.min.js" )
+> animate는 css와는 다른 기능 일부가 첨부되어있다. ex) scrollTop:0
+
+### scroll; (window/document)
+
+```scroll console
+	const win = $(window);
+	win.on('scroll', function(){
+		let myscroll = $(this).scrollTop();
+		console.log(myscroll) //scroll이 얼만큼 움직였는지.
+	});
+```
+
+```scroll 예제
+const win = $(window);
+	const conBox = $('#contentBox');
+	win.on('scroll', function(){
+		let myscroll = $(this).scrollTop();
+		// console.log(myscroll) //scroll이 얼만큼 움직였는지.
+		if (myscroll > 150){
+			conBox.css({'backgroundColor':'#aca'});
+		}else{
+		(myscroll <= 150)
+			conBox.css({'backgroundColor':'#fca'});
+		}
+	});
+//============== animatie (ui 파일없으면 X)
+	const win = $(window);
+	const conBox = $('#contentBox');
+	win.on('scroll', function(){
+		let myscroll = $(this).scrollTop();
+		// console.log(myscroll) //scroll이 얼만큼 움직였는지.
+		if (myscroll > 150){
+			conBox.animate({'backgroundColor':'#aca'},300);
+		}else{
+		(myscroll <= 150)
+			conBox.stop().animate({'backgroundColor':'#fca'},300);
+		}
+//=============== css transition
+	const win = $(window);
+	const conBox = $('#contentBox');
+	win.on('scroll', function(){
+		let myscroll = $(this).scrollTop();
+		// console.log(myscroll) //scroll이 얼만큼 움직였는지.
+		if (myscroll > 150){
+			conBox.css({'backgroundColor':'#aca', 'transition':'all 300ms ease'});
+		}else{
+		(myscroll <= 150)
+			conBox.css({'backgroundColor':'#fca', 'transition': 'all 300ms ease'});
+		}
+
+	});
+```
+
+### resize - 크기값이 변경되었을때 사용하는 기능 (가로, 세로 일부기능 제한 두고 사용)
+
+```resize console
+============가로세로가 변경되었습니다.
+	win.on('resize',function(){
+		console.log('크기가 바뀌었습니다')
+	});
+============가로만 변경되었을때 나타나는 방법
+//크기값이 변경되었을때 사용하는 기능 (가로, 세로 일부기능 제한 두고 사용)
+let beforeWidth = win.width(); //크기값이 변경되기전 가로값
+	win.on('resize',function(){
+		let afterWidth = win.width(); //크기값이 변경된 후 가로값
+
+		if(beforeWidth !== afterWidth){
+				console.log('크기가 변경되었습니다.');	
+		};
+	});
+
+```
+
+
+
+#### 자바스크립 새로고침의 방법
+
+#### 자바스크립 새로고침의 방법
+**location.reload(true);**  //새로고침 (F5번키) /쌤 추천 "F5번 누르는것 일반적인것"
+**location.href = location.href;** //상단 주소창에 있는 주소로 이동 /살짝위험 권장X "자기주소 다시한번 치세요"
+**history.go(0);** 사용 기록중에 가장 최근기록위치로 이동 /메모리절약 "history.go(0) 히스토리 몇번째로 가라 "
+
+javascript기능에는 동기처리하는 방식인 ajax기능이 존재한다.
+
+> 동기처리 : 
+> 비동기처리 :
+
+**js문서에서는 기준경로가 작성하고 있는 js문서가 아니다.**  => (html문서에서 불러왔을 경우)
+	html문서로 연결된 경우는 불러온 **html 문서 기준으로 경로**를 설정
+예) ../../html/jquery/temp/header.html (js경로XX)	=>	./temp/header.html (html경로 정답!!!)
+
+```.load
+(function($){
+
+	const wrap = $('#wrap');
+	wrap.prepend('<div class="head_wrap">');
+	const headWrap = $('.head_wrap');
+
+	headWrap.load('./temp/header.html');
+
+
+})(jQuery);
+```
+
+```load
+	const wrap = $('#wrap');
+	wrap.prepend('<div class="head_wrap">');
+	const headWrap = $('.head_wrap');
+
+	headWrap.load('./temp/header.html');
+	headBox.css({'backgroundColor':'#3ff'}) //기능이 먹지않는다.XXXXX
+	외부에서 불러온것이 거기 안에 있는걸 컨트롤 할수없다. 
+//이렇게 하면 먹는다.!==========================================
+	const wrap = $('#wrap');
+	wrap.prepend('<div class="head_wrap">');
+	const headWrap = $('.head_wrap');
+
+	headWrap.load('./temp/header.html',function(){
+		const headBox = $('#headBox');
+		headBox.css({'backgroundColor':'#3ff'});
+	});
+
+```
+
+```header&footer
+	const wrap = $('#wrap');
+	wrap.prepend('<div class="head_wrap">');
+	const headWrap = $('.head_wrap');
+	wrap.append('<div class="footer_wrap">');
+	const footerWrap = $('.footer_wrap');
+
+
+	headWrap.load('./temp/header.html',function(){
+		const headBox = $('#headBox');
+		headBox.css({'backgroundColor':'#3ff'});
+	});
+
+	footerWrap.load('./temp/footer.html',function(data)
+		{console.log(data);});
+		
+========== 더 정리하기 html
+	<footer id="footBox">
+		<h2>회사 정보</h2>
+		<p>footer 내용 작성하는 곳</p>
+	</footer>
+<!-- 
+	<script>
+		(function($){
+			const footBox = $('#footBox');
+			footBox.css({'backgroundColor':'#ccc'});
+		})(jQuery);
+	</script>
+ -->
+	<script src="../../js/src/jquery/temp/myfoot.js"></script> 
+	//html을 기준으로 foot.html으로 기준X
+	
+//서로 다른 영역에는 침범할수가 없다. 불편하다. 
+```
+
+
+
+#### ajax(에이잭스)기법  = json (jaxX)
+
+.json (주석 X / '' (' 이거 쓰면안된다) 쌍따음표만 가능)
+
+```.json
+자바스크립트 객체파일
+
+{
+	"name":"jexists",
+	"day":"1016",
+	"gender":"female",
+	"nickname":["haha","hoho"]
+}
+```
+
+```js에서 불러오기
+	wrap.load('../../data/test.json',function(data){
+		console.log(data);
+	});
+//js에서 불러오지만 html을 기준으로!
+같은형식  =================================
+	$.getJSON('../../data/test.json',function(data){
+		console.log(data);
+	});
+```
+
+# 내용 보이기 및 사라지기
+
+CSS: display:block; display:none
+
+> show, hide
+> fadeIn, fadeOut
+> slideDown, slideUp
+> css 기능을 통해 처리: addClass, removeClass
+
+```show, hide, toggle
+//jq_07_showHide.js
+
+(function($){
+	const showHide = $('.showHide').children('li');
+	const fade = $('.fade').children('li');
+	const slide = $('.slide').children('li');
+	const class_control = $('.class_control').children('li');
+	const viewBox = $('.view_area');
+
+	// =====================================
+	// show, hide, toggle (왼상->오하)
+showHide.eq(0).on('click', function(){
+	viewBox.show(500); //나타나게해라
+});
+showHide.eq(1).on('click', function(){
+	viewBox.hide(500); //사라지게해라
+});
+showHide.eq(2).on('click', function(){
+	viewBox.toggle(500); //사라지고 나타나라
+});
+
+
+	// =====================================
+	//fadein, fadeOut, fadeToggle (희미해지다)
+fade.eq(0).on('click', function(){
+	viewBox.fadein(500)});
+fade.eq(1).on('click', function(){
+	viewBox.fadeOut(500)});
+fade.eq(2).on('click', function(){
+	viewBox.fadeToggle(500)});
+
+
+	// =====================================
+	//slideDown, slideUp, slideToggle (위아래)
+slide.eq(0).on('click', function(){
+	viewBox.slideDown()});
+slide.eq(1).on('click', function(){
+	viewBox.slideUp()});
+slide.eq(2).on('click', function(){
+	viewBox.slideToggle()});
+
+
+	// =====================================
+	//addClass. removeClass, toggleClass
+class_control.eq(0).on('click', function(){
+	viewBox.addClass('act'); //클래스이름 넣기
+});
+class_control.eq(1).on('click', function(){
+	viewBox.removeClass('act'); //클래스이름 사라지기
+});
+class_control.eq(2).on('click', function(){
+	viewBox.toggleClass('act'); //클래스이름 넣고 빼기
+});
+
+
+})(jQuery);
+
+스타일 속성지우기!!!! ========================================================
+	//addClass. removeClass, toggleClass
+	// viewBox.removeAttr('style'); 스타일 속성을 지워라
+	//display:none일경우에는 class가 안넣어지기때문에 수월하게 넣을수있다.
+class_control.eq(0).on('click', function(){
+	viewBox.removeAttr('style');
+	viewBox.addClass('act'); //클래스이름 넣기
+});
+class_control.eq(1).on('click', function(){
+	viewBox.removeAttr('style');
+	viewBox.removeClass('act'); //클래스이름 사라지기
+});
+class_control.eq(2).on('click', function(){
+	viewBox.removeAttr('style');
+	viewBox.toggleClass('act'); //클래스이름 넣고 빼기
+});
+
+ switch로 만들기============================================
+showHide.on('click', function(){
+let i = $(this).index();
+switch(i){
+	case 0: viewBox.stop().show(500); break;
+	case 1: viewBox.stop().hide(500); break;
+	case 2: viewBox.stop().toggle(500); break;
+}
+});
+```
+
+
+
+## 선택자. 기능('기능이름',function({}));
