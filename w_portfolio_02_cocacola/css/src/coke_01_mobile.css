@@ -5,7 +5,7 @@
   .box_text { font-size: 16px; font-size: 1rem; }
   .box_size { padding: 25vw 0; }
   .brand_box { overflow: hidden; padding: 2vh; }
-  .brand_box > li { width: 150px; height: 255px; margin-top: 5%; line-height: 450px; }
+  .brand_box > li { width: 40vw; height: 70vw; margin-top: 8vw; }
   .brand_box > li:nth-child(1) { display: none; }
   .brand_box > li:nth-child(3) { display: none; }
   .story_link { margin-top: 15px; }

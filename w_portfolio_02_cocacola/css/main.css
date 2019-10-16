@@ -36,19 +36,21 @@ h1 > a { display: block; width: 100%; height: 100%; }
 .prev_btn { left: 10%; }
 
 /* 공통 // brandBox 제품소개&브랜드박스 ================== */
-#brandBox { background-color: #ccc; }
+#brandBox { background-color: #bbb; }
 
-.brand_area { overflow: hidden; width: 100%; height: 55vh; background-color: #777; }
+.scroll { overflow: hidden; width: 100%; height: 55vh; }
 
-.brand_box { width: auto; height: 100%; box-sizing: border-box; background-color: #555; text-align: center; }
+.brand_area { overflow-x: scroll; width: 100%; height: 55vh; background-color: #777; }
 
-.brand_box > li { display: inline-block; width: 200px; height: 340px; margin: 0 20px; margin-top: 5%; background-color: #fff; text-align: center; line-height: 600px; }
+.brand_box { width: 1500px; height: 100%; box-sizing: border-box; background-color: #555; margin-top: 60px; }
+
+.brand_box > li { float: left; width: 200px; height: 340px; margin: 0 20px; margin-top: 5%; background-color: #fff; text-align: center; line-height: 600px; }
 
 .brand_box > li:nth-child(1) { transform: scale(0.8); background-color: #fff; }
 
-.brand_box > li:last-child { margin-right: 0; transform: scale(0.8); }
+.brand_box > li:last-child { transform: scale(0.8); }
 
-.brand_box > li button { width: 50px; height: 50px; background-color: #777; }
+.brand_box > li button { display: block; width: 50px; height: 50px; margin: auto; margin-top: 270px; background-color: #777; border-radius: 10px; }
 
 .brand_more { width: 150px; height: 30px; margin: auto; margin-top: 15px; border-radius: 5px; background-color: #888; text-align: center; line-height: 29px; color: #fff; }
 
@@ -128,7 +130,7 @@ address > p { width: 100%; height: auto; text-align: center; color: #fff; }
   .box_text { font-size: 16px; font-size: 1rem; }
   .box_size { padding: 25vw 0; }
   .brand_box { overflow: hidden; padding: 2vh; }
-  .brand_box > li { width: 150px; height: 255px; margin-top: 5%; line-height: 450px; }
+  .brand_box > li { width: 40vw; height: 70vw; margin-top: 8vw; }
   .brand_box > li:nth-child(1) { display: none; }
   .brand_box > li:nth-child(3) { display: none; }
   .story_link { margin-top: 15px; }

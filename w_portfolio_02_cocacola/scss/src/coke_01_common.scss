@@ -35,20 +35,22 @@
  .prev_btn{left: 10%;}
 
 /* 공통 // brandBox 제품소개&브랜드박스 ================== */
-#brandBox{@include bbg(4);}
- .brand_area{overflow: hidden; width: 100%; height: 55vh; 
+#brandBox{@include bbg(5);}
+ .scroll{overflow: hidden; width:100%; height: 55vh; }
+ .brand_area{overflow-x: scroll; width: 100%; height: 55vh; 
  	@include bbg(9);}
- .brand_box{width: auto; height: 100%;
+ .brand_box{width: 1500px; height: 100%; 
  	 box-sizing:border-box; @include bbg(11);
- 	 text-align: center;
-  &>li{display: inline-block;
+ 	 margin-top: 60px;
+  &>li{float: left;
   	width: 200px; height: 340px;
   	margin: 0 20px;	margin-top: 5%; @include bbg(1); text-align: center;
-  	line-height: 600px;
+  	line-height: 600px; 
   	&:nth-child(1){transform: scale(0.8); @include bbg(1); }
-  	&:last-child{margin-right: 0; transform: scale(0.8)}
-		& button{width: 50px; height: 50px;
-			@include bbg(9);}}}
+  	&:last-child{transform: scale(0.8)}
+		& button{display: block; width: 50px; height: 50px;
+			margin: auto; margin-top: 270px; 
+			@include bbg(9); border-radius: 10px;}}}
 	.brand_more{width: 150px; height: 30px; margin: auto;
 		margin-top: 15px; border-radius: 5px;
 		@include bbg(8); text-align: center;

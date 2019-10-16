@@ -54,18 +54,25 @@
    <h2 class="hd">코카콜라 웹사이트 콘텐츠</h2>
    <section id="adBox">
     <h3 class="hd">코카콜라 이벤트 및 광고보기</h3>
-    <aside class="arrow next_btn">
+
+    <aside class="arrow_btn">
+    <div class="arrow next_btn">
      <button type="button">
        <i class="fas fa-chevron-right"></i>
        <span class="hd">다음 이벤트 및 광고보기</span>
      </button>
-    </aside>
-    <aside class="arrow prev_btn">
+    </div>
+    <div class="arrow prev_btn">
      <button type="button">
        <i class="fas fa-chevron-left"></i>
        <span class="hd">이전 이벤트 및 광고보기</span>
      </button>
-    </aside>
+    </div>
+    </aside> <!-- 메인 화살표 -->
+
+    <article class="ad_01">
+      <h4 class="hd">코카콜라 광고1</h4>
+    </article> <!-- 메인광고01 -->
 
      
    </section> <!-- // adBox 광고박스 -->
@@ -73,20 +80,12 @@
    <section id="brandBox" class="box_size">
     <h3 class="box_title"><span class="hd">코카콜라 회사 제품소개 및</span>brand</h3>
     <p class="box_text">No1. 글로벌 종합 음료회사로 탄산, 스포츠음료, 생수, 주스, 차, 커피 등 보유하고 있습니다. </p>
+    <div class="scroll">
     <div class="brand_area">
      <ul class="brand_box cf">
-      <li class="coke"><button type="button">+</button></li>
-      <li class="sprite"><button type="button">+</button></li>
-      <li class="fanta"><button type="button">+</button></li>
+  <!-- brand_box 자바스크립트 불러오기!!!!!! -->
      </ul>
-<!--       <script>
-        let brand=['coke','sprite','fanta'];
-        for (let i=0; i<ar.length; i++){
-        let br_li = document.createElemnt("li");
-        .brand_box.appendChild(br_li);
-        }
-      </script> -->
-      
+    </div>
     </div>
     <div class="brand_more">전체제품보기</div>
    </section> <!-- // brandBox 제품소개&브랜드박스 -->
@@ -189,5 +188,8 @@
 
 <!-- Script=================== -->
 <!--   <script></script> -->
+<script src="../js/base/jquery-3.4.1.min.js"></script>
+<script src="../js/base/jquery-ui.min.js"></script>
+<script src="../js/src/jquery/brand_box.js"></script>
 </body>
 </html>
