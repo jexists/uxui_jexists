@@ -1610,5 +1610,11 @@ for (let i=0; i<ar.length; i++){
 })(jQuery);
 ```
 
+ON  jQuery
 
+```on
+on () -> jQuery
+addEventListener() -> javascript 
+attatchmentEvent() -> javascript (IE)
+```
 

@@ -2,6 +2,8 @@
 
 중요 웹사이트: [https://oscarotero.com/jquery/:jquery cheat sheet](https://oscarotero.com/jquery/)
 
+jQuery는 자바스크립트에 일부분 library이다. 
+
 [http://code.jquery.com](http://code.jquery.com/) 제이쿼리 코드 jQuery 3.x & jQuery UI 1.12.1  (오른쪽 링크저장)
 
 > jQuery 3.x 
@@ -108,6 +110,14 @@ document.querySelector('#wrap')
 })(jQuery);
 ```
 
+변수
+
+```변수
+var = 옛날부터 사용했던 변수
+const = 최초의 변수 "절대 변하지않는 변수"
+let = 변하는 변수 "바뀌는 변수"
+```
+
 선택자
 
 ```jQuery
@@ -133,6 +143,8 @@ document.querySelector('#wrap')
 
 })(jQuery);
 ```
+
+#### 선태우선: type < class < id < 부모,자식 <<<<태그 style <<<<<<<!important
 
 ### 선택자
 
@@ -1275,6 +1287,322 @@ switch(i){
 }
 });
 ```
+
+
+
+191017 - show/hide 
+-아코디언 메뉴, 드롭다운메뉴, 탭메뉴, 팝업창
+-equ([n]):순서를 지정하는것, index()순서값을 파악하는것"인덱스 안에는 아무것도 쓰면 안된다. " 기능반대
+
+# 아코디언 메뉴
+
+```아코디언 기초1
+//기초 1. 일단 다 접은후 선택하는 아이의 다음 태그를 열어라 (순서주의!)
+//find() 자손을 찾아와//siblings() 모든형제 //next()다음태그
+//eq() = :nth-child 랑 같은것인데 처음 시작 js: 0 / css: 1
+(function(){
+	const menuV = $('.accordion_menu_v');
+	const menuDt = menuV.find('dt');
+	const menuDd = menuV.find('dd');
+
+	menuDd.eq(0).show();
+
+	menuDt.on('click',function(){
+		// $(this).siblings('dd').show(); //모든형제
+		$(this).siblings('dd').hide(); //모든dd를 접은후 펼쳐라 (순서를바꿔) 
+		$(this).next('dd').show(); //선택하는아이의 다음거
+	});
+})(jQuery);
+
+//정리된 파이널============================================================
+// animation일때 stop을 적어라
+
+(function(){
+	const menuV = $('.accordion_menu_v');
+	const menuDt = menuV.find('dt');
+	const menuDd = menuV.find('dd');
+
+	menuDd.eq(0).show();
+
+	menuDt.on('click',function(){
+		$(this).next(menuDd).siblings('dd').stop().slideUp(); 
+		$(this).next(menuDd).stop().slideToggle();
+	});
+})(jQuery);
+```
+
+```기본
+(function(){
+})(jQuery);
+```
+
+####  text & contents : 내용파악
+
+```
+	let t = menuDt.eq(0).text(); //글자만 파악한다. 
+	console.log(t) //제목
+==========================
+		let t = menuDt.eq(0).contents(); //내용에 들어있는 모든 요소 파악(태그/문자)
+	console.log(t) //내용다나옴
+```
+
+#### wrap: 부모요소를 생성하거나 파악
+
+```wrap
+menuDt.wrap('<div>'); //기존코드를 유지하고 부모태그를 만든다.
+```
+
+#### 키보드 탭에 a태그 생성하기
+
+js 사용시 반복문으로 처리해한다.
+
+```jquery
+menuDt.contents().wrap('<a href="#"></a>')
+```
+
+```
+//이렇게 할경우 enter눌러야 내용이 나오는데 focus를 잡혓을때 하고 싶으면 a로 해야한다.
+	menuDt.contents().wrap('<a href="#"></a>')
+	const menuDtLink = menuDt.find('a');
+	menuDtLink.css({'display':'block', 'width':'100%', 
+	'height':'100%', 'color':'inherit', 'textAlign':'center'});
+
+	menuDt.on('click',function(){
+		// $(this).siblings('dd').show(); //모든형제
+		$(this).next(menuDd).siblings('dd').stop().slideUp(); //모든dd를 접은후 펼쳐라 (순서를바꿔) 
+		$(this).next(menuDd).stop().slideToggle(); //선택하는아이의 다음거
+	});
+	
+//================= focus 	menuDtLink.on('focus',function(){});
+//================= focus 시 색깔넣기
+	menuDtLink.on('focus',function(){
+		// $(this).css({'backgroundColor':'#0f9','color':'#000'})
+		$(this).addClass('action'); //클래스를 더한후 css에서 클래스에 색깔넣기
+	})
+	menuDtLink.on('blur',function(){
+		$(this).removeClass('action');
+	});
+*css: .accordion_menu_v>dl>dt>a.action{background-color: #578;}
+
+```
+
+#### index
+
+```
+	menuDt.on('click', function(){
+		let i = $(this).index();
+		console.log(i); //안에 내용이 무엇이 있던지 몇번째인지 알려준다.
+	});
+=============================
+	menuDt.on('click', function(){
+		let i = $(this).index()/2;
+		console.log(i); //안에 내용이 2개있어서 나누기 2를 하면된다. 
+	});
+```
+
+index사용해서 아코디언메뉴만들기
+
+```javascript
+	menuDt.on('click', function(){
+		let i = $(this).index()/2; //index는 dt+dd 포함 (나누기2해야한다.)
+		// console.log(i);
+		menuDd.eq(i).siblings('dd').slideUp();
+		menuDd.eq(i).slideToggle(); //eq는 dd중에서 몇번째
+```
+
+```함수
+// 3가지 방법 
+	menuDtLink.on('focus',function(){
+		// $(this).css({'backgroundColor':'#0f9','color':'#000'})
+		$(this).addClass('action');
+	})
+	menuDtLink.on('blur',function(){
+		$(this).removeClass('action');
+	});
+수동처리: 한번에 다 쓸거냐  =======================
+menuDtLink.on('focus',function(){$(this).addClass('action');});
+자동화: 쪼깨가지고 파악할거냐=======================
+함수를 별도로 따로 만들고 관리해서 간단하게 보이는 방법
+const addC = function(){
+	$(this).addClass('action');};
+const removeC = function(){
+	$(this).removeClass('action');};
+
+	menuDtLink.on('focus', addC);
+	menuDtLink.on('blur', removeC);
+알아서 파악 ========================
+함수를 별도로 따로 만들고 관리해서 간단하게 보이는 방법
+더 간단하게 한줄로 표현: 쪼깨가지고 한번 더 정리해서 파악할거냐
+const addC = function(){
+	$(this).addClass('action');};
+const removeC = function(){
+	$(this).removeClass('action');};
+	
+	menuDtLink.on({"focus":addC, "blur":removeC});
+```
+
+
+
+### 라이브러리 vs 프레임워크
+
+프레임워크: 뼈대(구조)를 제공하는것, 변형 불가(X), 이미 짜여진 틀 (common.css)/ 부트스트랩
+
+라이브러리:  특정기능에 대한 모아놓은 집합, 단순 활용가능한 도구들의 집합, 변형 가능, 기능 집합,
+
+### 네비게이션  만들기
+
+```navigation
+//html
+ul>li*8>a[href="#"]{link_$$}+ul>li*5>a[href="#"]{sub_link_$$} 
+==========================
+#gnb{position: relative; z-index: 500;
+	width: 900px; height: 40px; margin: auto;
+	background-color: #ccc;}
+#gnb>h2{width: 0; height: 0; overflow: hidden;}
+#gnb>ul{width: 100%; height: auto; background-color: #ccf;} //=======height: 자동
+#gnb>ul:after,
+#gnb>ul::after{content: " "; display: block; clear: both;}
+#gnb>ul>li{float: left; width: auto; height: auto;
+ margin-right: 1%; background-color: #9cf;}
+#gnb a{display: block; width: 100%; height: 40px;}
+#gnb a:hover{background-color: #0cf;}
+#gnb a:focus{background-color: #fca;}
+#gnb>ul ul{display: none; width: 100%; height: auto;}
+#gnb>ul ul>li{width: 100%; height: 30px;
+ border-bottom: 1px solid #777;}
+
+#gnb:hover>ul ul{display: block;}
+CSS ================
+#gnb{position: relative; z-index: 500;
+	width: 900px; height: 40px; margin: auto;
+	background-color: #ccc;}
+#gnb>h2{width: 0; height: 0; overflow: hidden;}
+#gnb>ul{width: 100%; height: 40px; background-color: #ccf;}  //=======height: 40px
+#gnb>ul:after,
+#gnb>ul::after{content: " "; display: block; clear: both;}
+#gnb>ul>li{float: left; width: auto; height: auto;
+ margin-right: 1%; background-color: #9cf;}
+#gnb a{display: block; width: 100%; height: 40px;}
+#gnb a:hover{background-color: #0cf;}
+#gnb a:focus{background-color: #fca;}
+#gnb>ul ul{display: none; width: 100%; height: auto;}
+#gnb>ul ul>li{width: 100%; height: 30px;
+ border-bottom: 1px solid #777;}
+ 
+같이 줄려면 ==============
+#gnb:hover>ul ul{display: block;}
+따로 줄려고 하면 =============
+#gnb>ul>li:hover ul{display: block;}
+```
+
+### 클라스 이름 주기
+
+	// attr('class':'titleLink');
+	// addClass(titleLink);
+## 네비게이션 만들기
+
+
+
+#### 1. 마우스/키보드 포커스 처리시, 하위메뉴 전체가 나타나게 (배경하얗게)
+
+```
+(function($){
+	//선택자만 요약해서 이름 만들기
+	const gnb = $('#gnb');
+	const gnbArea = gnb.children('ul');
+	const gnbArLi = gnbArea.children('li');
+	gnbArLi.children('a').addClass('titleLink');
+	// attr('class':'titleLink');
+	// addClass(titleLink);
+	const titleLink = $('.titleLink');
+	const partList = titleLink.next('ul');
+	const subLink = partList.find('a');
+
+	let timed = 500; //애니메이션 시간
+// 1. 마우스/키보드 포커스 처리시, 하위메뉴 전체가 나타나게 (배경하얗게)
+	// gnbArea.css('height','auto'); //css한개를 쓸경우는{}생략가능
+	gnb.css({'backgroundColor':'transparent'});
+	gnbArea.css({'height':'auto','backgroundColor':'#fff'})
+	titleLink.on('focus',function(e){
+	 e.preventDefault(); //기존에 있는 세팅 지우기 (페이지이동X)
+	 partList.stop().slideDown(timed);
+	}) //포커스 잡히면 보이게 하기
+	subLink.eq(-1).on('blur',function(){ //마지막 요소 eq(-1)
+	 partList.stop().slideUp(timed);
+	}); //마지막요소 블러처리되면 사라지게
+	gnbArea.on('mouseenter',function(){
+	 partList.stop().slideDown(timed);
+	}); //gnbArea에 마우스 올렸을경우 나타나게하기
+	gnb.on('mouseleave',function(){
+	 partList.stop().slideUp(timed);
+	});
+})(jQuery);
+```
+
+#### 2.마우스/키보드 포커스 처리시, 하위메뉴 전체가 나타나게 (별도배경없이)
+
+```
+(function($){
+	//선택자만 요약해서 이름 만들기
+	const gnb = $('#gnb');
+	const gnbArea = gnb.children('ul');
+	const gnbArLi = gnbArea.children('li');
+	gnbArLi.children('a').addClass('titleLink');
+	// attr('class':'titleLink');
+	// addClass(titleLink);
+	const titleLink = $('.titleLink');
+	const partList = titleLink.next('ul');
+	const subLink = partList.find('a');
+	
+	
+})(jQuery);
+```
+
+#### 3. 마우스/키보드 포커스 처리시, 해당 메뉴 하위하나만 나타나게
+
+```
+// 3. 마우스/키보드 포커스 처리시, 해당 메뉴 하위하나만 나타나게
+	titleLink.on('focus',function(){
+		$(this).next(partList).slideDown();
+
+		$(this).next(partList).find('a').eq(-1).on('blur',function()
+			{console.log('...')}); //확인하는방법
+	});
+//충돌난다.!!!!!! 할수있지만.. 별로=======================================
+(function($){
+	titleLink.on('mouseenter focus',function(){
+		let ulSlide = $(this).next(partList);
+		partList.slideUp();
+		ulSlide.slideDown();
+
+		ulSlide.find('a').eq(-1).on('blur',function(){
+			console.log('...') //확인하는방법
+			ulSlide.slideUp();
+			});
+	});
+})(jQuery);
+
+
+//Final (ul: height//크기가 정해졌을때) ======================================
+(function($){
+	titleLink.on('mouseenter focus',function(){
+		let ulSlide = $(this).next(partList);
+		ulSlide.parent().siblings().find(partList).slideUp();
+		ulSlide.slideDown();
+
+		ulSlide.find('a').eq(-1).on('blur',function(){
+			console.log('...') //확인하는방법
+			ulSlide.slideUp();
+			});
+	});
+	gnb.on('mouseleave',function(){
+		partList.slideUp();
+	})
+
+})(jQuery);
+```
+
+
 
 
 
