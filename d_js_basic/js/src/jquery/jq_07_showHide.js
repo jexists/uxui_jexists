@@ -9,16 +9,22 @@
 
 	// =====================================
 	// show, hide, toggle (왼상->오하)
-showHide.eq(0).on('click', function(){
-	viewBox.show(500); //나타나게해라
-});
-showHide.eq(1).on('click', function(){
-	viewBox.hide(500); //사라지게해라
-});
-showHide.eq(2).on('click', function(){
-	viewBox.toggle(500); //사라지고 나타나라
-});
+showHide.on('click', function(){
+// 	viewBox.show(500); //나타나게해라
+// });
+// showHide.eq(1).on('click', function(){
+// 	viewBox.hide(500); //사라지게해라
+// });
+// showHide.eq(2).on('click', function(){
+// 	viewBox.toggle(500); //사라지고 나타나라
 
+let i = $(this).index();
+switch(i){
+	case 0: viewBox.stop().show(500); break;
+	case 1: viewBox.stop().hide(500); break;
+	case 2: viewBox.stop().toggle(500); break;
+}
+});
 
 	// =====================================
 	//fadein, fadeOut, fadeToggle (희미해지다)
