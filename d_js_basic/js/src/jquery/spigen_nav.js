@@ -26,4 +26,13 @@
 		console.log('...')
 		list.stop().slideUp();
 	});
+
+	navLi.on('mouseover',function(){
+		$(this).children('a').css({'borderBottom':'2px solid #f70',
+		'transition':'all 100ms ease'});
+	});
+	navLi.on('mouseleave',function(){
+		$(this).eq(-1).children('a').css({'borderBottom':'none'})
+	});
+
 })(jQuery);
