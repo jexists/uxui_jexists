@@ -33,17 +33,19 @@
 
 	openGnBtn.on('click',function(e){
 		e.preventDefault();
+
 		sideGnb.stop().fadeIn(time,function(){
+			closeGnBtn.focus();
 			$(this).on('keyup',function(e){
 				if(e.keyCode == 27)
 					{sideGnb.stop().fadeOut();
 					openGnBtn.focus()}
+					console.log(e.key.toLowerCase());
+					//영문글자를 강제로 대/소문자로 치환하는 함수
+					//대문자로 변환 toUpperCase()
+					//소문자로 변환 toLowerCase()
 			});
 		});
-		closeGnBtn.focus();
-
-
-		//sideGnb.css({'display':'block'});//가능&효과X
 	});
 
 	closeGnBtn.on('click',function(e){
@@ -92,8 +94,13 @@
 // focus 제어하기
 // .side_gnb_area 내부의 마지막 a 요소에서 blur처리되면, 
 // .close_gnb_btn위치로 다시 focus 처리되어라
+//단, 전체 페이지에서 추가로 focus처리되는 항목이 있어야 가능
 const sideLink = sideGnbArea.find('a');
 const sideLastLink = sideLink.eq(-1);
+
+	sideLastLink.on('blur',function(e){
+		closeGnBtn.focus();
+	});
 
 // sideLastLink.on('blur', function(){
 //  closeGnBtn.attr({'tabindex':1});
