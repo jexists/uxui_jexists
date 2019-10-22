@@ -18,7 +18,23 @@
 	h1{float: left; width: 130px; height: 40px;
 	background: url(../../img/mobile/logo_mobile.gif) no-repeat 50% 50% / cover;
 	 &>a{display:block; width: 100%; height: 100%;}}
-	.gnb{float: right; width: 45px; height: 40px; background: url(../../img/mobile/nav_icon.gif) no-repeat 50% 50% / cover;}
+	.gnb{float: right; width: 45px; height: 40px;}
+ .burgur_btn {display: block; position: relative;
+  width: 100%; height: 100%; } 
+ .gnb span{position: absolute; top: 50%; 
+ 	width: 100%; height: 8px; transform:translate(0,-50%);
+ 	border-radius: 4px; background-color: rgba(256,256,256,1);
+ 	&:before,&::before,&:after,&::after{content: " ";
+ 		position: absolute;
+ 		width: 100%; height: 8px;
+ 		border-radius: 4px; background-color: rgba(256,256,256,1);
+ 		transition: all 800ms ease;}
+ 	&:before,&::before{top:-16px;}
+ 	&:after,&::after{top:16px}}
+ .gnb a>.act{background-color: rgba(256,256,256,0);
+  &:before,&::before{top:0; transform:rotate(45deg);}
+	&:after,&::after{top:0; transform:rotate(-45deg);}}
+
 
 /* 공통 // adBox 광고박스 ================== */
 #contentBox{width: 100%; height: auto; @include bbg(3);}

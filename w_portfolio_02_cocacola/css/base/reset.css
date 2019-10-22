@@ -25,9 +25,9 @@ a, abbr {color: #333; text-decoration: none;}
 abbr{text-transform: uppercase;}
 address, caption, cite, code {font-style: normal; font-weight: normal;}
 
-a:hover {background-color: #fff; outline: 1px solid #aaa;}
+a:hover {outline: 1px solid #fff;}
 
-table, thead, tbody, tfoot, tr, th, td 	{border-spacing: 0; 
+table, thead, tbody, tfoot, tr, th, td 	{border-spacing: 0;
 	border-collapse: collapse; border:1px solid #777;}
 
 
