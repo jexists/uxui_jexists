@@ -1602,6 +1602,145 @@ CSS ================
 })(jQuery);
 ```
 
+#### 총정리
+
+```js
+(function($){
+	const gnb = $('#gnb');
+	const sideGnbArea = $('.side_gnb_area');
+	const openGnBtn = $('#gnb_btn>button');
+	const closeGnBtn = $('.close_gnb_btn');
+	const sideGnb = $('.side_gnb'); //나타내기
+	const gnbDl = gnb.find('dl');
+	const gnbDd = gnb.find('dd'); 
+	const gnbDt = gnb.find('dt');
+	const gnbTitleLink = gnbDt.children('a');
+	const gnbListLink = gnbDd.children('a');
+
+	const addAction = function(){
+		let li = $(this).parents('li');
+		li.find(gnbTitleLink).addClass('action');
+		li.siblings().find(gnbTitleLink).removeClass('action');
+		gnbDd.stop().slideDown();}
+	const removeAction = function(){
+		$(this).parents('li').find(gnbTitleLink).removeClass('action');
+		gnbDd.stop().slideUp();}
+
+    let time = 600;
+//= 1. #gnb 영역내부에 있는 ul의 내용을  .side_gnb_area에 복붙 "clone()매서드를 사용"
+	let gnbContents = gnb.contents().clone();
+	sideGnbArea.append(gnbContents);
+
+//= 2. close_gnb_btn 버튼 클릭시 side_gnb_area 나타내기
+	openGnBtn.on('click',function(e){
+		e.preventDefault();
+		sideGnb.stop().fadeIn(time); //sideGnb.css({'display':'block'});//가능&효과X});
+
+	closeGnBtn.on('click',function(e){
+		e.preventDefault();
+		sideGnb.stop().fadeOut(time*2);	//sideGnb.css({'display':'none'});//가능&효과X});
+
+//= 3. #gnb에 마우스 올렸을 경우 dd를 나타내기
+/*	gnbDl.on('mouseenter',function(){
+		$(this).find(gnbTitleLink).addClass('action');
+		// $(this).siblings().find(gnbTitleLink).removeClass('action');
+		gnbDd.stop().slideDown();});
+
+	gnbDl.on('mouseleave',function(){
+		$(this).find(gnbTitleLink).removeClass('action');
+		gnbDd.stop().slideUp();});*/
+//= 3. 정리: #gnb에 마우스 올렸을 경우 dd를 나타내기 ====
+	// gnbDl.on('mouseenter',addAction);
+	// gnbDl.on('mouseleave',removeAction);
+	gnbDl.on ({'mouseenter':addAction,'mouseleave':removeAction})
+
+	gnbTitleLink.on('focus',addAction);
+
+	gnbListLink.eq(-1).on('blur', function(){
+		gnbDd.stop().slideUp();});
+
+//= 4. #gnb에 dt에 focus 처리되면 dd가 나타내기
+	gnbTitleLink.on('focus', function(){
+		gnbDd.stop().slideDown();});
+	// gnbListLink.eq(-1).on('blur',function(){
+	// 	gnbDd.stop().slideUp();});
+})(jQuery);
+```
+
+
+
+## Clone() 매서드 = 복제
+
+```
+(function($){
+// 1. #gnb 영역내부에 있는 ul의 내용을  .side_gnb_area에 복붙
+// clone()매서드를 사용
+
+	const gnb = $('#gnb');
+	const sideGnbArea = $('.side_gnb_area');
+
+	let gnbContents = gnb.contents().clone();
+	// console.log(gnbContents);
+	sideGnbArea.append(gnbContents);
+})(jQuery);
+```
+
+
+
+#### consult.timeEnd(); / consult.time() - 시간을 확인하는 방법
+
+#### HTML 파일 나누기 & js효과까지
+
+1. 태그를 불러온 후에 써라 (순수하게 관한 한개의 태그에만 사용할때 )
+2. 로드하고 함수
+3. setTimeout 일정시간 지난후에 함수수행해라 (여러개 태그에 관련된 js효과를 원할때 )
+
+```js
+(function($){
+ const body = $('body');
+ const wrap = $('#wrap');
+ const header = $('#headBox');
+ const adver = $('#viewBox');
+ const content = $('#conBox');
+ const footer = $('#footBox');
+
+ let tempUrl = "./spigen_temp_pc/";
+ 
+ header.load(tempUrl+'spigen_header.html',function(){
+  body.append('<script src="../js/src/spigen_temp_pc/spigen_header_pc.js"></script>');
+	});
+ adver.load(tmepUrl+'spigen_main_adver.html');
+ content.load(tempUrl+'spigen_main_content_01.html');
+ footer.load(tempUrl+'spigen_footer.html')
+
+})(jQuery);
+
+//$(this).after(''); //headBox에 넣을건지
+//body.append(''); //바디전에 넣을건지
+```
+
+### setTimeout();
+
+setTimeout(function(){},'시간'); 일정시간이 지난 후에 함수를 수행해라! (css:delay)
+
+```js
+setTimeout(function(){
+   body.append('<script src="../js/src/spigen_temp_pc/spigen_header_pc.js"></script>'); 
+}, 100);
+```
+
+#### &.ready(function(){}); 사이트가 준비가 되면 사용해라 (&때문에 X)
+
+
+
+### focus주는방법 //focus가 잡히면
+
+```
+$('h1').find('a').focus(); //focus를 잡아라!
+
+$('h1').find('a').on('focus'); //focus가 잡히면 (권장!!) 
+```
+
 
 
 
