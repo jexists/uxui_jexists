@@ -5,6 +5,27 @@
 // clone()매서드를 사용
 
 	const gnb = $('#gnb');
+//============================================================
+const nav = [{title:'about',sub:['who we are','what we do','our locations']},
+	{title:'careers',sub:['careers','hr blog','apply']},
+	{title:'media',sub:['media']},
+	{title:'ir',sub:['investors','ir archive','ir meeting']}];
+
+const navText = '<li><dl><dt><a href="#">title</a></dt><dd></dd></dl></li>';
+const navUl = gnb.children('ul');
+
+for(let i=0; i<nav.length;i++){
+	navUl.append(navText);
+	let myNth = navUl.children('li').eq(i);
+	myNth.find('dt').children('a').text(nav[i].title);
+
+	for(let j=0; j<nav[i].sub.length;j++){
+	myNth.find('dd').append('<a href="#">sub</a>');
+	myNth.find('dd').children('a').eq(j).text(nav[i].sub[j]);
+	}
+}
+
+
 	const sideGnbArea = $('.side_gnb_area');
 	const openGnBtn = $('#gnb_btn>button');
 	const closeGnBtn = $('.close_gnb_btn>button');
@@ -14,6 +35,9 @@
 	const gnbDt = gnb.find('dt');
 	const gnbTitleLink = gnbDt.children('a');
 	const gnbListLink = gnbDd.children('a');
+
+
+
 
 	const addAction = function(){
 		let li = $(this).parents('li');
@@ -115,6 +139,8 @@ sideGnbArea.on('keyup',function(e){
 	console.log(e);
 
 });
+
+
 
 
 })(jQuery);
