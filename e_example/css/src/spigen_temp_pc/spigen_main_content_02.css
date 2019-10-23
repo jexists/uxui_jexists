@@ -1,0 +1,25 @@
+/*spigen_main_content_02.css*/
+
+#irBox{width: 100%; height: 100%; padding-top: 100px;
+	box-sizing: border-box; background-color: #eda;}
+.ir_wrap>h3 {text-align: center;
+	font-size: 2rem; text-transform: capitalize;}
+.ir_wrap>p {text-align: center; margin-bottom: 50px;}
+.irarea {width: 100%; 
+	height: 500px; margin: auto;
+	text-align: center;}
+.irarea>li{display: inline-block; position: relative;
+	width: 30%; height: 100%; margin: 0 10px;
+	background-color: #fff;}
+.irarea>li>a {display: block; position: absolute;
+	bottom: 0; left: 0;
+	width: 100%; height: 100px;
+	box-sizing: border-box; 
+	background-color: rgba(0,0,0,0.7);
+	text-align: center; color: #fff;
+	font-size: 1.4rem; font-weight: bold;
+	line-height: 100px; text-transform: capitalize;}
+.irarea a>span {display: none; width: 100%;
+	height: 100%; font-size: 1rem; line-height: 30px;
+	word-wrap: keep-all; color: #fff;
+	text-transform: uppercase;}

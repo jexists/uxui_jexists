@@ -6,6 +6,7 @@
 	const header = $('#headBox');
 	const adver = $('#viewBox');
 	const content = $('#conBox');
+	const ir = $('#irBox');
 	const footer = $('#footBox');
 
 // ======================
@@ -22,6 +23,13 @@
 		let conJs = jsUrl + 'spigen_main_content_01.js';
 		body.append(`<script src="${conJs}"></script>`)
 	});
+
+	ir.load(tempUrl+'spigen_main_content_02.html',
+		function(){
+		let irJs = jsUrl + 'spigen_main_content_02.js';
+		body.append(`<script src="${irJs}"></script>`)
+	});
+
 	footer.load(tempUrl+'spigen_footer.html')
 
 
