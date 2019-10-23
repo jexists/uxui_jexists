@@ -61,6 +61,9 @@ conDt.children('button').on('click focus',function(e){
 		myNth.find('h4').text('media');
 		myNth.find('.con').text(mediaList[i].text);
 		myNth.find('.date').text(mediaList[i].date);
+		let j = i+1;
+		if(i <10){j= '0' +(i+1);}
+		myNth.css({'backgroundImage':`url(../../img/spigen/media_${j}.jpg)`})
  };
 
 const blogList = [
