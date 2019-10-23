@@ -38,6 +38,15 @@
   width: 100%;
   height: 80px;
   background-color: #f40000; }
+  #headBox:after, #headBox::after {
+    content: " ";
+    position: absolute;
+    top: 80px;
+    left: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 0;
+    border-bottom: 1px solid #fff; }
 
 .head_area {
   width: 100%;
@@ -56,7 +65,7 @@ h1 {
   h1 > a {
     display: block;
     width: 100%;
-    width: 100%; }
+    height: 100%; }
 
 .gnb {
   float: right;
@@ -72,17 +81,35 @@ h1 {
 .navList {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 75px;
   right: 0;
   margin: auto;
-  width: 500px;
-  height: auto;
-  background-color: #fff; }
+  background-color: #f40000;
+  width: 700px;
+  height: auto; }
+  .navList:before, .navList::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 50%;
+    margin-left: -60vw;
+    width: 120vw;
+    height: 100%;
+    background-color: inherit; }
+  .navList:after, .navList::after {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    clear: both; }
 
 .navList > li {
   float: left;
   width: 23%;
-  height: auto; }
+  height: auto;
+  margin: 0 5px; }
   .navList > li > dl {
     width: auto;
     height: auto; }
@@ -90,11 +117,24 @@ h1 {
       width: auto;
       height: auto; }
       .navList > li > dl > dt > a {
-        display: block; }
+        display: block;
+        width: 100%;
+        height: 80px;
+        line-height: 80px;
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #fff; }
     .navList > li > dl > dd {
-      width: auto; }
+      /* display: none; */
+      width: auto;
+      margin-top: 20px; }
       .navList > li > dl > dd > a {
-        display: block; }
+        display: block;
+        width: auto;
+        height: 40px;
+        text-indent: 45px;
+        color: #fff; }
 
 .gnb span {
   position: absolute;

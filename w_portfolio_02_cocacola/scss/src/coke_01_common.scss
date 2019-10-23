@@ -1,6 +1,6 @@
 // coke_01_common.scss
 @import "./coke_01_var";
-@mixin linkblock(){display:block; width: 100%; width: 100%;}
+@mixin linkblock(){display:block; width: 100%; height: 100%;}
 
 /* 공통 =============== */
 #wrap{width: 100%; height: auto; margin: auto;}
@@ -12,7 +12,11 @@
 /* 공통 // headBox 해더박스 ================== */
 #headBox{position: fixed; z-index: 500; top: 0; left: 0;
 	width: 100%; height: 80px;
-	@include mc(1);}
+	@include mc(1);
+ &:after,&::after{content: " "; 
+	position:absolute; top:80px; left:0; z-index: 1;
+ 	width: 100vw; height: 0;
+ 	border-bottom: 1px solid #fff;}}
  .head_area{@include whp; min-width: 250px; 
  	margin: auto; padding: 20px 30px;
  	box-sizing: border-box; @include mc(1);}
@@ -22,22 +26,38 @@
 	.gnb{float: right; width: 45px; height: 40px;}
  .burgur_btn {display: block; position: relative;
   width: 100%; height: 100%; } 
- .navList{position: absolute; top: 0; left:0; right:0; 
- 	margin:auto;
- 	width: 500px; height: auto; background-color: #fff;}
+ .navList{position: absolute; top: 0; left:75px; right:0; 
+ 	margin:auto; @include mc(1);
+ 	width: 700px; height: auto; 
+ 	&:before,&::before{content:" "; 
+ 		display:block; 
+ 		position:absolute; z-index: -1;
+ 		top: 0; left: 50%; margin-left: -60vw;
+ 		width: 120vw; height: 100%;
+ 		background-color: inherit;}
+ 	&:after,&::after{content:" "; display: block;
+ 		width: 0; height: 0; clear:both;}}
  .navList>li{float: left; width:23%; height: auto;
+ 	margin: 0 5px; 
  	&>dl{width: auto; height: auto;
  	&>dt{width: auto; height: auto;
- 	 &>a{display: block;}}
- 	&>dd{width: auto;
- 	 &>a{display: block;}}}}
+ 	 &>a{display: block; 
+ 	 	width: 100%; height: 80px;
+ 	 	line-height: 80px; text-align: center;
+ 	 	font-size: 1.4rem; font-weight: bold;
+ 	 	color:#fff;}}
+ 	&>dd{/* display: none; */ 
+ 		width: auto; margin-top: 20px;
+ 	 &>a{display: block; width: auto;
+ 	 height: 40px; text-indent: 45px; color:#fff;}}}}
  .gnb span{position: absolute; top: 50%; 
  	width: 100%; height: 8px; transform:translate(0,-50%);
  	border-radius: 4px; background-color: rgba(256,256,256,1);
  	&:before,&::before,&:after,&::after{content: " ";
  		position: absolute;
  		width: 100%; height: 8px;
- 		border-radius: 4px; background-color: rgba(256,256,256,1);
+ 		border-radius: 4px; 
+ 		background-color: rgba(256,256,256,1);
  		transition: all 800ms ease;}
  	&:before,&::before{top:-16px;}
  	&:after,&::after{top:16px}}
