@@ -45,11 +45,15 @@
  	 	width: 100%; height: 80px;
  	 	line-height: 80px; text-align: center;
  	 	font-size: 1.4rem; font-weight: bold;
- 	 	color:#fff;}}
- 	&>dd{/* display: none; */ 
- 		width: auto; margin-top: 20px;
+ 	 	color:#fff;
+ 	 &:hover,&:focus{color: #ff0;}}}
+ 	&>dd{display: none;
+ 		width: auto; margin: 20px 0;
  	 &>a{display: block; width: auto;
- 	 height: 40px; text-indent: 45px; color:#fff;}}}}
+ 	 height: 40px; text-indent: 45px; color:#fff;
+ 	 margin-top: 5px;
+ 	 line-height: 40px;
+ 	  &:hover,&:focus{color: #ff0;}}}}}
  .gnb span{position: absolute; top: 50%; 
  	width: 100%; height: 8px; transform:translate(0,-50%);
  	border-radius: 4px; background-color: rgba(256,256,256,1);

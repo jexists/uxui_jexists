@@ -4,10 +4,10 @@
 let brand=['coke','sprite','fanta','mini_maid','zico'];
 
 const brand_box = $('.brand_box');
-// const brand_box = $('.brand_box');
+
 let brand_li ;
 let button;
-let icon;
+// let icon;
 for (let i=0; i<brand.length; i++){
   brand_box.append('<li>');
   // console.log(brand_box.children() );
@@ -16,10 +16,7 @@ for (let i=0; i<brand.length; i++){
   brand_li.append('<button type="button">');
   button = brand_li.children('button');
   button.prepend('<i class="fas fa-plus">');
-};
-
-
-
+}
 })(jQuery);
 
 /*
@@ -39,8 +36,5 @@ for (let i=0; i<brand.length; i++){
   brand_li.addClass(brand[i]);
   brand_li.append('<button type="button">'+brand[i]+'</button>');
 };
-
 })(jQuery);
-
-
 */
