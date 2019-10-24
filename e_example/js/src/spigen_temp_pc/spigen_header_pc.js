@@ -5,28 +5,82 @@
 // clone()매서드를 사용
 
 	const gnb = $('#gnb');
-//============================================================
-const nav = [{title:'about',sub:['who we are','what we do','our locations']},
-	{title:'careers',sub:['careers','hr blog','apply']},
-	{title:'media',sub:['media']},
-	{title:'ir',sub:['investors','ir archive','ir meeting']}];
-
-const navText = '<li><dl><dt><a href="#">title</a></dt><dd></dd></dl></li>';
-const navUl = gnb.children('ul');
-
-for(let i=0; i<nav.length;i++){
-	navUl.append(navText);
-	let myNth = navUl.children('li').eq(i);
-	myNth.find('dt').children('a').text(nav[i].title);
-
-	for(let j=0; j<nav[i].sub.length;j++){
-	myNth.find('dd').append('<a href="#">sub</a>');
-	myNth.find('dd').children('a').eq(j).text(nav[i].sub[j]);
-	}
-}
-
-
 	const sideGnbArea = $('.side_gnb_area');
+//============================================================
+
+
+const gnbMenu = [
+ {title: 'about',titleLink:'title_#', 
+	sub: [
+	{subN:'who we are', subLink:'#'},
+	{subN:'what we do', subLink:'#'},
+	{subN:'our locations', subLink:'#'}]},
+ {title: 'careers', titleLink:'title_#',  
+	sub: [
+	{subN:'careers',subLink:"#"},
+	{subN:'HR blog',subLink:"#"},
+	{subN:'apply',subLink:"#"}]},
+ {title: 'media', titleLink:'title_#', 
+	sub: [
+	{subN:'media',subLink:"#"}]},
+ {title: 'IR', titleLink:'title_#', 
+	sub: [
+	{subN:'investors',subLink:"#"},
+	{subN:'IR archive',subLink:"#"},
+	{subN:'IR meeting',subLink:"#"}]}];
+
+const menuLen = gnbMenu.length;
+gnb.append('<ul></ul>');
+const gnbUl = gnb.children('ul');
+
+for(let i = 0; i < menuLen; i++){
+ // console.log(gnbMenu[i]); // = about, career, media, IR
+ // gnb.append(gnbMenu[i]);
+ // gnbUl.append('<li><dl><dt><a href="' + gnbMenu[i].titleLink + '"></a></dt><dd></dd></dl></li>');
+ gnbUl.append('<li><dl><dt><a href="#"></a></dt><dd></dd></dl></li>');
+ let gnbLi = gnbUl.children('li').eq(i);
+ let gnbLiLink = gnbLi.find('dt').children('a');
+ gnbLiLink.text(gnbMenu[i].title);
+ gnbLiLink.attr('href',gnbMenu[i].titleLink);
+
+ let subLen = gnbMenu[i].sub.length;
+ for (let j=0; j<subLen; j++){
+ 	let gnbDd = gnbLi.find('dd');
+ 	gnbDd.append('<a href="#"></a>');
+ 	// gnbDd.append('<a href="' + gnbMenu[i].sub[j].subLink + '"></a>');
+ 	let gnbMyLink = gnbDd.children('a').eq(j);
+ 	gnbMyLink.text(gnbMenu[i].sub[j].subN);
+ 	gnbMyLink.attr('href',gnbMenu[i].sub[j].subLink) }} //for문 마지막
+
+
+
+/* //이중for문
+for(let i=0; i<gnbMenu.length;i++){ 
+	console.log(gnbMenu[i].title);}
+ for(let j = 0; j < gnbMenu[i].sub.length;j++){
+ 	console.log(gnbMenu[i].sub[j])}*/
+
+
+// const nav = [{title:'about',sub:['who we are','what we do','our locations']},
+// 	{title:'careers',sub:['careers','hr blog','apply']},
+// 	{title:'media',sub:['media']},
+// 	{title:'ir',sub:['investors','ir archive','ir meeting']}];
+
+// const navText = '<li><dl><dt><a href="#">title</a></dt><dd></dd></dl></li>';
+// const navUl = gnb.children('ul');
+
+// for(let i=0; i<nav.length;i++){
+// 	navUl.append(navText);
+// 	let myNth = navUl.children('li').eq(i);
+// 	myNth.find('dt').children('a').text(nav[i].title);
+
+// 	for(let j=0; j<nav[i].sub.length;j++){
+// 	myNth.find('dd').append('<a href="#">sub</a>');
+// 	myNth.find('dd').children('a').eq(j).text(nav[i].sub[j]);
+// 	}
+// }
+
+
 	const openGnBtn = $('#gnb_btn>button');
 	const closeGnBtn = $('.close_gnb_btn>button');
 	const sideGnb = $('.side_gnb'); //나타내기
