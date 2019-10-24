@@ -354,6 +354,15 @@ $tab: 768;
 }
 ```
 
+#### mixin function 차이점
+
+```scss
+@mixin name(){} 
+// @include name() "선택자까지 포함 /  풀어낸다. / 넓은범위"
+@function(){} 
+// myFn(); "값들만 사용 / 계산 / 좁은범위"
+```
+
 
 
 
