@@ -1,3 +1,11 @@
 /* slide_01.css */
 
-h1{width: 100%;}
+
+@import "../_basic/var";
+@import "../_basic/mixin";
+@import "../_basic/etc";
+
+//==============
+.slide_temp{width: 90%; my_ptr(min-width, 1200); height: 700px;
+	margin: auto; border: $bd1;
+	background-color: $spC;}
