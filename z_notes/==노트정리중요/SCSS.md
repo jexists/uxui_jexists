@@ -30,11 +30,9 @@ https://github.com/SassDoc/
 
 ---
 
-
-
-SCSS는 HTML에서 먹지않는다. 그래서 SCSS => CSS로 보낼것이다. 
-
 https://sass-lang.com/ - SCSS 언어 홈페이지
+
+https://prepros.io/ - sass 변환프로그램 (node-sass에 비해 느리다.)
 
 #### terminal
 
@@ -72,6 +70,8 @@ $yarn global add node-sass
 
 ### node-scss 실행
 
+SCSS는 HTML에서 먹지않는다. 그래서 SCSS => CSS로 보낼것이다. 
+
 최초 기본 상태 **$node-sass scss --output css** (기본스타일: nested)
 
 #### --output-style
@@ -82,12 +82,12 @@ $yarn global add node-sass
 
 >**1. 중첩 스타일 (nested)** : 기본적인 출력 스타일로 중첩 정도에 따라 들여쓰기 함.
 >**2. 확장 스타일 (expanded)** : 기존 CSS 스타일과 거의 동일
->**3. 축약 스타일 (compact)** : CSS 규칙을 한 줄에 표시해서 코드의 공간을 최소화함
+>**3. 축약 스타일 (compact)** : CSS 규칙을 한 줄에  표시해서 코드의 공간을 최소화함
 >**4. 압축 스타일 (compressed)** : 가독성은 고려하지 않음. css 파일 용량을 최대한 줄이기 위한 스타일
 
 #### 실시간 감지
 
-**$node-sass --watch --output-style compact scss --output css**
+**$node-sass --watch --output-style compact scss --output css/src**
 
 
 
