@@ -44,3 +44,12 @@
 .one{background-color: #ccc;}
 .two{background-color: #acf;}
 .three{background-color: #fac;}
+.four{background-color: #0af;}
+
+
+/* =========================== */
+.slide_viewer{position: relative; overflow: hidden; height: 300px; background-color: #d0d;}
+.sld_grop{position: relative; width: 100%; height: 100%;}
+.sld {display: none; position: absolute; width: 100%; height: 100%; }
+.sld:first-child{display: block;}
+/*.sld_btn*/
