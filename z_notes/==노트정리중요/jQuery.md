@@ -1790,3 +1790,21 @@ swing: 가벼운 완급 조절, 애니메이션 효과의 속도가 약간 변�
 //jQuery UI jQuery Easing Plugin(다양한 이징 종류가 있다.)
 ```
 
+### scroll
+
+scrollTop(): 스크롤바의 움직인 위치값을 파악
+요소를 스크롤할 수 있는 경우에 해당 요소가 세로 방향으로 얼마나 스크롤되었는지 확인하는 매서드
+
+**offset()**: 매서드 "offset(),top, offset().left"
+
+top: 웹 페이지 상단부터의 거리
+
+left: 웹 페이지 왼쪽 가장자리부터의 거리
+
+mousewheel, DOMMouseScroll
+
+BOM, DOM
+
+DOM: 페이지에 요소 노드가 존재한다면 다음 5가지 속성을 이용하여 다른 요소들을 선택
+-parentNode, previousSibling, nextSibling, firstChild, lastChild
+*크롬, 파이어폭스, 사파리, 오페라, 브라우저는 공백 문자(빈문자, 줄바꿈 문자)를 위한 텍스트 노드 생성                
