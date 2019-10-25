@@ -442,3 +442,60 @@ $tab: 768;
 @include indicator_01('.view_indicator', 30px);
 ```
 
+#### 지정가능하고 지정안하면 자동으로 100%
+
+```scss
+//a요소 사이트 설정, 내부 span요소를 숨기게 만들기
+@mixin link($w:100%, $h:100%){
+	display: block; width: $w; height: $h;
+	>span{@include hdTxt;}}
+```
+
+#### @content: 내부에 추가 내용을 넣기 위해서 
+
+```scss
+//a요소 사이트 설정, 내부 span요소를 숨기게 만들기 ===========
+@mixin link($w:100%, $h:100%){
+	display: block; width: $w; height: $h;
+	@content;
+	>span{@include hdTxt;}}
+```
+
+### Mixin 만들기
+
+```scss
+//내부에 있는 text 숨기는 기능 처리하기  ===========
+ @mixin hdTxt(){
+ display:block; position: absolute; z-index: -1;
+	  	overflow: hidden; width: 0; height: 0;}
+
+//a요소 사이트 설정, 내부 span요소를 숨기게 만들기 ===========
+@mixin link($w:100%, $h:100%){
+	display: block; width: $w; height: $h;
+	@content;
+	>span{@include hdTxt;}}
+
+//인디케이터 형태 ===========
+@mixin indicator_01($ind_class, $myW){
+	//하단 인디케이터 형태, focus처리되면 해당 버튼이 길게 늘어나는 형태
+	//OPT_01: 인디케이터 버튼 하나의 크기 $myW로 설정
+	//OPT_02: class선택자의 이름 설정 $ind_class
+	//[기본구조] $ind_clss > ul > li > a 순서
+#{$ind_class}{$w:$myW; $f:100%;
+ 	position: absolute; left: 50%; bottom:$w; transform:translateX(-50%);
+ 	margin: auto; width:auto; min-width: 135px; 
+ 	height: $w; padding: 5px; 
+ 	border-radius: $w; background-color: $wt;
+ >ul{width: $f; height: $f;
+  >li{float:left; width: auto; height: $w; 
+  	margin-left: 5px;  
+  &:first-child{margin-left: 0;}
+	a{display: block; width: $w; height: $f; border-radius: $w;
+		background-color: $gy; transition: all 300ms ease;
+	 &:hover{background-color: lighten($pmC,30%);}
+	 &:focus{background-color: $pmC; width: ($w * 3); border-radius: $w;
+	 	outline: none;}
+	  >span{@include hdTxt;}}}}}
+}// mixin indicatory_01
+```
+
