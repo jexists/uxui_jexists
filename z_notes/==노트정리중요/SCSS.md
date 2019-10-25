@@ -1,4 +1,4 @@
-#### SASS / SCSS
+# SASS / SCSS
 
 -CSS가 복잡해지고 스타일 시트가 커지고 유지 보수하기가 어려워 짐에 따라 CSS 전처리 기가 많이 
 
@@ -14,7 +14,7 @@ SCSS = CSS + @  {} (중괄호)와 ; (세미콜론) 유
 
 ---
 
-#### 웹사이트
+### 웹사이트
 
 https://velopert.com/1712
 
@@ -34,9 +34,48 @@ https://sass-lang.com/ - SCSS 언어 홈페이지
 
 https://prepros.io/ - sass 변환프로그램 (node-sass에 비해 느리다.)
 
-#### terminal
 
-(yarn 사용시)
+
+```참고 사이트
+[Sass 웹사이트 및 블로그]
+sass 공식문서 :
+http://sass-lang.com/documentation/file.SASS_REFERENCE.html
+
+The Sass Way :
+'Sass와 콤파스를 이용한 CSS 작성법에 대한 최신 소식과 주제를 다룹니다.
+http://thesassway.com/
+
+CSS Tricks:
+크리스 코이어는 Sass를 광범위하게 다루어왔습니다. 여기서 우리는 CSS를 직접 작성하는 분들에게 Sass가 얼마나 유용한지에 대해 유사한 관점을 공유할 수 있습니다. 그의 Sass 스타일 가이드
+https://css-tricks.com/sass-style-guide/
+
+Sass 조립하기:
+기초부터 고급까지 배울 수 있는 코드스쿨의 Sass 종합코스
+https://www.codeschool.com/courses/assembling-sass 
+
+Sass 시작하기:
+데이비드 디마리(David Demaree)가 A List Apart에 기고한 훌륭한 입문자용 글
+http://alistapart.com/article/getting-started-with-sass
+
+Sass의 미래 들여다보기:
+데이비드 월시(David Walsh)는 Sass의 향후 버전에서 새로 추가될 기능들을 평가해 줍니다. Sass가 어디로 향해 가는지에 대한 훌륭한 통찰력을 볼 수 있습니다.
+https://davidwalsh.name/future-sass
+
+[믹스인 라이브러리]
+콤파스
+크리스 엡슈타인이 만든 Sass 확장 프레임워크.
+http://compass-style.org/reference/compass/
+
+버번
+'간단하고 가벼운 Sass용 믹스인 라이브러리'라고 홍보하는 버번은 보스턴 동료들의 회사인 소트봇을 통해 엄청난 믹스인 자료를 제공합니다.
+http://bourbon.io/
+
+출처: https://treasureland.tistory.com/3 [보물섬]
+```
+
+## terminal
+
+**(yarn 사용시)**
 
 npm install --global yarn
 yarn global add node-sass
@@ -87,11 +126,11 @@ SCSS는 HTML에서 먹지않는다. 그래서 SCSS => CSS로 보낼것이다.
 
 #### 실시간 감지
 
-**$node-sass --watch --output-style compact scss --output css/src**
+```scss
+$node-sass --watch --output-style compact scss --output css/src
+```
 
-
-
-
+### SCSS불러오는 방법
 
 ```scss
 //SCSS불러오는 방법
@@ -99,11 +138,16 @@ SCSS는 HTML에서 먹지않는다. 그래서 SCSS => CSS로 보낼것이다.
 @import "var";
 //동일한 확장자라서 .scss생략가능
 //_ 생략가능
+
+@import url("../_basic/var");
+
+//url()을 입력하면 해당 파일을 별도의 파일로 첨부(link)하는 의미
+//url()없이 ""로 사용하면 (scss파일), 해당파일을 하나의 파이로 합치는 현상
 ```
 
 SCSS (& = 변수 var 같은것)
 
-[주의사항]
+#### [주의사항]
 
 -scss에서 css 주석을 썼을 경우 카피가 된다.
 -scss에서 // 주석을 썻을겨우는 카피가 되지않는다.
@@ -139,7 +183,7 @@ h2 {
 
 ---
 
-position 쉽게하기 (sass interpolation)
+#### position 쉽게하기 (sass interpolation)
 
 ```scss
 .list_01 {background-position: 0 0;}
@@ -167,13 +211,7 @@ $myp : (0, 10px, 40px, 100px); //SCSS에서 배열 쓰는 방법
   background-position: 0 100px; }
 ```
 
-
-
-191011 - 간단하게 세팅, 폴더구조, 파일불러오기, 변수, 리스트, 객체, 인터폴레이션(#), extend, @mixin
-
-pug(들여쓰기잘못해도 망함) / ejs(애매.?)
-
-### 가상 간단하게 쓰기 
+#### 가상 간단하게 쓰기 
 
 ```scss
 html, body{color:$textColor;}
@@ -317,8 +355,6 @@ ul, li, .box:after, .box::after { display: block; width: 100%; height: 100%; }
 	height:$h + px; height:($h / 16) + rem;}
 ```
 
-
-
 #### media 쿼리(?)
 
 ```sass
@@ -346,12 +382,11 @@ $tab: 768;
 @import "./var";
 @import "./commonLayout";
 
-
-
 @media screen and (max-width: 480px){
-	@import "myData.scss";
-
-}
+	@import "myData.scss";}
+//url()을 입력하면 해당 파일을 별도의 파일로 첨부(link)하는 의미 / CSS 파일 글
+//url() 개별 scss에서는 의미 없으므로 나중에 지워도 가능
+//url()없이 ""로 사용하면 (scss파일), 해당파일을 하나의 파이로 합치는 현상 / CSS 파일 글X
 ```
 
 #### mixin function 차이점
@@ -363,28 +398,47 @@ $tab: 768;
 // myFn(); "값들만 사용 / 계산 / 좁은범위"
 ```
 
+#### & 사용법
 
+```css
+.view_btn{position: absolute; top: 50%; //bottom: 0; margin: auto;
+	width: 100%; height: 0;
+ >button{float: left; width: 100px; height: 100px; 
+ 	&.next{float: right;}}}
+// 자손요소일 경우에는 &를 안붙여도 가능하다
+// 같은 요소일경우네느 &를 꼭 붙여야한다. 
+```
 
+#### Mixin Interpolation 
 
+선택자일경우 변수를 그대로 사용X =>**interpolation**(보간/대처)사용: 형태 그대로 대입시키도록 처리
 
----
+```scss
+#{$선택자}
+```
 
-# PARCEL 세팅 및 사용법 익히기
+```scss
+@mixin indicator_01($ind_class, $myW){
+	//하단 인디케이터 형태, focus처리되면 해당 버튼이 길게 늘어나는 형태
+	//OPT_01: 인디케이터 버튼 하나의 크기 $myW로 설정
+	//OPT_02: class선택자의 이름 설정 $ind_class
+	//[기본구조] $ind_clss > ul > li > a 순서
+#{$ind_class}{ $w:$myW; $f:100%;
+ 	position: absolute; left: 50%; bottom:$w; transform:translateX(-50%);
+ 	margin: auto; width:auto; min-width: 135px; 
+ 	height: $w; padding: 5px; 
+ 	border-radius: $w; background-color: $wt;
+ >ul{width: $f; height: $f;
+  >li{float:left; width: auto; height: $w; 
+  	margin-left: 5px;  
+  &:first-child{margin-left: 0;}
+	a{display: block; width: $w; height: $f; border-radius: $w;
+		background-color: $gy; transition: all 300ms ease;
+	 &:hover{background-color: lighten($pmC,30%);}
+	 &:focus{background-color: $pmC; width: ($w * 3); border-radius: $w;
+	 	outline: none;}}}}}
+}// mixin indicatory_01
+// 불러오기 =========================================
+@include indicator_01('.view_indicator', 30px);
+```
 
-**번들러**: 컴퓨터에게는 하나의 파일이든 큰 속도 차이없이 인식을 하지만,
-개발자 입장에서는 몇천줄의 파일을 작성하고 관리해야한다면 매우 어려운 일입니다.
-이러한 것들을 필요한 기능별로 분리하고 가독성을 위해 추가로 나누기 위해 처리하는 기능을 가진 기능이 번들러라고 한다.
-
-대표적인 예) parcel / webpack
-
-Parcel 장점:
-
-1.접근이 매우쉽다. = 별도의 설정없이 시작파일(Entry File)만 지정하면 바로 빌드 처리한다.
-2.번들속도가 빠르다 = 멀티코어 컴파일 가능
-3.Assets 기반 번들리 = html, css, javascript같은 유형의 에셋기술 지원
-4.자동변환 = babel, postCss 지원
-5.모듈자동 업데이트 
-6.압축화, 난독화
-7.코드불활
-
-사용전 필요한 준비물: node.js+yarn(npm)
