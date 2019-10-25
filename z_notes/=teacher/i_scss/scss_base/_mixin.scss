@@ -3,7 +3,10 @@
  // scss class(html에서 불리는 class와는 다소 다른 의미)
  // base layout
 
-@import "variable","reset","common";
+// @import "variable","reset","common";
+@import url ("variable");
+@import url ("reset");
+@import url ("common");
 
  @mixin baseLayout($w:100%, $mw:$minWidth, $boo:false ,$h:auto, $bgc:dark, $myC:null){
  	// $w : 가로값의 크기(width)
@@ -21,12 +24,13 @@
 		height:auto;
 		&:after{content:" "; display: block; width: 100%; height: 0;clear: both;}
 	}@else if $h == number {
+		height:$h + unquote('px') ; //추가
 		height:rem($h);
 	}@else {	
 		height:$h;  
 	}
 
-	 	@if $boo == true { min-width:rem($minWidth); 	}
+	 	@if $boo == true { min-width:rem($minWidth); }
 
 	 	@if $myC == true or false{ 	
 			background-color:bgc($bgc, $myC);

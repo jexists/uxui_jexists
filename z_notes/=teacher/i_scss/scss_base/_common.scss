@@ -2,7 +2,9 @@
 /** 기본 웹 css형태를 사용할경우에는 class이름 앞에 me라고 작성후_로 구분하여 이름제작* */
 /*h2, h3, h4, h5, h6{width: 0; height: 0; overflow: hidden;}*/
 
-@import "variable", "reset";
+// @import "variable", "reset";
+@import url ("variable");
+@import url ("reset");
 
 .me_base {
     width: 960px;

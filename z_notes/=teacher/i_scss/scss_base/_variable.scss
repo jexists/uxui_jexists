@@ -42,6 +42,7 @@ $line: (
 // 4. font
 // /* ------------ font ------------  */
 $size: 16;
+//:root{font-size: $size+px;}
 $fontSize: ( 
 	base      : ($size / 16 * 0.875)  + rem,     // 14px
 	big       : ($size / 16 * 5)      + rem, 		 // 80px

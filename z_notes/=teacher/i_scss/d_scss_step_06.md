@@ -16,7 +16,12 @@ lighten() 기능도 내장함수중의 하나였습니다.
 
  **unquote()**  : 따옴표 제거
 
-unitless()**  :  숫자에 단위가 있는지 여부 -if문을 사용하면 좋습니다.
+```scss
+//%라는 단위를 써야할때 사용
+100 + unquote('%') => 100%
+```
+
+**unitless()**  :  숫자에 단위가 있는지 여부 -if문을 사용하면 좋습니다.
 
  **index()** : 반복에따른 순서값처리
 
@@ -38,8 +43,6 @@ $fruits: (apple, orange, banana, mango);
 .fruits li:nth-child(3) {left: 150px;}
 .fruits li:nth-child(4) {left: 200px;}
 ```
-
-
 
 ---
 

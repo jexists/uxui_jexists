@@ -65,6 +65,37 @@ sass 3.2버전부터 추가된 @content는 @mixin 내부에 값을 전달하여 
 
 이는 Bourbon에서 사용 하는 [HiDPI 믹스](http://bourbon.io/docs/#hidpi-media-query) 와 같이 길고 매우 구체적인 미디어 쿼리에 특히 유용합니다 .
 
+```scss
+//mixin이 내부에 작성할수 없게 막아놓았지만 @content가 넣을수 있게 만들었다.
+
+#wrap{width: 100%; min-width: 1200px;}
+@media screen and (max-width: 1200px){
+    #wrap {min-width: 768px;}
+}
+// SCSS mixin (&) ==================================================
+@mixin laptop {
+    @media screen and (max-width: 1200px){
+        &{@content;}
+    }
+}
+// SCSS include (&) =================================================
+#wrap{width: 100%; min-width: 1200px;}
+@include laptop(){
+    min-width: 768px;
+}
+// SCSS mixin (& X) =================================================
+@mixin laptop {
+    @media screen and (max-width: 1200px){
+        @content;
+    }
+}
+// SCSS include (& X) ===============================================
+#wrap{width: 100%; min-width: 1200px;}
+@include laptop(){ 
+    #wrap{min-width: 768px;}
+}
+```
+
 
 
 ---
@@ -173,6 +204,7 @@ sass 3.3 버전이후부터 추가된 기능중 하나는 @at-root입니다.  <b
     width: $w;  height: $h;
   }
 } // .list
+//여기서는 범주를 벗어났기 때문에 $w는 없는 변수.
 ```
 
 ``` css
