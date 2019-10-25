@@ -1,11 +1,30 @@
 /* slide_01.css */
 
 
-@import "../_basic/var";
-@import "../_basic/mixin";
-@import "../_basic/etc";
+@import url("../_basic/var");
+@import url("../_basic/mixin");
+@import url("../_basic/etc");
 
+//url()을 입력하면 해당 파일을 별도의 파일로 첨부(link)하는 의미
+// scss에서는 의미 없으므로 나중에 지워도 가능
+//url()없이 ""로 사용하면 (scss파일), 해당파일을 하나의 파이로 합치는 현상
 //==============
-.slide_temp{width: 90%; my_ptr(min-width, 1200); height: 700px;
+.slide_temp{position: relative; width: 90%; height: 700px;
 	margin: auto; border: $bd1;
 	background-color: $spC;}
+//.view_btn 좌우버튼
+.view_btn{position: absolute; top: 50%; //bottom: 0; margin: auto;
+	width: 100%; height: 0; //높이값 0 => 중간에 포인터가 풀리지않음 
+ >button{float: left; width: 100px; height: 100px; 
+ 	transform:translateY(-50%);
+ 	background-color: #777;
+ 	&.next{float: right;}
+ 	&:hover,&:focus{background-color: $pmC;}}}
+ // view_indicator 인디케이터
+@include indicator_01('.view_indicator', 30px);
+
+
+
+/*  .slide_form{width: 100%; height: 100%;
+	* {display:block; width: 100%; height: 100%;}
+	h3{display: none;}} */

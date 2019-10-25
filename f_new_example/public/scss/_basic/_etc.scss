@@ -6,8 +6,3 @@
 // myFn(); "값들만 사용 / 계산 / 좁은범위"
 
 //px to rem
-@function my_ptr($w, $r){
-//width:30px; pTr(width,30)
-//height:40px; pTr(height,40)
- @return #{$w}:($r + px);
- @return #{$w}:($r / 16) + rem;}
