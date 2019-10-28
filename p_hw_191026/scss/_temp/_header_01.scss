@@ -1,0 +1,25 @@
+
+#headBox {position: fixed; z-index: 500;
+	width: 100%; height: 80px; padding: 15px 10px; box-sizing:border-box;
+	background-color: #333;}
+.head_wrap {width: 90%; max-width: 1920px; height: 100%; margin: auto;}
+h1 {float: left; width: 150px; height: 50px; background-color: #ddd;}
+#gnb{ $slideN: 5; $slideS: 4; $f:100%;
+  position: absolute; top: 0; left: 0; right: 0; margin: auto;
+  width: 70%; height: $f;
+  	>ul{width: 80%; height: $f; margin: auto;
+  	>li{float: left; width: (90%/$slideN); margin-right:(10%/$slideS); 
+      height: auto;
+  	&:last-child{margin-right:0;}
+  	>dl{width: $f; height: auto; text-align: center;
+  	>dt{width: $f; height: auto;
+  	 >a{display: block; width: 100%; height: 80px; line-height: 80px;
+        color:#fff;}}
+  	>dd{display: none; width: $f; height: auto; padding-top: 20px;
+        background-color: #fff;
+  	 >a{display: block; width: $f; height: 50px;
+  	 	line-height: 50px; }}}}}}
+.lang{float: right; width: 50px; height: 50px;
+  background-color: transparent; font-size: 2.5rem;}
+.menu{float: right; width: 50px; height: 50px; margin-right: 10px; 
+	background-color: transparent; font-size: 2.5rem;}
