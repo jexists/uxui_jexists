@@ -12,12 +12,16 @@
 	const JsLink = (temp) => {
 		return body.append(`<script src="../js/src/temp/${temp}.js"></script>`);
 	};
-	// viewBox.load('./temp/slide_01.html', () => {
-	// 	JsLink('slide_01');
-	// });
+	viewBox.load('./temp/slide_01.html', () => {
+		JsLink('slide_01');
+	});
 	conBox.load('./temp/slide_02.html', () => {
 		JsLink('slide_02');
 	});
-
+	wrap.append('<section id="viewBox_02"></section>');
+	const vB2 = $('#viewBox_02');
+	vB2.load('./temp/slide_02_answer.html',function(){
+		JsLink('slide_02_answer')
+	});
 
 })(jQuery);

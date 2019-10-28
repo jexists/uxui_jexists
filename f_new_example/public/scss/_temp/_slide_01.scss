@@ -19,6 +19,7 @@ $myImg : ('slide_01.jpg','slide_02.jpg','slide_01.jpg','slide_01.jpg');
 //.view_btn 좌우버튼
 .view_btn{position: absolute; top: 50%; //bottom: 0; margin: auto;
 	width: 100%; height: 0; //높이값 0 => 중간에 포인터가 풀리지않음 
+	z-index: 50;
  >button{float: left; width: 100px; height: 100px; 
  	transform:translateY(-50%);
  	background-color: #777;
@@ -33,8 +34,9 @@ $myImg : ('slide_01.jpg','slide_02.jpg','slide_01.jpg','slide_01.jpg');
 //가로형 슬라이드 배너
 .slide_form{ $slideN:4;
 	overflow: hidden;width: 100%; height: 100%;
-	.guide{width: (100%*$slideN); height: 100%; background-color: $spC;
-		>div{float: left; width: (100%/$slideN); height: 100%; 
+	.guide{position: relative; top: 0; left: 0;
+		width: (100% * $slideN); height: 100%; background-color: $spC;
+		>div{float: left; width: (100% / $slideN); height: 100%; 
 				padding:4rem; box-sizing:border-box;
 				background-repeat: no-repeat; background-position: 50% 50%;
 				background-size: cover; 

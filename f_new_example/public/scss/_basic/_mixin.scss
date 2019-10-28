@@ -1,6 +1,10 @@
 // _mixin.scss
 
-
+//숨기는 영역 처리하기
+@mixin hidden(){
+	display: block; position: absolute;
+	z-index: -10; width: 0; height: 0; overflow: hidden;
+}
 
 //내부에 있는 text 숨기는 기능 처리하기 
  @mixin hdTxt(){
@@ -14,13 +18,14 @@
 	>span{@include hdTxt;}}
 
 //인디케이터 형태 ===========
-@mixin indicator_01($ind_class, $myW){
+@mixin indicator_01($ind_class, $myW, $zIn:500){
 	//하단 인디케이터 형태, focus처리되면 해당 버튼이 길게 늘어나는 형태
 	//OPT_01: 인디케이터 버튼 하나의 크기 $myW로 설정
 	//OPT_02: class선택자의 이름 설정 $ind_class
 	//[기본구조] $ind_clss > ul > li > a 순서
 #{$ind_class}{$w:$myW; $f:100%;
- 	position: absolute; left: 50%; bottom:$w; transform:translateX(-50%);
+ 	position: absolute; z-index: $zIn;
+ 	left: 50%; bottom:$w; transform:translateX(-50%);
  	margin: auto; width:auto; min-width: 135px; 
  	height: $w; padding: 5px; 
  	border-radius: $w; background-color: $wt;

@@ -8,18 +8,18 @@
 const viewBox = $('#viewBox');
 const indicator = viewBox.find('.view_indicator');
 const indiLi = indicator.find('li');
-const indiLink = indiLi.children('a');
+const vindiLink = indiLi.children('a');
 const guideBox = viewBox.find('.guide');
 
-indicator.css({'zIndex':500});
-guideBox.css({'position':'relative', 'top':0,'left':0});
+// indicator.css({'zIndex':500});
+// guideBox.css({'position':'relative', 'top':0,'left':0});
 
-indiLink.on('click focus',function(e){
+vindiLink.on('click focus',function(e){
 	e.preventDefault();
 	let parLi = $(this).parent('li')
 	let i = parLi.index();
 	// console.log(i);
-	indiLink.removeClass('action');
+	vindiLink.removeClass('action');
 	$(this).addClass('action');
 	guideBox.stop().animate({'left': -100 * i + '%'});
 });
