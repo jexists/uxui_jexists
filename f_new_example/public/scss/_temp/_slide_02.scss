@@ -1,0 +1,54 @@
+// _slide_02.scss
+
+/* slide_02 */
+#conBox{margin-top: 100px;}
+.slide_wrap {position: relative; 
+	width: 100%; height: 800px;
+	margin: auto;}
+.con_btn {position: absolute; bottom: 100px; right: 50%;
+	z-index: 10;
+	margin-right: -380px;
+	width: auto; height: 30px; 
+ button{display: block; float: left; width: 30px;
+ 	height: 30px; margin-right: 10px;
+ 	line-height:30px; font-size: 1.4rem;
+ 	background-color: transparent;}
+ .next{float: right; margin-right: 0;}}
+
+.con_indicator {position: absolute; 
+	bottom: 105px; right: 50%;	z-index: 10;
+	margin-right: -240px;
+	width: auto; min-width: 140px;
+	height: 20px;
+	>ul{width: 100%; height: 100%;
+	 >li{float: left; width: auto; height: 20px; 
+	 	margin-right: 10px;
+	 &:last-child{margin-right: 0;}
+	  a{display: block; width: 20px; height: 100%; 
+	  	border-radius: 20px; overflow: hidden;
+	  	background-color: #ded;
+	  &:hover{background-color: #aec;}
+	  &.active,&:focus{width: (40px*2); outline: none;
+	  	background-color: #ce3;}}}}}
+
+.slide_form{width: 100%; height: 100%;
+ .guide{position: relative; top:0; left:0;
+ 	width: (100%*3); height: 100%;
+  >li{position: relative; float: left; overflow: hidden;
+  	width: (100%/3); height: 100%;
+	@for $i from 1 through 3 {
+		&:nth-child(#{$i}){
+			background-color: darken($wt, $i*20%);}}
+  >h3{position:absolute;
+  	top: 40%; right: 0; margin-right:200px; z-index: 10; 
+  	width: 500px; height: 300px; color:#fff;
+  	>strong{display:block; width: 500px;
+  		font-size: 2.5rem;word-break: keep-all;}}
+  >span{position: absolute; display: block; 
+  	bottom: -50px; right: -40px;
+  	width: 850px; height: 800px;
+  	transform:rotate(-5deg);
+  	background-image: linear-gradient(90deg, #a1f, transparent);}}}}
+
+  	// .gr_02{background-color: #f4f;
+  // background-image: linear-gradient(-45deg,#fa0, #f4f);}
