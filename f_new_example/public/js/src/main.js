@@ -28,6 +28,11 @@
 	vB3.load('./temp/slide_03.html',function(){
 		return JsLink('slide_03');
 	});
+	wrap.append('<section id="viewBox_04"></section>');
+	const vB4 = $('#viewBox_04');
+	vB4.load('./temp/slide_04.html',function(){
+		return JsLink('slide_04');
+	});
 
 
 })(jQuery);
