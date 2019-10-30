@@ -15,9 +15,35 @@
 	let timed = 500; //0.5초
 	let myn = 0;
 	let maxn = slideEach.length; //슬라이드갯수
+// 변수선언 끝 ===========================================
 
-// 공통기능 수행
-	const MoveSlide = function(n, bool){
+//일정시간마다 광고배너 움직이게하기
+
+	let go; 
+	const GoSlide = function(){
+   go = setInterval(function(){
+	 myn++; 
+	 if (myn >= maxn) {myn = 0;}
+	 MoveSlide(myn, true);
+	 },timed*6);};
+	const StopSlide = function(){clearInterval(go);};
+
+  // GoSlide(); 삭제
+  let playBanner = function(bool){
+  	if(bool){GoSlide();}else{StopSlide();} }//playBanner
+
+//play와 stop 버튼 동작 유무 판단
+  const showBtn = function(bool){
+		if(bool){
+			playBtn.hide();
+			pauseBtn.show();
+		}else{
+			pauseBtn.hide();
+			playBtn.show();}
+  playBanner(true); };
+  showBtn(true);
+// 공통기능 수행=============
+	const MoveSlide = function(n){
 	indiLiLink.removeClass('action');
 		indiLi.eq(n).children('a').addClass('action');
 		slideGuide.stop().animate({'marginLeft':(-100 * n) + '%'},
@@ -26,53 +52,24 @@
 				setTimeout(function(){
 					slideEach.eq(n).addClass('action');
 				},timed);
-				});
-		//play와 stop 버튼 동작 유무 판단
-		if(!bool){
-			playBtn.show();
-			pauseBtn.hide();
-		}else{
-			pauseBtn.show();
-			playBtn.hide();
-		}
-	};
-	MoveSlide(0, true);
+				});	};
 
+	MoveSlide(0);
 
-//일정시간마다 광고배너 움직이게하기
+  viewBox2.on('mouseenter',function(){mybool = false; showBtn(mybool);});
+  viewBox2.on('mouseleave',function(){showBtn(mybool);});
 
-	let go; 
-	const StopSlide = function(){clearInterval(go);};
-	const GoSlide = function(){
-   go = setInterval(function(){
-	 myn++; 
-	 if (myn >= maxn) {myn = 0;}
-	 MoveSlide(myn, true);
-	 },timed*6);};
-
-  // GoSlide(); 삭제
-  let playBanner = function(bool){
-  	if(bool){
-  		GoSlide();
-  	}else{
-			StopSlide();
-  	}
-  }//playBanner
-  playBanner(true);
-
-	pauseBtn.on('click',function(){playBanner(false);
+	pauseBtn.on('click',function(){mybool = false; showBtn(mybool);
 		/*StopSlide();
 		$(this).hide();
 		$(this).siblings().show();*/
 	});
-  playBtn.on('click',function(){playBanner(true);
+  playBtn.on('click',function(){mybool = true; showBtn(mybool);
   	/*GoSlide();
   	$(this).hide();
 		$(this).siblings().show();*/
 	});
 
-  viewBox2.on('mouseenter',function(){playBanner(false);});
-  viewBox2.on('mouseleave',function(){playBanner(true);});
 
 // 클릭시 배너 움직이게 만들기
 // playBtn.hide(); //지우기
@@ -80,12 +77,8 @@
 		e.preventDefault();
 		e.stopPropagation(); //움직임이 부드럽게 제거 
 		// console.log(e.bubbles);
-		StopSlide(); //포커스일때 멈춰라
-		let myThis = $(this);
-		let myThisPar = myThis.parent('li');
-		let i = myThisPar.index();
-		myn = i; //let 사용X
-		MoveSlide(myn, true);
+		// StopSlide(); //포커스일때 멈춰라
+		myn = $(this).parent('li').index; //let 사용X
 		playBanner(false);
 	});
 

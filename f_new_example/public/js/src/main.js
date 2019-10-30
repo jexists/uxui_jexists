@@ -13,15 +13,21 @@
 		return body.append(`<script src="../js/src/temp/${temp}.js"></script>`);
 	};
 	viewBox.load('./temp/slide_01.html', () => {
-		JsLink('slide_01');
+		return JsLink('slide_01');
 	});
 	conBox.load('./temp/slide_02.html', () => {
-		JsLink('slide_02');
+		return JsLink('slide_02');
 	});
 	wrap.append('<section id="viewBox_02"></section>');
 	const vB2 = $('#viewBox_02');
 	vB2.load('./temp/slide_02_answer.html',function(){
-		JsLink('slide_02_answer')
+		return JsLink('slide_02_answer');
 	});
+	wrap.append('<section id="viewBox_03"></section>');
+	const vB3 = $('#viewBox_03');
+	vB3.load('./temp/slide_03.html',function(){
+		return JsLink('slide_03');
+	});
+
 
 })(jQuery);

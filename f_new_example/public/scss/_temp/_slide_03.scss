@@ -1,0 +1,22 @@
+// slide_03.scss
+
+#viewBox_03{position: relative; width: 100%; height: 700px; 
+	margin: 15rem auto;}
+
+.slide_03_btn {position: absolute; top: 50%; left: 0; z-index: 500;
+	width: 100%; height: 0;
+	>button{float: left; width: 100px; height: 100px; 
+		background-color: $b; text-transform: translateY(-50%);
+	&.next {float: right}
+	}}
+
+.slide_03_form{$count:5 + 1; //슬라이드갯수 + 복제갯수
+	overflow: hidden;width: 100%; height: 100%; 
+	>ul{position: relative; width: 100% * $count; height: 100%; 
+		margin-left: -100%;
+	>li{float: left; width: 100% / $count; height: 100%;
+		background-repeat: no-repeat; background-position: 50% 50%;
+		background-size: cover;}
+	 @for $i from 1 to $count{ //to는 미만, through 이하
+	 	>li.slide_03_con_0#{$i}{background-image: url("../../img/slide/slide_0#{$i}.jpg")}
+	 }}}
