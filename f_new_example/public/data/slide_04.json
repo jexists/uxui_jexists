@@ -1,0 +1,7 @@
+[
+	{"title":"philippine", "content":"필리핀....", "linkText":"바로가기", "link":"https://www.naver.com/", "bgimg":"slide_01.jpg"},
+	{"title":"taiwan", "content":"타이완....", "linkText":"바로가기", "link":"링크주소", "bgimg": "slide_02.jpg"},
+	{"title":"united state of america", "content":"미국....", "linkText":"바로가기", "link":"링크주소", "bgimg": "slide_03.jpg"},
+	{"title":"canada", "content":"캐나다....", "linkText":"바로가기", "link":"링크주소", "bgimg": "slide_04.jpg"},
+	{"title":"korea", "content":"한국....", "linkText":"바로가기", "link":"링크주소", "bgimg": "slide_05.jpg"}
+]

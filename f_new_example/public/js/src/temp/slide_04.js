@@ -3,13 +3,25 @@
 (function($){
 	const imgUrl = '../img/slide/' //이미지 경로 (html메인기준)
 	let sample = {title:'title_1', content:'slide content....', linkText:'바로가기', link:'링크주소', bgimg: 'img.jpg'}
-	const imgList = [ //이미지파일명
+	let imgList;
+
+	$.ajax({
+		async: false,
+		type:'GET',
+		url:'../data/slide_04.json',
+		dataType:'json',
+		error:function(){console.log('data error');},
+		success: function(d){imgList = d; return imgList}
+	})
+	console.log(imgList);
+	/*[//이미지파일명
 	{title:'philippine', content:'필리핀....', linkText:'바로가기', link:'https://www.naver.com/', bgimg: 'slide_01.jpg'},//슬라이드1
 	{title:'taiwan', content:'타이완....', linkText:'바로가기', link:'링크주소', bgimg: 'slide_02.jpg'},//슬라이드2
 	{title:'united state of america', content:'미국....', linkText:'바로가기', link:'링크주소', bgimg: 'slide_03.jpg'},//슬라이드3
 	{title:'canada', content:'캐나다....', linkText:'바로가기', link:'링크주소', bgimg: 'slide_04.jpg'},//슬라이드4
-	{title:'korea', content:'한국....', linkText:'바로가기', link:'링크주소', bgimg: 'slide_05.jpg'},//슬라이드5
-	];
+	{title:'korea', content:'한국....', linkText:'바로가기', link:'링크주소', bgimg: 'slide_05.jpg'},//슬라이드5 ];*/
+	
+	console.log(imgList);
 
 	const slide_04 = $('#viewBox_04');
 	slide_04.append('<div class="slide_form"></div>');
