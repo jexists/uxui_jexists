@@ -111,7 +111,19 @@ $() => 선택기능: 원하는 요소 가져오기
 >
 >html = 요소를 새롭게 만들고 싶을때
 
-#### $(DOM 요소)
+#### $(DOM 요소) "작업이 이루어지는 장소"
+
+문서 객체 모델(The Document Object Model, 이하 DOM) 은 HTML, XML 문서의 프로그래밍 interface 이다. DOM은 문서의 구조화된 표현(structured representation)을 제공하며 프로그래밍 언어가 DOM 구조에 접근할 수 있는 방법을 제공하여 그들이 문서 구조, 스타일, 내용 등을 변경할 수 있게 돕는다. DOM 은 구조화된 nodes와 property 와 method 를 갖고 있는 objects로 문서를 표현한다. 이들은 웹 페이지를 스크립트 또는 프로그래밍 언어들에서 사용될 수 있게 연결시켜주는 역할을 담당한다. 
+
+ **DevTools에서 보이는 코드가 DOM이다.** 브라우저에서 지원하는 개발자 툴에서 보이는 것이 바로 DOM입니다! 이 툴에서 시각적으로 표현한 DOM이 나의 HTML 코드와 동일할 수는 있지만, 대개는 달라지게 되며 DevTool에서는 이러한 변경 사항이 적용되어 표시됩니다.
+
+#### DOM이 HTML 달라지는 경우
+
+브라우저가 HTML 수정한경우
+JavaScript로 DOM을 조작하는 경우
+Ajax and Templating을 사용하는 경우
+
+출처:  [DOM이란?](https://velog.io/@godori/DOM이란-무엇인가) 
 
 >$(function(){}); = 페이지 로딩 완료 시에 실행되는 코드 예약하기 / 페이지 로딩 완료 이벤트
 >*$(document).ready(function(){}); 
@@ -125,3 +137,4 @@ $() => 선택기능: 원하는 요소 가져오기
 >$(this) = 클릭된 요소
 
 #### each - 각각 / jQuery 객체의 각 요소에 대하여 동일 처리 해주는 메소드
+

@@ -28,6 +28,14 @@ jQuery는 자바스크립트에 일부분 library이다.
 
 #### jQuery 작성방법
 
+```javascript
+//요점정리
+window.jQuery(document).ready(function(){}); //과거형 완전 풀어서 (해드태그)
+$(document).ready(function(){}); //과거형 풀어서
+$(function(){}) //과거형
+(function($){})(jQuery); //현재형 //해드태그에서는 불러올수없다. (바디에서만) //$=jQuery
+```
+
 ```html
 <!-- 과거 -->
 <script>
