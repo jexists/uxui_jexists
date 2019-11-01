@@ -16,6 +16,13 @@ jQuery는 자바스크립트에 일부분 library이다.
 > minified - 용량은 적지만 스페이스없음
 > uncompressed - 코드 보기 쉬움
 
+#### [주의사항]
+
+```주의사항
+transition animate -> transition이 더 빠르다
+transtition & animate 같이 사용 못한다. (애니메이트 중첩이 안된다.)
+```
+
 #### cdn으로 불러오는 방법
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -1723,6 +1730,247 @@ setTimeout(function(){
 $('h1').find('a').focus(); //focus를 잡아라!
 
 $('h1').find('a').on('focus'); //focus가 잡히면 (권장!!) 
+```
+
+### .Stop(clearQueue,jumpToEnd) 메소드
+
+**[stop 기본] .stop({false,false})**  on 191101
+clearQueue :대기중인 애니메이션을 제거할지 여부 / 처음 애니메이션
+jumpToEnd 현재 애니메이션을 즉시 완료할지 여부 / 끝에 애니메이션 흐름만 해줌
+
+```javascript
+//paul_conBox.html===================================
+<h2>stop메서드 간단이해</h2>
+<button type="button">클릭</button>
+<div class="bar"></div>
+// paul_conBox.scss==================================
+#conBox{width: 100%; height: 100%; background-color: $gy;
+ >button{width: 100px; height: 40px; background-color: #ccc;}
+ >.bar{width: 100%; height: 100px; background-color: #fad;
+ 	background-image: linear-gradient(90deg,#fad,#f0e)}}
+// paul_conBox.js==================================
+(function($){
+	const conBox = $('#conBox');
+	const conBtn = conBox.find('button');
+	const bar = conBox.find('.bar');
+
+	conBtn.on('click',function(e){
+		e.preventDefault();
+		bar.toggleClass('hideBar');
+		//toggleClass():class이름을 넣었다가 빼고 하는 변환기능
+		let view = bar.hasClass('hideBar'); 
+		// hasClass(): class이름의 존재 유무 판단 유:true 무:false
+		if(view){
+			bar.stop(false,true).animate({width:0},2000)
+		}else{
+			bar.stop(false,true).animate({width:100+'%'},2000)
+		}
+	})
+})(jQuery);
+```
+
+#### toggleClass():class이름을 넣었다가 빼고 하는 변환기능
+
+#### hasClass(): class이름의 존재 유무 판단 (유:true 무:false)
+
+
+
+## 스크롤
+
+#### console.log() - detail & originalEvent.wheelDelta 알아보기
+
+```javascript
+// paul_scroll.js
+(function($){
+//offset().top : 브라우저 최 상단에서 얼마큼 떨어져 있는가를 판단하는 기능
+//offset().left: 브라우저 왼쪽에서 얼만큼 떨어져 있는가를 판단하는 기능
+//scrollTop(): 브라우저의 위치가(스크롤) 이동되었을때 위치값을 판단
+ const viewBox = $('#viewBox');
+ const conBox = $('#conBox')
+ let viewLocation = viewBox.offset().top;
+ console.log(viewLocation);
+ let con1Location = conBox.offset().top;
+ console.log(con1Location);
+ let  winScroll = $(window).scrollTop();
+ console.log(winScroll);
+
+ $(window).on('mousewheel DOMMouseScroll', function(e){
+	// console.log(e); 
+	//이벤트중에 firefox: detail Chrome: originalEvent: delta / wheelDelta
+	console.log(e.detail) //존재 fireFox:값존재 (3) chrome: 0
+	console.log(e.originalEvent.wheelDelta) //fireFox:존재X / / 크롬: 값존재(120)
+ });
+})(jQuery);
+```
+
+#### console.log() - detail & originalEvent.wheelDelta 알아보기
+
+```javascript
+// paul_scroll.js
+(function($){
+ const viewBox = $('#viewBox');
+ const conBox = $('#conBox')
+ let viewLocation = viewBox.offset().top;
+ console.log(viewLocation);
+ let con1Location = conBox.offset().top;
+ console.log(con1Location);
+ let  winScroll = $(window).scrollTop();
+ console.log(winScroll);
+
+ $(window).on('mousewheel DOMMouseScroll', function(e){
+	// console.log(e); 
+	//이벤트중에 firefox: detail Chrome: originalEvent: delta / wheelDelta
+	// console.log(e.detail) //존재 fireFox:값존재 (3) chrome: 0
+	// console.log(e.originalEvent.wheelDelta) //fireFox:존재X / / 크롬: 값존재(120)
+	if(e.originalEvent.wheelDelta){ //크롬
+		console.log(true);
+	}else{
+		console.log(false);
+	}
+});
+})(jQuery);
+```
+
+#### console.log() - detail & originalEvent.wheelDelta 알아보기
+
+```javascript
+// paul_scroll.js
+(function($){
+	//offset().top : 브라우저 최 상단에서 얼마큼 떨어져 있는가를 판단하는 기능
+	//offset().left: 브라우저 왼쪽에서 얼만큼 떨어져 있는가를 판단하는 기능
+	//scrollTop(): 브라우저의 위치가(스크롤) 이동되었을때 위치값을 판단
+
+	const viewBox = $('#viewBox');
+	const conBox = $('#conBox')
+	let viewLocation = viewBox.offset().top;
+	console.log(viewLocation);
+	let con1Location = conBox.offset().top;
+	console.log(con1Location);
+
+	let  winScroll = $(window).scrollTop();
+	console.log(winScroll);
+
+	$(window).on('mousewheel DOMMouseScroll', function(e){
+		// console.log(e); 
+		//이벤트중에 firefox: detail Chrome: originalEvent: delta / wheelDelta
+		// console.log(e.detail) //존재 fireFox:값존재 (3) chrome: 0
+		// console.log(e.originalEvent.wheelDelta) //fireFox:존재X / / 크롬: 값존재(120)
+		if(e.originalEvent.wheelDelta){ //크롬
+			scrollResult = e.originalEvent.wheelDelta;
+		}else{
+			scrollResult = e.detail * -40;
+		}
+		console.log(scrollResult);
+	});
+
+})(jQuery);
+```
+
+```javascript
+// paul_scroll.js
+(function($){
+	const viewBox = $('#viewBox');
+	const conBox = $('#conBox')
+	let viewLocation = viewBox.offset().top;
+	console.log(viewLocation);
+	let con1Location = conBox.offset().top;
+	console.log(con1Location);
+
+	let  winScroll = $(window).scrollTop();
+	console.log(winScroll);
+
+	$(window).on('mousewheel DOMMouseScroll', function(e){
+		let delta = e.originalEvent.wheelDelta;
+		(delta) ? scrollResult = delta : scrollResult = e.detail * -40;
+		// if(e.originalEvent.wheelDelta){ //크롬
+		// 	scrollResult = e.originalEvent.wheelDelta;
+		// }else{
+		// 	scrollResult = e.detail * -40;
+		// }
+		console.log(scrollResult);
+	});
+
+})(jQuery);
+```
+
+```javascript
+// paul_scroll.js
+(function($){
+	const viewBox = $('#viewBox');
+	const conBox = $('#conBox')
+	const conBox2 = $('#conBox2')
+	let viewLocation = viewBox.offset().top;
+	console.log(viewLocation);
+	let con1Location = conBox.offset().top;
+	console.log(con1Location);
+
+	let  winScroll = $(window).scrollTop();
+	console.log(winScroll);
+
+	let scrollResult = 0;
+	let n = 0;
+
+	$(window).on('mousewheel DOMMouseScroll', function(e){
+		let delta = e.originalEvent.wheelDelta;
+		(delta) ? scrollResult = delta : scrollResult = e.detail * -40;
+		(scrollResult >= 0 ) ? n++ : n--;
+		console.log(n);
+	});
+
+})(jQuery);
+```
+
+#### 삼항연산자"3가지의 항목을 가지고 있는 것" =  (조건) ? 참일때 해라 :거짓일때 해라
+
+(scrollResult >= 0 ) ? n++ : n--;
+
+```javascript
+// paul_scroll.js
+(function($){
+	//offset().top : 브라우저 최 상단에서 얼마큼 떨어져 있는가를 판단하는 기능
+	//offset().left: 브라우저 왼쪽에서 얼만큼 떨어져 있는가를 판단하는 기능
+	//scrollTop(): 브라우저의 위치가(스크롤) 이동되었을때 위치값을 판단
+
+	const viewBox = $('#viewBox');
+	const conBox = $('#conBox')
+	const conBox2 = $('#conBox2')
+	let viewLocation = viewBox.offset().top;
+	console.log(viewLocation);
+	let con1Location = conBox.offset().top;
+	console.log(con1Location);
+	let con2Location = conBox2.offset().top;
+
+	let  winScroll; //= $(window).scrollTop();
+	console.log(winScroll);
+
+	let scrollResult = 0;
+	let n = 0;
+
+	$(window).on('mousewheel DOMMouseScroll', function(e){
+		// console.log(e); 
+		//이벤트중에 firefox: detail Chrome: originalEvent: delta / wheelDelta
+		// console.log(e.detail) //존재 fireFox:값존재 (3) chrome: 0
+		// console.log(e.originalEvent.wheelDelta) //fireFox:존재X / / 크롬: 값존재(120)
+		let delta = e.originalEvent.wheelDelta;
+		(delta) ? scrollResult = delta : scrollResult = e.detail * -40;
+		// if(e.originalEvent.wheelDelta){ //크롬
+		// 	scrollResult = e.originalEvent.wheelDelta;
+		// }else{
+		// 	scrollResult = e.detail * -40;
+		// }
+		(scrollResult >= 0 ) ? n++ : n--;
+		// console.log(n);
+
+		winScroll = $(window).scrollTop();
+		if (winScroll >= con1Location){
+			conBox2.css({backgroundColor:'#fff', marginLeft: '-50vw',
+				transform:'rotate(45deg)', transition:'all 300ms ease'});
+		}else{
+			conBox2.removeAttr('style');
+		}
+	});
+
+})(jQuery);
 ```
 
 
