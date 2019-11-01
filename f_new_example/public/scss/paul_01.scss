@@ -6,6 +6,9 @@
 
 #wrap{width: 100%; height: 100%; background-color: $spC;}
 
+#conBox2 {width: 100%; height: 100%; background-color: darken($y,20%);}
+#conBox3 {width: 100%; height: 100%; background-color: darken($y,80%);}
+#footBox {width: 100%; height: 100%; background-color: darken($y,40%);}
 @import "./_temp/paul_headBox";
 @import "./_temp/paul_viewBox";
 @import "./_temp/paul_conBox";
