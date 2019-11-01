@@ -35,14 +35,20 @@ h1 a { display: none; }
 
 #viewBox .indicator .view_btn > button:hover, #viewBox .indicator .view_btn > button:focus { color: #f06; }
 
-#viewBox .slide_form { width: 100%; height: 100px; background-color: rgba(51, 51, 51, 0.2); }
+#viewBox .slide_form { width: 100%; height: 100%; background-color: rgba(51, 51, 51, 0.2); }
 
-#viewBox .slide_form > ul { width: 100%; height: 100px; }
+#viewBox .slide_form > ul { width: 100%; height: 100%; }
 
-#viewBox .slide_form > ul > li { position: absolute; width: 100%; height: 100%; font-size: 5rem; font-weight: 900; color: #fff; text-shadow: 0 0 0.2rem rgba(51, 51, 51, 0.5); text-transform: capitalize; }
+#viewBox .slide_form > ul > li { position: absolute; top: 0; left: 0; width: 100%; height: 100%; word-break: break-all; white-space: nowrap; font-size: 5rem; font-weight: 900; color: #fff; text-shadow: 0 0 0.2rem rgba(51, 51, 51, 0.5); text-transform: capitalize; }
 
-#viewBox .slide_form > ul > li:nth-child(1) { background-color: #11ff11; top: 40%; }
+#viewBox .slide_form > ul > li:nth-child(1) { background-color: #11ff11; }
 
-#viewBox .slide_form > ul > li:nth-child(2) { background-color: #00aa00; top: 20%; }
+#viewBox .slide_form > ul > li:nth-child(2) { background-color: #00aa00; }
 
-#viewBox .slide_form > ul > li:nth-child(3) { background-color: #004400; top: 0; }
+#viewBox .slide_form > ul > li:nth-child(3) { background-color: #004400; }
+
+#conBox { width: 100%; height: 100%; background-color: #ccc; }
+
+#conBox > button { width: 100px; height: 40px; background-color: #0c9; }
+
+#conBox > .bar { width: 100%; height: 100px; background-color: #fa0; background-image: linear-gradient(90deg, #fa0, #0c9); }

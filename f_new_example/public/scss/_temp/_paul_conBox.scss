@@ -1,0 +1,6 @@
+// paul_conBox.scss
+
+#conBox{width: 100%; height: 100%; background-color: $gy;
+ >button{width: 100px; height: 40px; background-color: $bgC;}
+ >.bar{width: 100%; height: 100px; background-color: $y;
+ 	background-image: linear-gradient(90deg,$y,$bgC)}}
