@@ -1,0 +1,5 @@
+// mixin_02.scss
+
+@mixin fullBox($w:100%, $h:100%, $bg:$spC){
+	width: $w; height: $h; margin: auto; background-color: $bg;
+} //mixin fullBox

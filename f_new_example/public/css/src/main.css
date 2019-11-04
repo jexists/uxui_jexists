@@ -7,194 +7,194 @@
 	@include horizon_banner_img($count, $imgName, $url:$url, $file:'png');
 	기타 div 및 하위내용삽입
 } */
-#wrap { width: 100%; height: 100%; background-color: #0de; }
+/* line 8, scss/main.scss */ #wrap { width: 100%; height: 100%; background-color: #0de; }
 
 /* slide_01.css */
 /*  @import url("../_basic/var"); @import url("../_basic/mixin"); @import url("../_basic/etc"); */
-.slide_temp { position: relative; width: 90%; height: 700px; margin: auto; border: 1px solid #fa0; background-color: #fa0; }
+/* line 16, scss/_temp/_slide_01.scss */ .slide_temp { position: relative; width: 90%; height: 700px; margin: auto; border: 1px solid #fa0; background-color: #fa0; }
 
-.view_btn { position: absolute; top: 50%; width: 100%; height: 0; z-index: 50; }
+/* line 20, scss/_temp/_slide_01.scss */ .view_btn { position: absolute; top: 50%; width: 100%; height: 0; z-index: 50; }
 
-.view_btn > button { float: left; width: 100px; height: 100px; transform: translateY(-50%); background-color: #777; }
+/* line 23, scss/_temp/_slide_01.scss */ .view_btn > button { float: left; width: 100px; height: 100px; transform: translateY(-50%); background-color: #777; }
 
-.view_btn > button.next { float: right; }
+/* line 26, scss/_temp/_slide_01.scss */ .view_btn > button.next { float: right; }
 
-.view_btn > button:hover, .view_btn > button:focus { background-color: #f06; }
+/* line 27, scss/_temp/_slide_01.scss */ .view_btn > button:hover, .view_btn > button:focus { background-color: #f06; }
 
-.view_indicator { position: absolute; z-index: 500; left: 50%; bottom: 30px; transform: translateX(-50%); margin: auto; width: auto; min-width: 135px; height: 30px; padding: 5px; border-radius: 30px; background-color: #fff; }
+/* line 26, scss/_basic/_mixin.scss */ .view_indicator { position: absolute; z-index: 500; left: 50%; bottom: 30px; transform: translateX(-50%); margin: auto; width: auto; min-width: 135px; height: 30px; padding: 5px; border-radius: 30px; background-color: #fff; }
 
-.view_indicator > ul { width: 100%; height: 100%; }
+/* line 32, scss/_basic/_mixin.scss */ .view_indicator > ul { width: 100%; height: 100%; }
 
-.view_indicator > ul > li { float: left; width: auto; height: 30px; margin-left: 5px; }
+/* line 33, scss/_basic/_mixin.scss */ .view_indicator > ul > li { float: left; width: auto; height: 30px; margin-left: 5px; }
 
-.view_indicator > ul > li:first-child { margin-left: 0; }
+/* line 35, scss/_basic/_mixin.scss */ .view_indicator > ul > li:first-child { margin-left: 0; }
 
-.view_indicator > ul > li a { display: block; width: 30px; height: 100%; border-radius: 30px; background-color: #ccc; transition: all 300ms ease; }
+/* line 36, scss/_basic/_mixin.scss */ .view_indicator > ul > li a { display: block; width: 30px; height: 100%; border-radius: 30px; background-color: #ccc; transition: all 300ms ease; }
 
-.view_indicator > ul > li a > span { display: block; position: absolute; z-index: -1; overflow: hidden; width: 0; height: 0; }
+/* line 18, scss/_basic/_mixin.scss */ .view_indicator > ul > li a > span { display: block; position: absolute; z-index: -1; overflow: hidden; width: 0; height: 0; }
 
-.view_indicator > ul > li a:hover { background-color: #ff99c2; }
+/* line 38, scss/_basic/_mixin.scss */ .view_indicator > ul > li a:hover { background-color: #ff99c2; }
 
-.view_indicator > ul > li a.action, .view_indicator > ul > li a:focus { background-color: #f06; width: 90px; border-radius: 30px; outline: none; }
+/* line 39, scss/_basic/_mixin.scss */ .view_indicator > ul > li a.action, .view_indicator > ul > li a:focus { background-color: #f06; width: 90px; border-radius: 30px; outline: none; }
 
-.view_indicator > ul > li a > span { display: block; position: absolute; z-index: -1; overflow: hidden; width: 0; height: 0; }
+/* line 41, scss/_basic/_mixin.scss */ .view_indicator > ul > li a > span { display: block; position: absolute; z-index: -1; overflow: hidden; width: 0; height: 0; }
 
-.slide_form { overflow: hidden; width: 100%; height: 100%; }
+/* line 35, scss/_temp/_slide_01.scss */ .slide_form { overflow: hidden; width: 100%; height: 100%; }
 
-.slide_form .guide { position: relative; top: 0; left: 0; width: 400%; height: 100%; background-color: #fa0; }
+/* line 37, scss/_temp/_slide_01.scss */ .slide_form .guide { position: relative; top: 0; left: 0; width: 400%; height: 100%; background-color: #fa0; }
 
-.slide_form .guide > div { float: left; width: 25%; height: 100%; padding: 4rem; box-sizing: border-box; background-repeat: no-repeat; background-position: 50% 50%; background-size: cover; /* &:nth-of-type(1){background-color: $wt;} &:nth-of-type(2){background-color: darken($wt,20%);} &:nth-of-type(3){background-color: darken($wt,40%);} &:nth-of-type(4){background-color: darken($wt,60%);} */ }
+/* line 39, scss/_temp/_slide_01.scss */ .slide_form .guide > div { float: left; width: 25%; height: 100%; padding: 4rem; box-sizing: border-box; background-repeat: no-repeat; background-position: 50% 50%; background-size: cover; /* &:nth-of-type(1){background-color: $wt;} &:nth-of-type(2){background-color: darken($wt,20%);} &:nth-of-type(3){background-color: darken($wt,40%);} &:nth-of-type(4){background-color: darken($wt,60%);} */ }
 
-.slide_form .guide > div:nth-of-type(1) { /* background-color: darken($wt, $i * 20%); */ background-image: url("../../img/slide/slide_01.jpg"); }
+/* line 48, scss/_temp/_slide_01.scss */ .slide_form .guide > div:nth-of-type(1) { /* background-color: darken($wt, $i * 20%); */ background-image: url("../../img/slide/slide_01.jpg"); }
 
-.slide_form .guide > div:nth-of-type(2) { /* background-color: darken($wt, $i * 20%); */ background-image: url("../../img/slide/slide_02.jpg"); }
+/* line 48, scss/_temp/_slide_01.scss */ .slide_form .guide > div:nth-of-type(2) { /* background-color: darken($wt, $i * 20%); */ background-image: url("../../img/slide/slide_02.jpg"); }
 
-.slide_form .guide > div:nth-of-type(3) { /* background-color: darken($wt, $i * 20%); */ background-image: url("../../img/slide/slide_03.jpg"); }
+/* line 48, scss/_temp/_slide_01.scss */ .slide_form .guide > div:nth-of-type(3) { /* background-color: darken($wt, $i * 20%); */ background-image: url("../../img/slide/slide_03.jpg"); }
 
-.slide_form .guide > div:nth-of-type(4) { /* background-color: darken($wt, $i * 20%); */ background-image: url("../../img/slide/slide_04.jpg"); }
+/* line 48, scss/_temp/_slide_01.scss */ .slide_form .guide > div:nth-of-type(4) { /* background-color: darken($wt, $i * 20%); */ background-image: url("../../img/slide/slide_04.jpg"); }
 
-.slide_form .guide > div h3 { margin: auto; margin-top: 200px; font-size: 4rem; color: #fff; text-transform: uppercase; font-weight: bold; text-align: center; }
+/* line 58, scss/_temp/_slide_01.scss */ .slide_form .guide > div h3 { margin: auto; margin-top: 200px; font-size: 4rem; color: #fff; text-transform: uppercase; font-weight: bold; text-align: center; }
 
-.slide_form .guide > div p { font-size: 1.2rem; color: #fff; font-weight: bold; margin-bottom: 1rem; text-align: center; }
+/* line 61, scss/_temp/_slide_01.scss */ .slide_form .guide > div p { font-size: 1.2rem; color: #fff; font-weight: bold; margin-bottom: 1rem; text-align: center; }
 
-.slide_form .guide > div .link_btn { width: 260px; height: 40px; padding: 0.5rem; margin: auto; background-color: #f06; border-radius: 40px; line-height: 40px; text-align: center; }
+/* line 63, scss/_temp/_slide_01.scss */ .slide_form .guide > div .link_btn { width: 260px; height: 40px; padding: 0.5rem; margin: auto; background-color: #f06; border-radius: 40px; line-height: 40px; text-align: center; }
 
-.slide_form .guide > div .link_btn > a { display: block; width: 100%; height: 100%; color: #fff; font-weight: 900; font-size: 1.3rem; background-color: #f06; border-radius: 40px; }
+/* line 66, scss/_temp/_slide_01.scss */ .slide_form .guide > div .link_btn > a { display: block; width: 100%; height: 100%; color: #fff; font-weight: 900; font-size: 1.3rem; background-color: #f06; border-radius: 40px; }
 
-.slide_form .guide > div .link_btn > a > span { display: block; position: absolute; z-index: -1; overflow: hidden; width: 0; height: 0; }
+/* line 18, scss/_basic/_mixin.scss */ .slide_form .guide > div .link_btn > a > span { display: block; position: absolute; z-index: -1; overflow: hidden; width: 0; height: 0; }
 
-.slide_form .guide > div .link_btn > a:hover, .slide_form .guide > div .link_btn a:focus { background-color: #333; outline: none; }
+/* line 68, scss/_temp/_slide_01.scss */ .slide_form .guide > div .link_btn > a:hover, .slide_form .guide > div .link_btn a:focus { background-color: #333; outline: none; }
 
 /* slide_02 */
-#conBox { margin-top: 100px; }
+/* line 4, scss/_temp/_slide_02.scss */ #conBox { margin-top: 100px; }
 
-.slide_wrap { position: relative; width: 100%; height: 800px; margin: auto; }
+/* line 5, scss/_temp/_slide_02.scss */ .slide_wrap { position: relative; width: 100%; height: 800px; margin: auto; }
 
-.con_btn { position: absolute; bottom: 100px; right: 50%; z-index: 10; margin-right: -330px; width: auto; height: 30px; }
+/* line 8, scss/_temp/_slide_02.scss */ .con_btn { position: absolute; bottom: 100px; right: 50%; z-index: 10; margin-right: -330px; width: auto; height: 30px; }
 
-.con_btn button { display: block; float: left; width: 30px; height: 30px; margin-right: 5px; line-height: 30px; font-size: 1.4rem; background-color: transparent; }
+/* line 12, scss/_temp/_slide_02.scss */ .con_btn button { display: block; float: left; width: 30px; height: 30px; margin-right: 5px; line-height: 30px; font-size: 1.4rem; background-color: transparent; }
 
-.con_btn .next { float: right; margin-right: 0; }
+/* line 16, scss/_temp/_slide_02.scss */ .con_btn .next { float: right; margin-right: 0; }
 
-.con_btn .play { display: none; }
+/* line 17, scss/_temp/_slide_02.scss */ .con_btn .play { display: none; }
 
-.con_indicator { position: absolute; bottom: 105px; right: 50%; z-index: 10; margin-right: -240px; width: auto; min-width: 140px; height: 20px; }
+/* line 19, scss/_temp/_slide_02.scss */ .con_indicator { position: absolute; bottom: 105px; right: 50%; z-index: 10; margin-right: -240px; width: auto; min-width: 140px; height: 20px; }
 
-.con_indicator > ul { width: 100%; height: 100%; }
+/* line 24, scss/_temp/_slide_02.scss */ .con_indicator > ul { width: 100%; height: 100%; }
 
-.con_indicator > ul > li { float: left; width: auto; height: 20px; margin-right: 10px; }
+/* line 25, scss/_temp/_slide_02.scss */ .con_indicator > ul > li { float: left; width: auto; height: 20px; margin-right: 10px; }
 
-.con_indicator > ul > li:last-child { margin-right: 0; }
+/* line 27, scss/_temp/_slide_02.scss */ .con_indicator > ul > li:last-child { margin-right: 0; }
 
-.con_indicator > ul > li a { display: block; width: 20px; height: 100%; border-radius: 20px; overflow: hidden; background-color: #ded; }
+/* line 28, scss/_temp/_slide_02.scss */ .con_indicator > ul > li a { display: block; width: 20px; height: 100%; border-radius: 20px; overflow: hidden; background-color: #ded; }
 
-.con_indicator > ul > li a:hover { background-color: #aec; }
+/* line 31, scss/_temp/_slide_02.scss */ .con_indicator > ul > li a:hover { background-color: #aec; }
 
-.con_indicator > ul > li a.active, .con_indicator > ul > li a:focus { width: 48px; outline: none; background-color: #ce3; }
+/* line 32, scss/_temp/_slide_02.scss */ .con_indicator > ul > li a.active, .con_indicator > ul > li a:focus { width: 48px; outline: none; background-color: #ce3; }
 
-#conBox .slide_form { overflow: hidden; width: 100%; height: 100%; }
+/* line 34, scss/_temp/_slide_02.scss */ #conBox .slide_form { overflow: hidden; width: 100%; height: 100%; }
 
-#conBox .slide_form .guide { position: relative; top: 0; left: 0; width: 300%; height: 100%; }
+/* line 35, scss/_temp/_slide_02.scss */ #conBox .slide_form .guide { position: relative; top: 0; left: 0; width: 300%; height: 100%; }
 
-#conBox .slide_form .guide > li { position: relative; float: left; overflow: hidden; width: 33.33333%; height: 100%; }
+/* line 37, scss/_temp/_slide_02.scss */ #conBox .slide_form .guide > li { position: relative; float: left; overflow: hidden; width: 33.33333%; height: 100%; }
 
-#conBox .slide_form .guide > li:nth-child(1) { background-color: #cccccc; }
+/* line 40, scss/_temp/_slide_02.scss */ #conBox .slide_form .guide > li:nth-child(1) { background-color: #cccccc; }
 
-#conBox .slide_form .guide > li:nth-child(2) { background-color: #999999; }
+/* line 40, scss/_temp/_slide_02.scss */ #conBox .slide_form .guide > li:nth-child(2) { background-color: #999999; }
 
-#conBox .slide_form .guide > li:nth-child(3) { background-color: #666666; }
+/* line 40, scss/_temp/_slide_02.scss */ #conBox .slide_form .guide > li:nth-child(3) { background-color: #666666; }
 
-#conBox .slide_form .guide > li > h3 { position: absolute; top: 40%; right: 0; margin-right: 200px; z-index: 10; width: 500px; height: 300px; color: #fff; }
+/* line 42, scss/_temp/_slide_02.scss */ #conBox .slide_form .guide > li > h3 { position: absolute; top: 40%; right: 0; margin-right: 200px; z-index: 10; width: 500px; height: 300px; color: #fff; }
 
-#conBox .slide_form .guide > li > h3 > strong { display: block; width: 500px; font-size: 2.5rem; word-break: keep-all; }
+/* line 45, scss/_temp/_slide_02.scss */ #conBox .slide_form .guide > li > h3 > strong { display: block; width: 500px; font-size: 2.5rem; word-break: keep-all; }
 
-#conBox .slide_form .guide > li > span { position: absolute; display: block; bottom: -50px; right: -40px; width: 850px; height: 800px; transform: rotate(-5deg); background-image: linear-gradient(90deg, #a1f, transparent); }
+/* line 47, scss/_temp/_slide_02.scss */ #conBox .slide_form .guide > li > span { position: absolute; display: block; bottom: -50px; right: -40px; width: 850px; height: 800px; transform: rotate(-5deg); background-image: linear-gradient(90deg, #a1f, transparent); }
 
-#viewBox_02 { position: relative; width: 90%; min-width: 1200px; height: 100%; max-height: 800px; min-height: 600px; margin: auto; margin-top: 200px; margin-bottom: 200px; }
+/* line 10, scss/_temp/_slide_02_answer.scss */ #viewBox_02 { position: relative; width: 90%; min-width: 1200px; height: 100%; max-height: 800px; min-height: 600px; margin: auto; margin-top: 200px; margin-bottom: 200px; }
 
-#viewBox_02 > .slide_temp { width: 100%; height: 100%; background-color: #ffa; }
+/* line 13, scss/_temp/_slide_02_answer.scss */ #viewBox_02 > .slide_temp { width: 100%; height: 100%; background-color: #ffa; }
 
-#viewBox_02 .btn_area { position: absolute; bottom: 2rem; left: 50%; z-index: 500; margin-left: 2rem; width: 220px; height: 20px; background-color: #fff; border-radius: 20px; }
+/* line 14, scss/_temp/_slide_02_answer.scss */ #viewBox_02 .btn_area { position: absolute; bottom: 2rem; left: 50%; z-index: 500; margin-left: 2rem; width: 220px; height: 20px; background-color: #fff; border-radius: 20px; }
 
-#viewBox_02 .slide_02_form { width: 100%; height: 100%; overflow: hidden; }
+/* line 19, scss/_temp/_slide_02_answer.scss */ #viewBox_02 .slide_02_form { width: 100%; height: 100%; overflow: hidden; }
 
-#viewBox_02 .slide_02_form > .guide { width: 300%; height: 100%; background-image: linear-gradient(45deg, #fa0, #333); }
+/* line 20, scss/_temp/_slide_02_answer.scss */ #viewBox_02 .slide_02_form > .guide { width: 300%; height: 100%; background-image: linear-gradient(45deg, #fa0, #333); }
 
-.banner_area { float: left; overflow: hidden; position: relative; z-index: 0; width: 33.33333%; height: 100%; }
+/* line 24, scss/_temp/_slide_02_answer.scss */ .banner_area { float: left; overflow: hidden; position: relative; z-index: 0; width: 33.33333%; height: 100%; }
 
-.banner_area:before, .banner_area::before { content: " "; display: block; position: absolute; top: 0; left: 50%; z-index: -10; width: 70%; height: 150%; background-image: linear-gradient(90deg, #00cc99, rgba(0, 204, 153, 0) 60%); transition: all 300ms linear; }
+/* line 27, scss/_temp/_slide_02_answer.scss */ .banner_area:before, .banner_area::before { content: " "; display: block; position: absolute; top: 0; left: 50%; z-index: -10; width: 70%; height: 150%; background-image: linear-gradient(90deg, #00cc99, rgba(0, 204, 153, 0) 60%); transition: all 300ms linear; }
 
-.banner_area.action:before, .banner_area.action::before { transform: rotate(-15deg); }
+/* line 32, scss/_temp/_slide_02_answer.scss */ .banner_area.action:before, .banner_area.action::before { transform: rotate(-15deg); }
 
-.slide2_01 { background-color: #ddf; }
+/* line 34, scss/_temp/_slide_02_answer.scss */ .slide2_01 { background-color: #ddf; }
 
-.slide2_02 { background-color: #ffd; }
+/* line 35, scss/_temp/_slide_02_answer.scss */ .slide2_02 { background-color: #ffd; }
 
-.slide2_03 { background-color: #dfd; }
+/* line 36, scss/_temp/_slide_02_answer.scss */ .slide2_03 { background-color: #dfd; }
 
-#viewBox_02 .indicator { float: left; width: auto; height: 100%; margin-right: 2rem; }
+/* line 40, scss/_temp/_slide_02_answer.scss */ #viewBox_02 .indicator { float: left; width: auto; height: 100%; margin-right: 2rem; }
 
-#viewBox_02 .indicator > li { float: left; width: auto; height: 20px; margin-right: 1rem; }
+/* line 42, scss/_temp/_slide_02_answer.scss */ #viewBox_02 .indicator > li { float: left; width: auto; height: 20px; margin-right: 1rem; }
 
-#viewBox_02 .indicator > li > a { display: block; width: 20px; height: 20px; border-radius: 20px; background-color: #ccc; }
+/* line 44, scss/_temp/_slide_02_answer.scss */ #viewBox_02 .indicator > li > a { display: block; width: 20px; height: 20px; border-radius: 20px; background-color: #ccc; }
 
-#viewBox_02 .indicator > li > a.action { width: 60px; background-color: #f06; }
+/* line 46, scss/_temp/_slide_02_answer.scss */ #viewBox_02 .indicator > li > a.action { width: 60px; background-color: #f06; }
 
-#viewBox_02 .indicator > li > a > span { display: block; position: absolute; z-index: -10; width: 0; height: 0; overflow: hidden; }
+/* line 47, scss/_temp/_slide_02_answer.scss */ #viewBox_02 .indicator > li > a > span { display: block; position: absolute; z-index: -10; width: 0; height: 0; overflow: hidden; }
 
-#viewBox_02 .view_btn { position: static; float: right; width: auto; height: 100%; }
+/* line 48, scss/_temp/_slide_02_answer.scss */ #viewBox_02 .view_btn { position: static; float: right; width: auto; height: 100%; }
 
-#viewBox_02 .view_btn > button { display: none; }
+/* line 49, scss/_temp/_slide_02_answer.scss */ #viewBox_02 .view_btn > button { display: none; }
 
-#viewBox_02 .view_btn .play_btn { width: auto; height: 20px; }
+/* line 50, scss/_temp/_slide_02_answer.scss */ #viewBox_02 .view_btn .play_btn { width: auto; height: 20px; }
 
-#viewBox_02 .view_btn .play_btn > button { float: left; width: 20px; height: 20px; background-color: #0c9; }
+/* line 51, scss/_temp/_slide_02_answer.scss */ #viewBox_02 .view_btn .play_btn > button { float: left; width: 20px; height: 20px; background-color: #0c9; }
 
-#viewBox_02 .view_btn .play_btn > button > span { display: block; position: absolute; z-index: -10; width: 0; height: 0; overflow: hidden; }
+/* line 53, scss/_temp/_slide_02_answer.scss */ #viewBox_02 .view_btn .play_btn > button > span { display: block; position: absolute; z-index: -10; width: 0; height: 0; overflow: hidden; }
 
-#viewBox_03 { position: relative; width: 100%; height: 700px; margin: 15rem auto; }
+/* line 3, scss/_temp/_slide_03.scss */ #viewBox_03 { position: relative; width: 100%; height: 700px; margin: 15rem auto; }
 
-.slide_03_btn { position: absolute; top: 50%; left: 0; z-index: 500; width: 100%; height: 0; }
+/* line 6, scss/_temp/_slide_03.scss */ .slide_03_btn { position: absolute; top: 50%; left: 0; z-index: 500; width: 100%; height: 0; }
 
-.slide_03_btn > button { float: left; width: 100px; height: 100px; background-color: #333; text-transform: translateY(-50%); }
+/* line 8, scss/_temp/_slide_03.scss */ .slide_03_btn > button { float: left; width: 100px; height: 100px; background-color: #333; text-transform: translateY(-50%); }
 
-.slide_03_btn > button.next { float: right; }
+/* line 10, scss/_temp/_slide_03.scss */ .slide_03_btn > button.next { float: right; }
 
-.slide_03_form { overflow: hidden; width: 100%; height: 100%; }
+/* line 13, scss/_temp/_slide_03.scss */ .slide_03_form { overflow: hidden; width: 100%; height: 100%; }
 
-.slide_03_form > ul { position: relative; width: 600%; height: 100%; margin-left: -100%; }
+/* line 15, scss/_temp/_slide_03.scss */ .slide_03_form > ul { position: relative; width: 600%; height: 100%; margin-left: -100%; }
 
-.slide_03_form > ul > li { float: left; width: 16.66667%; height: 100%; background-repeat: no-repeat; background-position: 50% 50%; background-size: cover; }
+/* line 17, scss/_temp/_slide_03.scss */ .slide_03_form > ul > li { float: left; width: 16.66667%; height: 100%; background-repeat: no-repeat; background-position: 50% 50%; background-size: cover; }
 
-.slide_03_form > ul > li.slide_03_con_01 { background-image: url("../../img/slide/slide_01.jpg"); }
+/* line 21, scss/_temp/_slide_03.scss */ .slide_03_form > ul > li.slide_03_con_01 { background-image: url("../../img/slide/slide_01.jpg"); }
 
-.slide_03_form > ul > li.slide_03_con_02 { background-image: url("../../img/slide/slide_02.jpg"); }
+/* line 21, scss/_temp/_slide_03.scss */ .slide_03_form > ul > li.slide_03_con_02 { background-image: url("../../img/slide/slide_02.jpg"); }
 
-.slide_03_form > ul > li.slide_03_con_03 { background-image: url("../../img/slide/slide_03.jpg"); }
+/* line 21, scss/_temp/_slide_03.scss */ .slide_03_form > ul > li.slide_03_con_03 { background-image: url("../../img/slide/slide_03.jpg"); }
 
-.slide_03_form > ul > li.slide_03_con_04 { background-image: url("../../img/slide/slide_04.jpg"); }
+/* line 21, scss/_temp/_slide_03.scss */ .slide_03_form > ul > li.slide_03_con_04 { background-image: url("../../img/slide/slide_04.jpg"); }
 
-.slide_03_form > ul > li.slide_03_con_05 { background-image: url("../../img/slide/slide_05.jpg"); }
+/* line 21, scss/_temp/_slide_03.scss */ .slide_03_form > ul > li.slide_03_con_05 { background-image: url("../../img/slide/slide_05.jpg"); }
 
 /* slide_04.css */
-#viewBox_04 { width: 500px; height: 250px; margin: 20rem auto; background-color: #fa0; }
+/* line 4, scss/_temp/_slide_04.scss */ #viewBox_04 { width: 500px; height: 250px; margin: 20rem auto; background-color: #fa0; }
 
-#viewBox_04 > .slide_form { width: 100%; height: 100%; position: relative; z-index: 0; /* overflow: visible; */ }
+/* line 5, scss/_temp/_slide_04.scss */ #viewBox_04 > .slide_form { width: 100%; height: 100%; position: relative; z-index: 0; /* overflow: visible; */ }
 
-#viewBox_04 > .slide_form > ul { position: relative; z-index: 0; height: 100%; margin-left: -100%; }
+/* line 7, scss/_temp/_slide_04.scss */ #viewBox_04 > .slide_form > ul { position: relative; z-index: 0; height: 100%; margin-left: -100%; }
 
-#viewBox_04 > .slide_form > ul > li { float: left; height: 100%; border: 1px solid #5ff; box-sizing: border-box; background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; }
+/* line 8, scss/_temp/_slide_04.scss */ #viewBox_04 > .slide_form > ul > li { float: left; height: 100%; border: 1px solid #5ff; box-sizing: border-box; background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; }
 
-#viewBox_04 > .slide_form > ul > li dl { width: 100%; height: 100%; padding: 2rem; box-sizing: border-box; }
+/* line 4, scss/_temp/_slide_04_insert_01.scss */ #viewBox_04 > .slide_form > ul > li dl { width: 100%; height: 100%; padding: 2rem; box-sizing: border-box; }
 
-#viewBox_04 > .slide_form > ul > li dt { font-size: 2rem; font-weight: 900; color: #fff; text-transform: uppercase; text-shadow: 0.2rem 0.2rem 0.2rem rgba(51, 51, 51, 0.5); }
+/* line 5, scss/_temp/_slide_04_insert_01.scss */ #viewBox_04 > .slide_form > ul > li dt { font-size: 2rem; font-weight: 900; color: #fff; text-transform: uppercase; text-shadow: 0.2rem 0.2rem 0.2rem rgba(51, 51, 51, 0.5); }
 
-#viewBox_04 > .slide_form > ul > li dd.con { width: 100%; height: auto; margin: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #fa0; font-size: 1.2rem; background-color: rgba(255, 255, 255, 0.5); }
+/* line 7, scss/_temp/_slide_04_insert_01.scss */ #viewBox_04 > .slide_form > ul > li dd.con { width: 100%; height: auto; margin: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #fa0; font-size: 1.2rem; background-color: rgba(255, 255, 255, 0.5); }
 
-#viewBox_04 > .slide_form > ul > li dd.link { float: left; margin-left: 1.5rem; padding: 0.3rem; background-color: #f06; }
+/* line 9, scss/_temp/_slide_04_insert_01.scss */ #viewBox_04 > .slide_form > ul > li dd.link { float: left; margin-left: 1.5rem; padding: 0.3rem; background-color: #f06; }
 
-#viewBox_04 > .slide_form > ul > li dd.link > a { font-size: 1.3rem; color: #fff; font-weight: 900; }
+/* line 10, scss/_temp/_slide_04_insert_01.scss */ #viewBox_04 > .slide_form > ul > li dd.link > a { font-size: 1.3rem; color: #fff; font-weight: 900; }
 
-#viewBox_04 > .slide_form > ul > li dd.link > a:focus, #viewBox_04 > .slide_form > ul > li dd.link > a:hover { background-color: #fff; color: #f06; }
+/* line 11, scss/_temp/_slide_04_insert_01.scss */ #viewBox_04 > .slide_form > ul > li dd.link > a:focus, #viewBox_04 > .slide_form > ul > li dd.link > a:hover { background-color: #fff; color: #f06; }
 
 /* .slide_form .slide_04_btn{position: absolute; z-index: 50; top: 0; bottom: 0; margin: auto; width: 100%; button{position: absolute; top: 0; bottom:0; margin:auto; width: 40px; height: 40px; border-radius: 10px;} .next{right: 10px;} .prev{left: 10px;}} */

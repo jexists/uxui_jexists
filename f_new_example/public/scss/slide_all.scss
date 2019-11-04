@@ -1,0 +1,10 @@
+/* slide_all.css */
+
+@import "./_basic/var";
+@import "./_basic/_mixin_02";
+@import "./_basic/etc";
+
+
+//===========================================
+#wrap{@include fullBox(); }
+#viewBox{}
