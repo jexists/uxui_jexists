@@ -6,5 +6,28 @@
 
 
 //===========================================
-#wrap{@include fullBox(); }
-#viewBox{}
+#wrap{@include fullBox($bg: transparent); }
+#viewBox{position: relative; @include fullBox($h:90%, $bg: transparent);}
+.view_btn{position: absolute; z-index: 500; width: 90%; height: 0; top: 50%; left: 5%;
+ >button{float: left; @include convUnit(width,50); @include convUnit(height,50); 
+ 	transform: translateY(-50%);}
+ >.next{float: right;}}
+.indicator{$myRel: 30;
+	position: absolute; z-index: 500; left: 50%; @include convUnit(bottom,16);
+	transform:translateX(-50%);
+	width: auto; @include convUnit(height,$myRel); 
+	@include convUnit(padding, 6); @include convUnit(border-radius, 36); background-color: $wt;
+ >li{float: left; @include convUnit(width,$myRel); @include convUnit(height,$myRel); 
+ 	@include convUnit(margin-left,16);
+ 	&:first-child{margin-left: 0;}
+ 	&.action{@include convUnit(width,$myRel*3);}
+  >a{display: block; @include fullBox; @include convUnit(border-radius, $myRel);}}}
+.slide_form{@include fullBox($bg: #acf);}
+.slide_wrap{$count:5; position: relative; @include fullBox($w: 100% * $count);
+	>div{float: left; width: 100% / $count; height: 100%;
+	$c : (#acc, #fac, #13f, #fa9, #ccc);
+	@for $i from 1 through $count {
+		@if($count < 10){
+			&.slide_0#{$i}{background: nth($c,$i);}
+		}@else{&.slide_#{$i}{background: nth($c,$i);}}}}}
+

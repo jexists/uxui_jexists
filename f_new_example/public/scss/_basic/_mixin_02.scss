@@ -3,3 +3,14 @@
 @mixin fullBox($w:100%, $h:100%, $bg:$spC){
 	width: $w; height: $h; margin: auto; background-color: $bg;
 } //mixin fullBox
+
+//UNIT PX & REM 변환
+$rootUnit: 16;
+@function unit($u){
+ @return $u / $rootUnit;
+} //@function(unit)
+
+@mixin convUnit($pro,$u){
+ #{$pro}:$u + px;
+ #{$pro}:unit($u) + rem;
+}

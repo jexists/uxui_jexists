@@ -1,2 +1,36 @@
 /* slide_all.css */
-/* line 9, scss/slide_all.scss */ #wrap { width: 100%; height: 100%; margin: auto; background-color: #fa0; }
+/* line 9, scss/slide_all.scss */ #wrap { width: 100%; height: 100%; margin: auto; background-color: transparent; }
+
+/* line 10, scss/slide_all.scss */ #viewBox { position: relative; width: 100%; height: 90%; margin: auto; background-color: transparent; }
+
+/* line 11, scss/slide_all.scss */ .view_btn { position: absolute; z-index: 500; width: 90%; height: 0; top: 50%; left: 5%; }
+
+/* line 12, scss/slide_all.scss */ .view_btn > button { float: left; width: 50px; width: 3.125rem; height: 50px; height: 3.125rem; transform: translateY(-50%); }
+
+/* line 14, scss/slide_all.scss */ .view_btn > .next { float: right; }
+
+/* line 15, scss/slide_all.scss */ .indicator { position: absolute; z-index: 500; left: 50%; bottom: 16px; bottom: 1rem; transform: translateX(-50%); width: auto; height: 30px; height: 1.875rem; padding: 6px; padding: 0.375rem; border-radius: 36px; border-radius: 2.25rem; background-color: #fff; }
+
+/* line 20, scss/slide_all.scss */ .indicator > li { float: left; width: 30px; width: 1.875rem; height: 30px; height: 1.875rem; margin-left: 16px; margin-left: 1rem; }
+
+/* line 22, scss/slide_all.scss */ .indicator > li:first-child { margin-left: 0; }
+
+/* line 23, scss/slide_all.scss */ .indicator > li.action { width: 90px; width: 5.625rem; }
+
+/* line 24, scss/slide_all.scss */ .indicator > li > a { display: block; width: 100%; height: 100%; margin: auto; background-color: #fa0; border-radius: 30px; border-radius: 1.875rem; }
+
+/* line 25, scss/slide_all.scss */ .slide_form { width: 100%; height: 100%; margin: auto; background-color: #acf; }
+
+/* line 26, scss/slide_all.scss */ .slide_wrap { position: relative; width: 500%; height: 100%; margin: auto; background-color: #fa0; }
+
+/* line 27, scss/slide_all.scss */ .slide_wrap > div { float: left; width: 20%; height: 100%; }
+
+/* line 31, scss/slide_all.scss */ .slide_wrap > div.slide_01 { background: #acc; }
+
+/* line 31, scss/slide_all.scss */ .slide_wrap > div.slide_02 { background: #fac; }
+
+/* line 31, scss/slide_all.scss */ .slide_wrap > div.slide_03 { background: #13f; }
+
+/* line 31, scss/slide_all.scss */ .slide_wrap > div.slide_04 { background: #fa9; }
+
+/* line 31, scss/slide_all.scss */ .slide_wrap > div.slide_05 { background: #ccc; }
