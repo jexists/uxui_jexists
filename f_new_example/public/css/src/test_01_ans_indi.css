@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/* test_01_ans_indi.css */
+/* @include horizontal_slide_banner('.my_banner,4'){
+	$url:'../img/mybanner/';
+	$imgName: 'mybanner_';
+	$count:4;
+	@include horizon_banner_img($count, $imgName, $url:$url, $file:'png');
+	기타 div 및 하위내용삽입
+} */
+/* line 9, scss/test_01_ans_indi.scss */ span { display: block; width: 0; height: 0; overflow: hidden; }
+
+/* line 12, scss/test_01_ans_indi.scss */ #wrap { width: 100%; height: 100%; }
+
+/* line 13, scss/test_01_ans_indi.scss */ #miniProduct { position: relative; width: 540px; height: 300px; margin: 100px auto; }
+
+/* line 14, scss/test_01_ans_indi.scss */ .indicator { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: 150px; height: 40px; }
+
+/* line 17, scss/test_01_ans_indi.scss */ .indicator > li { float: left; width: 40px; height: 40px; margin-left: 15px; }
+
+/* line 19, scss/test_01_ans_indi.scss */ .indicator > li:nth-child(1) { margin-left: 0; }
+
+/* line 20, scss/test_01_ans_indi.scss */ .indicator > li > a { display: block; width: 100%; height: 100%; background-color: #ccc; border-radius: 100%; }
+
+/* line 22, scss/test_01_ans_indi.scss */ .indicator > li.active > a { background-color: #666666; }
+
+/* line 24, scss/test_01_ans_indi.scss */ .product { overflow: hidden; width: 100%; height: 250px; background-color: #fa0; background-repeat: no-repeat; background-position: 50% 50%; background-size: cover; background-image: url("../../img/slide_test_01/wood.jpg"); }
+
+/* line 28, scss/test_01_ans_indi.scss */ .product > ul { width: 300%; height: 100%; }
+
+/* line 30, scss/test_01_ans_indi.scss */ .product > ul > li { float: left; width: 33.33333%; height: 100%; box-sizing: border-box; padding: 20px; }
+
+/* line 32, scss/test_01_ans_indi.scss */ .product > ul > li > a { display: block; width: 100%; height: 100%; background-repeat: no-repeat; background-position: 50% 50%; background-size: contain; }
+
+/* line 35, scss/test_01_ans_indi.scss */ .product > ul > li:nth-child(1) > a { background-image: url("../../img/slide_test_01/slide_01.png"); }
+
+/* line 36, scss/test_01_ans_indi.scss */ .product > ul > li:nth-child(2) > a { background-image: url("../../img/slide_test_01/slide_02.png"); }
+
+/* line 37, scss/test_01_ans_indi.scss */ .product > ul > li:nth-child(3) > a { background-image: url("../../img/slide_test_01/slide_03.png"); }

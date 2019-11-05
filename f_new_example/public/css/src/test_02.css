@@ -1,0 +1,142 @@
+@charset "UTF-8";
+h1{text-align: center; color: #f00;}
+h2{margin-top: 30px; text-align: center;}
+span{display: block; width: inherit; height: inherit;overflow: hidden;}
+/*화면만 바뀌는 광고배너*/
+#wrap{width: 100%; height: 2000px; 
+	padding: 100px; box-sizing: border-box;}
+#miniProduct1{position: relative;
+	width: 450px; height: 300px; margin: auto; border:2px solid #777;
+	box-sizing: border-box;}
+#miniProduct1>.btn{position: absolute; bottom: 8px; right: 8px;
+	width: auto; height: 30px;}
+#miniProduct1>.btn>button{width: 30px; height: 100%; margin-left: 10px;}
+#miniProduct1>.btn>.next{float:right;}
+#miniProduct1>.btn>.prev{float: left;}
+/*#miniProduct1 span{display: block; width: 0; height: 0; overflow: hidden;}*/
+#miniProduct1>.product{overflow: hidden;
+	width: 100%; height: 250px; background-color: #eee;
+	background-repeat: no-repeat; background-position: 50% 50%;
+	background-size: cover;
+	background-image: url(../../img/slide_test_01/wood.jpg);}
+#miniProduct1>.product>ul{position:relative;
+	width: 300%;height: 100%;}
+#miniProduct1>.product>ul>li{
+	float: left; width: 33.333333%; height: 100%;
+	padding:20px; box-sizing: border-box;}
+#miniProduct1>.product>ul>li>a{display:block; width: 100%; height: 100%;
+	background-repeat: no-repeat; background-position: 50% 50%; 
+	background-size: contain;}
+#miniProduct1>.product>ul>li:nth-child(1)>a{background-image: url(../../img/slide_test_01/slide_01.png);}
+#miniProduct1>.product>ul>li:nth-child(2)>a{background-image: url(../../img/slide_test_01/slide_02.png);}
+#miniProduct1>.product>ul>li:nth-child(3)>a{background-image: url(../../img/slide_test_01/slide_03.png);}
+
+/*가로형 슬라이드*/
+#miniProduct2{position: relative;
+	width: 450px; height: 300px; margin: auto; border:2px solid #777;
+	box-sizing: border-box;}
+#miniProduct2>.btn{position: absolute; bottom: 8px; right: 8px;
+	width: auto; height: 30px;}
+#miniProduct2>.btn>button{width: 30px; height: 100%; margin-left: 10px;}
+#miniProduct2>.btn>.next{float:right;}
+#miniProduct2>.btn>.prev{float: left;}
+/*#miniProduct2 span{display: block; width: 0; height: 0; overflow: hidden;}*/
+#miniProduct2>.product{overflow: hidden;
+	width: 100%; height: 250px; background-color: #eee;
+	background-repeat: no-repeat; background-position: 50% 50%;
+	background-size: cover;
+	background-image: url(../../img/slide_test_01/wood.jpg);}
+#miniProduct2>.product>ul{width: 300%;height: 100%;
+	}
+#miniProduct2>.product>ul>li{float: left; width: 33.333333%; height: 100%;
+	padding:20px; box-sizing: border-box;}
+#miniProduct2>.product>ul>li>a{display:block; width: 100%; height: 100%;
+	background-repeat: no-repeat; background-position: 50% 50%; 
+	background-size: contain;}
+#miniProduct2>.product>ul>li:nth-child(1)>a{background-image: url(../../img/slide_test_01/slide_01.png);}
+#miniProduct2>.product>ul>li:nth-child(2)>a{background-image: url(../../img/slide_test_01/slide_02.png);}
+#miniProduct2>.product>ul>li:nth-child(3)>a{background-image: url(../../img/slide_test_01/slide_03.png);}
+
+/* 세로형 슬라이드 */
+#miniProduct3{position: relative;
+	width: 450px; height: 300px; margin: auto; border:2px solid #777;
+	box-sizing: border-box;}
+#miniProduct3>.btn{position: absolute; bottom: 8px; right: 8px;
+	width: auto; height: 30px;}
+#miniProduct3>.btn>button{width: 30px; height: 100%; margin-left: 10px;}
+#miniProduct3>.btn>.next{float:right;}
+#miniProduct3>.btn>.prev{float: left;}
+/* #miniProduct3 span{display: block; width: 0; height: 0; overflow: hidden;} */
+#miniProduct3>.product{ overflow: hidden; 
+	width: 100%; height: 250px; background-color: #eee;
+	background-repeat: no-repeat; background-position: 50% 50%;
+	background-size: cover;
+	background-image: url(../../img/slide_test_01/wood.jpg);}
+#miniProduct3>.product>ul{width: 300%;height: 100%;
+	}
+#miniProduct3>.product>ul>li{width: 33.333333%; height: 100%;
+	padding:20px; box-sizing: border-box;}
+#miniProduct3>.product>ul>li>a{display:block; width: 100%; height: 100%;
+	background-repeat: no-repeat; background-position: 50% 50%; 
+	background-size: contain;}
+#miniProduct3>.product>ul>li:nth-child(1)>a{background-image: url(../../img/slide_test_01/slide_01.png);}
+#miniProduct3>.product>ul>li:nth-child(2)>a{background-image: url(../../img/slide_test_01/slide_02.png);}
+#miniProduct3>.product>ul>li:nth-child(3)>a{background-image: url(../../img/slide_test_01/slide_03.png);}
+
+/* z-index 형 슬라이드 */
+#miniProduct4{position: relative;
+	width: 450px; height: 300px; margin: auto; border:2px solid #777;
+	box-sizing: border-box;}
+#miniProduct4>.btn{position: absolute; bottom: 8px; right: 8px;
+	width: auto; height: 30px;}
+#miniProduct4>.btn>button{width: 30px; height: 100%; margin-left: 10px;}
+#miniProduct4>.btn>.next{float:right;}
+#miniProduct4>.btn>.prev{float: left;}
+/*#miniProduct4 span{display: block; width: 0; height: 0; overflow: hidden;}*/
+#miniProduct4>.product{overflow: hidden;
+	width: 100%; height: 250px; background-color: #eee;
+	background-repeat: no-repeat; background-position: 50% 50%;
+	background-size: cover;
+	background-image: url(../../img/slide_test_01/wood.jpg);}
+#miniProduct4>.product>ul{
+	position:relative; width: 300%;height: 100%;}
+#miniProduct4>.product>ul>li{position:absolute;
+	width: 33.333333%; height: 100%;
+	padding:20px; box-sizing: border-box;}
+#miniProduct4>.product>ul>li>a{display:block; width: 100%; height: 100%;
+	background-repeat: no-repeat; background-position: 50% 50%; 
+	background-size: contain;}
+#miniProduct4>.product>ul>li:nth-child(1)>a{background-image: url(../../img/slide_test_01/slide_01.png);}
+#miniProduct4>.product>ul>li:nth-child(2)>a{background-image: url(../../img/slide_test_01/slide_02.png);}
+#miniProduct4>.product>ul>li:nth-child(3)>a{background-image: url(../../img/slide_test_01/slide_03.png);}
+
+/* 기본세팅
+#wrap{width: 100%; height: 100%; 
+	padding: 100px; box-sizing: border-box;}
+#miniProduct{position: relative;
+	width: 450px; height: 300px; margin: auto; border:2px solid #777;
+	box-sizing: border-box;}
+#miniProduct>.btn{position: absolute; bottom: 8px; right: 8px;
+	width: auto; height: 30px;}
+#miniProduct>.btn>button{width: 30px; height: 100%; margin-left: 10px;}
+#miniProduct>.btn>.next{float:right;}
+#miniProduct>.btn>.prev{float: left;}
+#miniProduct span{display: block; width: 0; height: 0; overflow: hidden;}
+#miniProduct>.product{overflow: hidden;
+	width: 100%; height: 250px; background-color: #eee;
+	background-repeat: no-repeat; background-position: 50% 50%;
+	background-size: cover;
+	background-image: url(../../img/slide_test_01/wood.jpg);}
+#miniProduct>.product>ul{width: 300%;height: 100%;
+	}
+#miniProduct>.product>ul>li{float: left; width: 33.333333%; height: 100%;
+	padding:20px; box-sizing: border-box;}
+#miniProduct>.product>ul>li>a{display:block; width: 100%; height: 100%;
+	background-repeat: no-repeat; background-position: 50% 50%; 
+	background-size: contain;}
+#miniProduct>.product>ul>li:nth-child(1)>a{background-image: url(../../img/slide_test_01/slide_01.png);}
+#miniProduct>.product>ul>li:nth-child(2)>a{background-image: url(../../img/slide_test_01/slide_02.png);}
+#miniProduct>.product>ul>li:nth-child(3)>a{background-image: url(../../img/slide_test_01/slide_03.png);}
+
+
+ */
