@@ -59,4 +59,19 @@
 	 })
 	} //VerticalSlide()
 	// VerticalSlide()
+	const SimpleSlide = function(){
+	 let prodLen = prodLi.length;
+	 let i = 0;
+	 btn.on('click',function(e){
+	 	e.preventDefault();
+	 	let btnL = $(this).hasClass('next');
+	 	if(btnL){
+	 		i++; if(i >= prodLen){i=0}
+	 	}else{
+	 		i--; if(i <= -1){i=prodLen-1}
+	 	}
+	 		prodUl.css({marginLeft:-100 * i + '%'})
+	 });
+	} //SimpleSlide()
+	// SimpleSlide()
 })(jQuery);
