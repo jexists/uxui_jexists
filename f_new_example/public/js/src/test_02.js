@@ -112,4 +112,59 @@ btn4.children('button').on('click',function(e){
 	li4.eq(n).css({zIndex:n+10});
 	li4.eq(n).fadeIn();
 })
+
+//인디케이터 & 버튼
+const miniProduct5 = $('#miniProduct5');
+const btn5 = miniProduct5.children('.btn');
+const next5 = btn5.children('.next');
+const prev5 = btn5.children('.prev');
+const indi5 = miniProduct5.children('.indicator');
+const product5 = miniProduct5.children('.product');
+const ul5 = product5.children('ul');
+
+let slideN = 9;
+ul5.css({width:100 * (slideN+1) +'%', marginLeft: '-100%'})
+
+let imgUrl = '../../img/slide_test_02/'
+for (let i = 0; i< slideN ;i++){
+	indi5.append('<li><a href="#"><span>'+'제품 0'+ (i+1) +'</span></a></li>')
+	ul5.append('<li><a href="#"><span></span></a></li>');
+	const li5 = ul5.children('li').eq(i);
+	ul5.children('li').css({width: 100 / (slideN+1) + '%'});
+	li5.children('a').css({backgroundImage:'url(' + imgUrl + 'menu_' +(i+1)+'.png'+')'});
+	li5.find('span').text('상품설명 0' + (i+1));
+}
+let liClone = ul5.children('li').eq(-1).clone(true);
+liClone.prependTo(ul5);
+indi5.children('li').eq(0).children('a').addClass('act');
+
+btn5.children('button').on('click',function(e){
+	e.preventDefault();
+	let next = $(this).hasClass('next');
+	if ($(this).hasClass('next')){
+		n++; 
+		if(n>=slideN){n=0; ul5.css({left: -100 * (n-1) +"%"})}
+		ul5.stop().animate({left: -100 * n +"%"})
+	}else{
+		n--; ul5.stop().animate({left: -100 * n +"%"},function(){
+			if(n <= -1){n = slideN-1; ul5.css({left:-100* n +'%'})}});
+	}
+		const btnC = indi5.children('li').eq(n);
+		btnC.siblings('li').find('a').removeClass('act');
+		btnC.find('a').addClass('act');
+});
+
+indi5.find('a').on('click focus',function(e){
+	e.preventDefault();
+	n = $(this).parents('li').index();
+	ul5.css({left:-100*n +'%'});
+	$(this).parents('li').siblings('li').find('a').removeClass('act');
+	$(this).addClass('act');
+	
+});
+
+indi5.find('a').on('click',function(e){
+	product5.find('li').eq(n+1).find('a').focus();
+});
+
 })(jQuery);

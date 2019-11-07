@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- content.html -->
+<!-- test_02_answer.html -->
 <html lang="ko-KR">
 <head>
   <meta charset="UTF-8">
@@ -15,7 +15,7 @@
    <link rel="stylesheet" href="../css/base/reset.css">
    <link rel="stylesheet" href="../css/base/common.css">
    <link rel="stylesheet" href="../font/fontawesome/css/all.min.css">
-   <link rel="stylesheet" href="../css/src/content.css">
+   <link rel="stylesheet" href="../css/src/test_02_answer.css">
 
    <!--[if lte IE 9]>
       <script src="./ie/html5shiv-3.7.3/dist/html5shiv.min.js"> </script>
@@ -37,36 +37,34 @@
    <p><a href="http://enable-javascript.com/ko/" target="_blank">
    브라우저에서 자바스크립트 활성화하는 방법</a></p>
  </noscript>
-<!-- layout=================== -->
 <div id="wrap">
-	<header id="headBox">
-		<h1><a href="#">제목</a></h1>
-		<h2>목차</h2>
-    <ul>
-      <li><a href="./main.html">슬라이드 모음</a></li>
-      <li><a href="./exercise.html">슬라이드 연습_01 - paulbassett</a></li>
-      <li><a href="./paul_01.html">슬라이드 정답_01 - paulbassett</a></li>
-      <li><a href="./slide_all.html">슬라이드 연결하기</a></li>
-      <li><a href="./test_01.html">아코디언메뉴테스트</a></li>
-      <li><a href="./test_01_ans_indi.html">슬라이드테스트 답안지</a></li>
-      <li><a href="./test_02.html">슬라이드테스트_02</a></li>
-      <li><a href="./test_02_answer.html">슬라이드테스트_02 답안지</a></li>
-    </ul>
-	</header>
-	<main id="contentBox">
-		<h2>부제</h2>
-	</main>
-	<footer id="footBox">
-		<h2>정보</h2>
-	</footer>
-</div>
-<!-- //headBox=================== -->
-<!-- //mainBox=================== -->
-<!-- //footBox=================== -->
+	<h1>슬라이드 만드는 방법</h1>
+
+	<h2>slide button 기능 1: 화면만 바뀌는 슬라이드</h2>
+	<div id="miniProduct">
+		<div class="btn">
+			<button type="button" class="next">
+				<i class="fas fa-angle-right"></i>
+				<span>다음내용보기</span>
+			</button>
+			<button type="button" class="prev">
+				<i class="fas fa-angle-left"></i>
+				<span>이전내용보기</span>
+			</button>
+		</div>
+		<div class="product">
+			<ul>
+				<li class="prod_01"><a href="#"><span>상품설명 01</span></a></li>
+				<li class="prod_02"><a href="#"><span>상품설명 02</span></a></li>
+				<li class="prod_03"><a href="#"><span>상품설명 03</span></a></li>
+			</ul>
+		</div>
+	</div>
+<div>
 
 <!-- Script=================== -->
  <script src="../../js/base/jquery-3.4.1.min.js"></script>
  <script src="../../js/base/jquery-ui.min.js"></script>
- <script src="../../js/src/content.js"></script>
+ <script src="../../js/src/test_02_answer.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <html lang="ko-KR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="웹페이지 실습에 따른 목차구성">
   <meta name="keyword" content="html, css, js, web, design, 웹디자인">
@@ -40,6 +40,7 @@
 <!-- layout=================== -->
 <div id="wrap">
 	<h1>슬라이드 만드는 방법</h1>
+
 	<h2>화면만 바뀌는 슬라이드</h2>
 	<div id="miniProduct1">
 		<div class="btn">
@@ -54,6 +55,7 @@
 			</ul>
 		</div>
 	</div>
+
 	<h2>가로형 슬라이드</h2>
 	<div id="miniProduct2">
 		<div class="btn">
@@ -68,6 +70,7 @@
 			</ul>
 		</div>
 	</div>
+
 	<h2>세로형 슬라이드</h2>
 	<div id="miniProduct3">
 		<div class="btn">
@@ -82,6 +85,7 @@
 			</ul>
 		</div>
 	</div>
+
 	<h2>z-index 슬라이드 / FadeIn&Out</h2>
 	<div id="miniProduct4">
 		<div class="btn">
@@ -96,11 +100,29 @@
 			</ul>
 		</div>
 	</div>
-</div>
-</div>
-<!-- //headBox=================== -->
-<!-- //mainBox=================== -->
-<!-- //footBox=================== -->
+
+	<h2>인디케이터 & 버튼</h2>
+	<div id="miniProduct5">
+		<div class="btn">
+			<button type="button" class="next">
+				<span class="hidden">다음내용보기</span>
+				<i class="fas fa-caret-right"></i>
+			</button>
+			<button type="button" class="prev">
+				<span class="hidden">이전내용보기</span>
+				<i class="fas fa-caret-left"></i>
+			</button>
+		</div>
+		<ul class="indicator">
+		</ul>
+		<div class="product">
+			<ul>
+				
+			</ul>
+		</div>
+	</div>
+</div> <!-- //wrap -->
+
 
 <!-- Script=================== -->
  <script src="../../js/base/jquery-3.4.1.min.js"></script>

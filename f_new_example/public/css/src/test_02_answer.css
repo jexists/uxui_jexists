@@ -1,0 +1,24 @@
+/* // test_02_answer.scss */
+#miniProduct { position: relative; width: 500px; height: 400px; margin: 10rem auto; background-color: #fa0; }
+
+#miniProduct .btn { position: absolute; bottom: 0; right: 1rem; z-index: 100; width: 150px; height: 70px; }
+
+#miniProduct .btn > button { float: left; width: 70px; height: 70px; font-size: 4rem; background-color: transparent; }
+
+#miniProduct .btn > button.next { float: right; }
+
+#miniProduct .btn > button.action { color: #f06; }
+
+#miniProduct .btn > button > span { display: block; position: absolute; z-index: -10; width: 0; height: 0; overflow: hidden; }
+
+#miniProduct .product { width: 100%; height: 300px; background-color: #ccc; overflow: hidden; }
+
+#miniProduct .product > ul { width: 300%; height: 100%; }
+
+#miniProduct .product > ul li { float: left; width: 33.33333%; height: 100%; box-sizing: border-box; padding: 30px; }
+
+#miniProduct .product > ul li.prod_01 > a { display: block; width: 100%; height: 100%; background-image: url("../../img/slide_test_01/slide_01.png"); background-repeat: no-repeat; background-position: 50% 50%; background-size: contain; }
+
+#miniProduct .product > ul li.prod_02 > a { display: block; width: 100%; height: 100%; background-image: url("../../img/slide_test_01/slide_02.png"); background-repeat: no-repeat; background-position: 50% 50%; background-size: contain; }
+
+#miniProduct .product > ul li.prod_03 > a { display: block; width: 100%; height: 100%; background-image: url("../../img/slide_test_01/slide_03.png"); background-repeat: no-repeat; background-position: 50% 50%; background-size: contain; }
