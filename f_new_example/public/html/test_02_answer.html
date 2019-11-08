@@ -42,16 +42,16 @@
 
 	<h2>slide button 기능 1: 화면만 바뀌는 슬라이드</h2>
 	<div id="miniProduct">
-		<div class="btn">
-			<button type="button" class="next">
-				<i class="fas fa-angle-right"></i>
-				<span>다음내용보기</span>
-			</button>
-			<button type="button" class="prev">
-				<i class="fas fa-angle-left"></i>
-				<span>이전내용보기</span>
-			</button>
-		</div>
+<!--     <div class="btn">
+  <button type="button" class="next">
+    <i class="fas fa-angle-right"></i>
+    <span>다음내용보기</span>
+  </button>
+  <button type="button" class="prev">
+    <i class="fas fa-angle-left"></i>
+    <span>이전내용보기</span>
+  </button>
+</div> -->
 		<div class="product">
 			<ul>
 				<li class="prod_01"><a href="#"><span>상품설명 01</span></a></li>
@@ -65,6 +65,29 @@
 <!-- Script=================== -->
  <script src="../../js/base/jquery-3.4.1.min.js"></script>
  <script src="../../js/base/jquery-ui.min.js"></script>
- <script src="../../js/src/test_02_answer.js"></script>
+ <!-- <script src="../../js/src/test_02_answer.js"></script> -->
+ <script src="../../js/src/slide_plug_samp_01.js"></script>
+ <script>
+   (function(e){
+    $('#miniProduct').mySlide().vertical();
+   })(jQuery);
+ </script>
+ <script>
+   /*let fn = function(n){
+    let rel = n+10;
+    return rel;  }
+   console.log(fn(10));*/
+
+   let t = function(n){
+    return this.name = n;
+   }
+
+   let beforeT = t('juae');
+   console.log(beforeT.name);
+
+   let myt = new t('juae');
+   console.log(myt.name);
+
+ </script>
 </body>
 </html>

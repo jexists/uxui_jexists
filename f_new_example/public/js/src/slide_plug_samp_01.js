@@ -1,7 +1,8 @@
-// test_02_answer.js
+// slide_plug_samp_01.js
 
-(function($){
-	 const slide = $('#miniProduct');
+
+$.fn.mySlide = function(){
+	 const slide = this;
 	 const product = $('.product');
 	 const prodUl = product.find('ul');
 	 let prodLi = prodUl.find('li');
@@ -105,14 +106,20 @@
 	  });
 	} //FadeSlide() =====================================
 	//FadeSlide()
+product.css({overflow:'hidden'});
 
-	// product.css({overflow:'hidden'})
-	// const slideList ={
-	// horizon: HorizonSlide,
-	// vertical: VerticalSlide,
-	// basic: BasicSlide,
-	// fade:FadeSlide};
-
+	//함수를 객체화 처리
+	return {
+		horizon: HorizonSlide,
+		vertical: VerticalSlide,
+		basic: BasicSlide,
+		fade:FadeSlide
+	};
 	// slideList.basic();
+}
 
-})(jQuery);
+
+/*
+$.fn = 삽입
+this = 2가지 의미
+*/
