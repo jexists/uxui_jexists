@@ -72,22 +72,23 @@
     $('#miniProduct').mySlide().vertical();
    })(jQuery);
  </script>
- <script>
-   /*let fn = function(n){
-    let rel = n+10;
-    return rel;  }
-   console.log(fn(10));*/
+<!--  <script>
+  /*let fn = function(n){
+   let rel = n+10;
+   return rel;  }
+  console.log(fn(10));*/
 
-   let t = function(n){
-    return this.name = n;
-   }
+  let t = function(n,r){
+   this.name = n;
+   this.rel = r;
+  }
 
-   let beforeT = t('juae');
-   console.log(beforeT.name);
+/*   let beforeT = t('juae','this란?');
+  console.log(beforeT.name,);
+*/
+  let myt = new t('juae','this란?');
+  console.log(myt.name, myt.rel);
 
-   let myt = new t('juae');
-   console.log(myt.name);
-
- </script>
+</script> -->
 </body>
 </html>

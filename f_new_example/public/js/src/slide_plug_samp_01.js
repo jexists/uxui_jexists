@@ -115,7 +115,6 @@ product.css({overflow:'hidden'});
 		basic: BasicSlide,
 		fade:FadeSlide
 	};
-	// slideList.basic();
 }
 
 
