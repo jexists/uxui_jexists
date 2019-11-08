@@ -85,3 +85,28 @@ $.ajax({
 ```
 
 *메모장(.txt)파일도 가능하지만 객체화 되지않는다. 그냥 문자로만 인식!
+
+
+
+---
+
+```javascript
+// slide_indi_n_btn.js
+
+(function($){
+//데이타 불러오기
+ let imgUrl = '../img/slide_test_02/'
+ let dataUrl = '../data/'
+	$.ajax({
+		async:false,
+		dataType: 'json',
+		url: dataUrl + 'slide_indi_n_btn.json',
+		success: function(data){
+			console.log(data);
+		}
+	});
+})(jQuery);
+```
+
+
+

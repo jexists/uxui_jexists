@@ -1624,3 +1624,85 @@ addEventListener() -> javascript
 attatchmentEvent() -> javascript (IE)
 ```
 
+#### Return
+
+```html
+리턴이 없는 경우는 console.log(undefined 결과) 
+<script>
+   let fn = function(n){
+    let rel = n+10;
+   }
+   console.log(fn(10));
+ </script>
+//----------------------------------------
+<script>
+   let fn = function(n){
+    let rel = n+10;
+    return rel;
+   }
+   console.log(fn(10));
+ </script>
+//리턴: 거슬러서 결과값을 나한테 돌려줘라
+//리턴 뒤에 글을 쓰면 아무것도 안이루어진다. 
+//모든글에 리턴을 써야하지만 자바스크립트는 자동 리턴이 들어가게 되어있다. 
+```
+
+#### this
+
+```html
+ <script>
+   let t = function(){
+    return this;
+   }
+   console.log(t()); //답: window
+ </script>
+//답: window  일반적인 this의 의미는 window자체이다. 
+```
+
+#### NEW : 생성자
+
+```html
+생성자: js에서 new 이름을 붙이면 기존의 기능을 복제처리해서 새로 생성한다는 의미 
+ <script>
+   let t = function(){
+    return this;
+   }
+   console.log(t());
+
+   let myt = new t();
+   console.log(myt); 답 t{} '객체라는 의미'
+ </script>
+```
+
+```html
+ <script>
+//모델 샘플링
+//t라는 함수를 만들어서 t를 사용할려고한다. 
+    let t = function(n){
+    return this.name = n;  } 
+//샘플에 기능을 집어넣어도 들어는 가지만 동작은 안한다. 
+//새로 만들어서 집어넣어야한다. 
+   let beforeT = t('juae');
+   console.log(beforeT.name); //답 undefined
+//NEW : 모델 배포 / 모델 샘플을 복제해서 생성 
+//기본형식은 똑같지만 안에 있는 내용은 다르다. 
+   let myt = new t('juae'); 
+   console.log(myt.name); //답 juae
+ </script>
+
+this의 두가지
+1. 브라우저 (window)
+2. new(생성자:기존에 있는것을 복제해서 생긴것)에 의해 생성된 변수 / 생성자와 처리된 new 할당이름의 변수 
+```
+
+```html
+ <script>
+   let t = function(n,r){
+    this.name = n;
+    this.rel = r; }
+
+   let myt = new t('juae','this란?'); 
+   console.log(myt.name, myt.rel); //답: juae, this란?
+ </script>
+```
+
