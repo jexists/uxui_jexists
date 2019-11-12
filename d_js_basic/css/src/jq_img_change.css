@@ -1,0 +1,7 @@
+/*jq_img_change.css*/
+
+#wrap{width: 100%; height: 100%; background-color: #acf;}
+.mouse_form{width: 800px;height: 500px;margin:150px auto; background-color: #fff;
+	background-repeat: no-repeat; background-size: cover;
+	background-position: 50% 50%;}
+.mouse_location{width: 800px; height: 10px; margin: auto; background-color: #333;}
