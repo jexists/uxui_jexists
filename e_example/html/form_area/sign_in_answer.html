@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!-- sign_in_answer.html -->
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="웹페이지 실습에 따른 목차구성">
+  <meta name="keyword" content="html, css, js, web, design, 웹디자인">
+  <meta name="author" content="jexists">
+  <meta name="generator" content="illustrator, photoshop, sublimetext">
+
+  <!-- link ===================================== -->
+   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap&subset=korean" rel="stylesheet">
+   <link rel="stylesheet" href="../../css/base/reset.css">
+   <link rel="stylesheet" href="../../css/base/common.css">
+   <link rel="stylesheet" href="../../font/fontawesome/css/all.min.css">
+   <link rel="stylesheet" href="../../css/src/form_area/sign_in_answer.css">
+
+   <!--[if lte IE 9]>
+      <script src="./ie/html5shiv-3.7.3/dist/html5shiv.min.js"> </script>
+      <script src="../ie/PIE-1.0.0/PIE.js"></script>
+      <script src="../ie/Respond-1.4.2/dest/respond.min.js"></script>
+   <![endif]-->
+
+  <!-- link favicon ============================= -->
+   <link rel="shortcut icon" type="image/png" href="../favicon.png">
+  <!-- link touch ============================= -->
+   <link rel="apple-touch-icon" href="../favicon.png">
+
+   <title>문서제목</title>
+</head>
+<body>
+ <noscript>
+   <p>현재 접속하고 있는 사이트의 기능의 일부가 원활하게 실행되고 있지 않습니다. <br />
+   자바스크립트의 기능을 활성화 해주세요.</p>
+   <p><a href="http://enable-javascript.com/ko/" target="_blank">
+   브라우저에서 자바스크립트 활성화하는 방법</a></p>
+ </noscript>
+<!-- layout=================== -->
+<div id="wrap">
+	<h1><a href="../content.html">쿠팡</a></h1>
+	<h2 class="hidden">쿠팡 회원가입페이지</h2>
+	<article id="joinBox">
+		<form action="#" method="post"></form>
+		<fieldset class="input_area">
+		 <legend>회원가입 인적사항 작성하기</legend>
+		 <!-- ul>li>(dl>dt+dd)+span.narr -->
+		 <ul>
+		 	<li>
+		 		<dl>
+		 			<dt>
+		 				<label for="userId">
+							<i class="fas fa-envelope"></i>
+		 				<span class="hidden">로그인에 필요한 계정을 적어주세요</span> 
+		 			</label>
+		 			</dt>
+		 			<dd>
+		 				<input type="email" name="userId" 
+		 				id="userId" value="" 
+		 				placeholder="아이디 &#40;이메일&#41;" 
+		 				required="required" />
+		 			</dd>
+		 		</dl>
+		 		<span class="narr">이메일을 입력하세요.</span>
+		 	</li>
+
+		 	<li>
+		 		<dl>
+		 			<dt>
+		 				<label for="userPw">
+							<i class="fas fa-lock"></i>
+		 				<span class="hidden">로그인에 필요한 비밀번호를 적어주세요</span> 
+		 			</label>
+		 			</dt>
+		 			<dd>
+		 				<input type="password" name="userPw" 
+		 				id="userPw" value="" 
+		 				placeholder="비밀번호	&#40;영문 숫자 특수문자 2가지 이상 6&#126;15자 이내&#41;" 
+		 				required="required" />
+		 			</dd>
+		 		</dl>
+		 		<span class="narr">비밀번호는 6&#126;15자 이내로 입력하셔야 합니다.</span>
+		 	</li>
+
+		 	<li>
+		 		<dl>
+		 			<dt>
+		 				<label for="userPwc">
+							<i class="fas fa-lock"></i>
+		 				<span class="hidden">로그인에 필요한 비밀번호를 다시 적어주세요</span> 
+		 			</label>
+		 			</dt>
+		 			<dd>
+		 				<input type="password" name="userPwc" 
+		 				id="userPwc" value="" 
+		 				placeholder="비밀번호 확인" 
+		 				required="required" />
+		 			</dd>
+		 		</dl>
+		 		<span class="narr">비밀번호가 일치하지 않습니다.</span>
+		 	</li>
+
+		 	<li>
+		 		<dl>
+		 			<dt>
+		 				<label for="userName">
+							<i class="fas fa-user"></i>
+							<span class="hidden">로그인에 필요한 이름을 적어주세요</span> 
+		 			</label>
+		 			</dt>
+		 			<dd>
+		 				<input type="text" name="userName" 
+		 				id="userName" value="" 
+		 				placeholder="이름" 
+		 				required="required" />
+		 			</dd>
+		 		</dl>
+		 		<span class="narr">이름을 정확히 입력하세요.</span>
+		 	</li>
+
+		 	<li>
+		 		<dl>
+		 			<dt>
+		 				<label for="userTel">
+							<i class="fas fa-mobile-alt"></i>
+		 				<span class="hidden">로그인에 필요한 휴대폰번호를 적어주세요</span> 
+		 			</label>
+		 			</dt>
+		 			<dd>
+		 				<input type="tel" name="userTel" 
+		 				id="userTel" value="" 
+		 				placeholder="휴대폰 번호" 
+		 				required="required" />
+		 			</dd>
+		 		</dl>
+		 		<span class="narr">휴대폰 번호를 정확하게 입력하세요.</span>
+		 	</li>
+		 </ul>
+
+
+
+		</fieldset>
+
+
+		<fieldset class="confirm_area">
+			<legend>회원가입 내용 확인 및 동의</legend>
+			<input type="submit" name="confirmCheck" value="동의하고 가입하기" />
+			<p>
+				본인은 <strong>만 14세 이상</strong>이며, 
+					<button type="button" data-terms="terms_01">쿠팡 이용약관</button>,
+					<button type="button" data-terms="terms_02">전자금융거래이용약관</button>,
+					<button type="button" data-terms="terms_03">개인정보 수집 및 이용</button>,
+					<button type="button" data-terms="terms_04">개인정보 제공</button>
+					내용을 확인 하였으며 <em>동의합니다</em>.
+					<!-- 완전 강조:strong 그냥 강조: em -->
+					<!-- data- 사용자가 임의로 만든 속성 -->
+			</p>
+			<div class="terms">
+				<!-- 이용약관 등 불러오기 -->
+				<div class="terms_01"><h4>쿠팡 이용약관</h4></div>
+				<div class="terms_02"><h4>전자금융거래이용약관</h4></div>
+				<div class="terms_03"><h4>개인정보 수집 및 이용</h4></div>
+				<div class="terms_04"><h4>개인정보 제공</h4></div>
+			</div>
+
+		</fieldset>
+	</article>
+	<footer id="footBox">
+		<address>
+			<p>&copy; 
+				<span class="part_01">coupang corp. all</span>
+				<span class="part_02">rights reserved.</span>
+			</p>
+
+		</address>
+	</footer>
+</div>
+
+<!-- Script=================== -->
+ <script src="../../js/base/jquery-3.4.1.min.js"></script>
+ <script src="../../js/base/jquery-ui.min.js"></script>
+ <script src="../../js/src/sign_in_answer.js"></script>
+</body>
+</html>

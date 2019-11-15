@@ -1,0 +1,10 @@
+/* log_in.css */
+
+#wrap{width: 100%; height: 100%; background-color: #eee;}
+#headBox{width: 100%; height: 80px;}
+#contentBox{width: 90%; height: 450px; margin: auto; }
+.loginBox{width: 100%; height: 450px;}
+.loginBox>li{float: left; width: 47%; height: 100%; 
+	border: 2px solid #999; box-shadow: border-box;}
+.loginBox>.login{float: left; width: 47%; height: 100%;;}
+.loginBox>.join{float: right;}

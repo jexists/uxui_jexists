@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- sign_in.html -->
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="웹페이지 실습에 따른 목차구성">
+  <meta name="keyword" content="html, css, js, web, design, 웹디자인">
+  <meta name="author" content="jexists">
+  <meta name="generator" content="illustrator, photoshop, sublimetext">
+
+  <!-- link ===================================== -->
+   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap&subset=korean" rel="stylesheet">
+   <link rel="stylesheet" href="../../css/base/reset.css">
+   <link rel="stylesheet" href="../../css/base/common.css">
+   <link rel="stylesheet" href="../../font/fontawesome/css/all.min.css">
+   <link rel="stylesheet" href="../../css/src/form_area/sign_in.css">
+
+   <!--[if lte IE 9]>
+      <script src="./ie/html5shiv-3.7.3/dist/html5shiv.min.js"> </script>
+      <script src="../ie/PIE-1.0.0/PIE.js"></script>
+      <script src="../ie/Respond-1.4.2/dest/respond.min.js"></script>
+   <![endif]-->
+
+  <!-- link favicon ============================= -->
+   <link rel="shortcut icon" type="image/png" href="../favicon.png">
+  <!-- link touch ============================= -->
+   <link rel="apple-touch-icon" href="../favicon.png">
+
+   <title>문서제목</title>
+</head>
+<body>
+ <noscript>
+   <p>현재 접속하고 있는 사이트의 기능의 일부가 원활하게 실행되고 있지 않습니다. <br />
+   자바스크립트의 기능을 활성화 해주세요.</p>
+   <p><a href="http://enable-javascript.com/ko/" target="_blank">
+   브라우저에서 자바스크립트 활성화하는 방법</a></p>
+ </noscript>
+<!-- layout=================== -->
+<div id="wrap">
+	<h1><a href="../content.html">회원가입-쿠팡</a></h1>
+	<form action="#" method="post">
+		<fieldset>
+			<legend>sign_in</legend>
+	<ul class="sign">
+		<li>
+			<dl>
+				<dt><i class="fas fa-envelope"></i><span class="hidden">아이디</span></dt>
+				<dd>
+				 <label for="userId" class="hidden">아이디 입력하세요</label>
+				 <input type="email" name="userId" value="" placeholder="아이디 &#40;이메일&#41;" id="userId" />
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<dt><i class="fas fa-lock"></i><span class="hidden">비밀번호</span></dt>
+				<dd>
+					<label for="userPw" class="hidden">비밀번호를 입력하세요</label>
+				 <input type="password" name="userPw" value="" placeholder="비밀번호	&#40;영문 숫자 특수문자 2가지 이상 6&#126;15자 이내&#41;" id="userPw" />
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<dt><i class="fas fa-lock"></i><span class="hidden">비밀번호확인</span></dt>
+				<dd>
+					<label for="userPwc" class="hidden">비밀번호를 확인하세요</label>
+				 <input type="password" name="userPwc" value="" placeholder="비밀번호 확인" id="userPwc" />
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<dt><i class="fas fa-user"></i><span class="hidden">이름</span></dt>
+				<dd>
+				 <label for="userName" class="hidden">이름을 입력하세요</label>
+				 <input type="text" name="userName" value="" placeholder="이름" id="userName" />
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<dt><i class="fas fa-mobile-alt"></i><span class="hidden">휴대폰번호</span></dt>
+				<dd>
+					<label for="userTel" class="hidden">휴대폰번호를 입력하세요</label>
+				 <input type="tel" name="userTel" value="" placeholder="휴대폰 번호" id="userTel" />
+				</dd>
+			</dl>
+		</li>
+	</ul>
+	<button>동의하고 가입하기</button>
+	<p>
+		본인은 <strong>만 14세 이상</strong>이며, 
+		<a href="#">쿠팡 이용약관</a>,
+		<a href="#">전자금융거래이용약관</a>,
+		<a href="#">개인정보 수집 및 이용</a>,
+		<a href="#">개인정보 제공</a>
+		내용을 확인 하였으며 <strong>동의합니다.</strong>
+	</p>
+	<p class="copy">&copy; coupang corp. all <span>rights reserved.</span></p>
+		</fieldset>
+	</form>
+</div>
+
+<!-- Script=================== -->
+ <script src="../../js/base/jquery-3.4.1.min.js"></script>
+ <script src="../../js/base/jquery-ui.min.js"></script>
+ <!-- <script src="../../js/src/sign_in.js"></script> -->
+</body>
+</html>

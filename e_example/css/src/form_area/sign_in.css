@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/*sign_in.css*/
+
+#wrap{width: 100%; height: 100%;
+	padding: 50px 200px; box-sizing: border-box;}
+h1{width: 100%; height: 50px; text-align: center;}
+.sign{width: 100%; height: 100%;}
+.sign>li{width: 100%; height: 50px;
+	margin-top: 20px; border: 2px solid #bbb;
+	box-sizing: border-box;}
+.sign dl{width: 100%;height: 100%;}
+.sign dl>dt{float: left; width: 10%; height: 100%; 
+	border-right: 2px solid #bbb; box-sizing: border-box;}
+.sign dl>dt{font-size: 2.2rem; line-height: 1.2; text-align: center;
+	background-color: #fff;}
+.sign dl>dd{float: left; width: 90%; height: 100%;}
+.sign dl>dd input{width: 100%; height: 100%; border: none;}
+button{width: 100%; height: 50px; background-color: #00f; margin-top: 30px;
+	margin-bottom: 10px; font-size: 1.2rem; font-weight: bold;}
+p{text-align: center;}
+p a{text-decoration: underline;}
+.copy{margin-top: 20px; text-transform: capitalize;}
+.copy span{text-transform: lowercase;}
