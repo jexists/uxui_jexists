@@ -16,6 +16,9 @@ jQuery는 자바스크립트에 일부분 library이다.
 > minified - 용량은 적지만 스페이스없음
 > uncompressed - 코드 보기 쉬움
 
+> [jQuery Mobile 1.4.5 Demos](http://demos.jquerymobile.com/1.4.5/) 
+>모바일 - 사용X
+
 #### [주의사항]
 
 ```주의사항
@@ -1972,6 +1975,24 @@ jumpToEnd 현재 애니메이션을 즉시 완료할지 여부 / 끝에 애니�
 
 })(jQuery);
 ```
+
+
+
+
+
+### input요소에 사용하는 jQuery
+
+```
+//form 기능에서 사용하는 jQuery매소드
+//val(); => 해당하는 input요소에 들어있는 value 값을 가져오는 기능
+//is(':focus'); => 어떠한 상황이 처리가 되었는지 확인. /hover, focus, checked  //hasClass('class_name') 비슷 : class이름의 유무 판단
+//prop(); => 속성명 / 속성의 상황묘사
+
+//is(':checked')
+//prop('checked',true) => 속성의 상황 묘사해서 역할 부여/체크해제 (addClass/removeClass)랑 비슷
+```
+
+
 
 
 
