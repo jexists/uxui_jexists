@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- agreement.html // join_check.html-->
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="웹페이지 실습에 따른 목차구성">
+  <meta name="keyword" content="html, css, js, web, design, 웹디자인">
+  <meta name="author" content="jexists">
+  <meta name="generator" content="illustrator, photoshop, sublimetext">
+
+  <!-- link ===================================== -->
+   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap&subset=korean" rel="stylesheet">
+   <link rel="stylesheet" href="../../css/base/reset.css">
+   <link rel="stylesheet" href="../../css/base/common.css">
+   <link rel="stylesheet" href="../../font/fontawesome/css/all.min.css">
+   <link rel="stylesheet" href="../../css/src/form_area/agreement.css">
+
+   <!--[if lte IE 9]>
+      <script src="./ie/html5shiv-3.7.3/dist/html5shiv.min.js"> </script>
+      <script src="../ie/PIE-1.0.0/PIE.js"></script>
+      <script src="../ie/Respond-1.4.2/dest/respond.min.js"></script>
+   <![endif]-->
+
+  <!-- link favicon ============================= -->
+   <link rel="shortcut icon" type="image/png" href="../favicon.png">
+  <!-- link touch ============================= -->
+   <link rel="apple-touch-icon" href="../favicon.png">
+
+   <title>회원가입</title>
+</head>
+<body>
+ <noscript>
+   <p>현재 접속하고 있는 사이트의 기능의 일부가 원활하게 실행되고 있지 않습니다. <br />
+   자바스크립트의 기능을 활성화 해주세요.</p>
+   <p><a href="http://enable-javascript.com/ko/" target="_blank">
+   브라우저에서 자바스크립트 활성화하는 방법</a></p>
+ </noscript>
+<!-- layout=================== -->
+<div id="wrap">
+	<h1><a href="../content.html">회원가입 동의서 체크</a></h1>
+	<form action="#" method="post">
+		<fieldset>
+			<legend>회원가입 동의 체크여부 확인</legend>
+			<div class="check all_check">
+				<input type="checkbox" id="allCheck" name="allCheck" value="회원가입약관 모두 동의" />
+				<p><label for="allCheck">
+					<i class="fas fa-check-circle"></i>
+					이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택),
+					프로모션 안내 메일 수신 &#40;선택&#41;에 모두 동의합니다.</label></p>
+			</div>
+			<div class="check require_check">
+				<input type="checkbox" name="cirti_01" id="req_cirti_01" value="네이버 이용약관 동의 체크" class="cb_sel" />
+				<dl>
+					<dt>
+						<label for="req_cirti_01">
+							<i class="far fa-check-circle"></i>
+						 네이버 이용약관 동의 
+						 <strong>&#40;필수&#41;</strong></label></dt>
+					<dd>
+							네이버 필수약관내용1
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo quas aliquid ipsa porro facilis assumenda rerum corrupti repellendus dolorem? Ullam mollitia, dolorum. Sapiente veritatis minima, quibusdam quos. Obcaecati quibusdam, vitae consectetur numquam voluptatum facilis ullam neque natus nesciunt, quo expedita at velit quia laudantium dolores minus pariatur officiis ut modi.
+					</dd>
+				</dl>
+				<input type="checkbox" name="cirti_02" id="req_cirti_02" value="개인정보 수집 이용 동의 체크" class="cb_sel" />
+				<dl>
+					<dt>
+						<label for="req_cirti_02">
+							<i class="far fa-check-circle"></i>
+							개인정보 수집 및 이용에 대한 안내 
+						<strong>&#40;필수&#41;</strong></label></dt>
+					<dd>
+							네이버 필수약관내용2
+					</dd>
+				</dl>
+			</div>
+			<div class="check select_check">
+				<input type="checkbox" name="cirti_03" id="req_cirti_03" value="위치정보 이용약관 동의 체크" class="cb_sel" />
+				<dl>
+					<dt><label for="req_cirti_03">
+						<i class="far fa-check-circle"></i>
+						위치정보 이용약관 동의 
+						<em>&#40;선택&#41;</em></label></dt>
+					<dd>
+							네이버 필수약관내용3
+					</dd>
+				</dl>
+				<input type="checkbox" name="cirti_04" id="req_cirti_04" value="이벤트 등 프로모션 알림 메일 수신 동의 체크" class="cb_sel" />
+				<p><label for="req_cirti_04">
+						<i class="far fa-check-circle"></i>
+						이벤트 등 프로모션 알림 메일 수신 
+					<em>&#40;선택&#41;</em></label></p>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>동의서 확인 및 취소</legend>
+			<input type="reset" value="취소" />
+			<input type="submit" value="확인" />
+			<p>회사, 동아리 등 단체에서 사용할 ID가 필요하세요? 
+				<a href="#">단체 회원 가입</a></p>
+		</fieldset>
+	</form>
+</div>
+
+<!-- Script=================== -->
+ <script src="../../js/base/jquery-3.4.1.min.js"></script>
+ <script src="../../js/base/jquery-ui.min.js"></script>
+ <script src="../../js/src/agreement.js"></script>
+</body>
+</html>

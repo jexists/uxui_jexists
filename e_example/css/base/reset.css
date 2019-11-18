@@ -19,6 +19,7 @@ table, thead, tbody, tfoot, tr, th, td
 	border-spacing: 0; border-collapse: collapse; 
 	border:1px solid #777;}
 
+em{font-style: normal;}
 a{color: #333; text-decoration: none;}
 
 a:hover{color: #f07;}
