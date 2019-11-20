@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- content.html -->
+<!-- test_02.html -->
 <html lang="ko-KR">
 <head>
   <meta charset="UTF-8">
@@ -15,7 +15,7 @@
    <link rel="stylesheet" href="../css/base/reset.css">
    <link rel="stylesheet" href="../css/base/common.css">
    <link rel="stylesheet" href="../font/fontawesome/css/all.min.css">
-   <link rel="stylesheet" href="../css/src/content.css">
+   <link rel="stylesheet" href="../css/src/test_07.css">
 
    <!--[if lte IE 9]>
       <script src="./ie/html5shiv-3.7.3/dist/html5shiv.min.js"> </script>
@@ -40,27 +40,67 @@
 <!-- layout=================== -->
 <div id="wrap">
 	<header id="headBox">
-		<h1><a href="#">제목</a></h1>
-		<h2>목차</h2>
-    <ul>
-      <li><a href="./main.html">슬라이드 모음</a></li>
-      <li><a href="./test_07.html">시험7번~9번</a></li>
-    </ul>
+		<h1><a href="../index.html">제목</a></h1>
 	</header>
 	<main id="contentBox">
-		<h2>부제</h2>
+		<section id="tabMenu">
+			<ul class="clearfix">
+				<li><button>tabMenu_01</button></li>
+				<li><button>tabMenu_02</button></li>
+				<li><button>tabMenu_03</button></li>
+				<li><button>tabMenu_04</button></li>
+			</ul>
+			<div class="menu_content">
+				<div class="content_01">첫번째 탭메뉴 내용</div>
+				<div class="content_02">두번째 탭메뉴 내용</div>
+				<div class="content_03">세번째 탭메뉴 내용</div>
+				<div class="content_04">네번째 탭메뉴 내용</div>
+			</div>
+		</section>
+		<br />
+		<hr /> <!-- ============================= -->
+		<br />
+		<article id="gallery">
+			<h2 class="hidden">image gallery</h2>
+			<div class="gall_box"><a href="#">이미지 링크 바로가기</a></div>
+			<div class="list">
+				<ul>
+					<li><a href="#">list_01</a></li>
+					<li><a href="#">list_02</a></li>
+					<li><a href="#">list_03</a></li>
+					<li><a href="#">list_04</a></li>
+					<li><a href="#">list_05</a></li>
+				</ul>
+			</div>
+		</article>
+		<br />
+		<hr /> <!-- ============================= -->
+		<br />
+		<article class="accordion">
+			<h2 class="hidden">accordion</h2>
+			<dl>
+				<dt><button type="button">button_01</button></dt>
+				<dd>아코디언 1번째 내용</dd>
+				<dt><button type="button">button_02</button></dt>
+				<dd>아코디언 2번째 내용</dd>
+				<dt><button type="button">button_03</button></dt>
+				<dd>아코디언 3번째 내용</dd>
+				<dt><button type="button">button_04</button></dt>
+				<dd>아코디언 4번째 내용</dd>
+				<dt><button type="button">button_05</button></dt>
+				<dd>아코디언 5번째 내용</dd>
+			</dl>
+		</article>
+
 	</main>
 	<footer id="footBox">
 		<h2>정보</h2>
 	</footer>
 </div>
-<!-- //headBox=================== -->
-<!-- //mainBox=================== -->
-<!-- //footBox=================== -->
 
 <!-- Script=================== -->
  <script src="../../js/base/jquery-3.4.1.min.js"></script>
  <script src="../../js/base/jquery-ui.min.js"></script>
- <script src="../../js/src/content.js"></script>
+ <script src="../../js/src/test_07.js"></script>
 </body>
 </html>

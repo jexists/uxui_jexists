@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+#contentBox{margin-top: 50px;}
+#tabMenu {width: 100%; height: auto;}
+#tabMenu > ul {width: 100%; height: auto;}
+#tabMenu > ul > li {float: left; margin-left: 10px;}
+.menu_content{width: 500px; height: 100px; background-color: #ede;}
