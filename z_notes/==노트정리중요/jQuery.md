@@ -19,6 +19,16 @@ jQuery는 자바스크립트에 일부분 library이다.
 > [jQuery Mobile 1.4.5 Demos](http://demos.jquerymobile.com/1.4.5/) 
 >모바일 - 사용X
 
+>cdn 웹에 있는 jQuery 불러오기
+>
+> https://unpkg.com/jquery@3.4.1/dist/jquery.js 
+>
+><script src="https://unpkg.com/jquery@3.4.1/dist/jquery.js"></script>
+>
+> https://unpkg.com/jquery-ui@1.12.1/ui/widget.js 
+
+>local로는 파일다운받아서 사용
+
 #### [주의사항]
 
 ```주의사항

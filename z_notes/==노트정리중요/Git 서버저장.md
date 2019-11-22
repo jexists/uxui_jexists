@@ -148,8 +148,9 @@ git pull 부터 하고 보자.
 
 
 
-세팅 < git Hub page < source 마스터 < 파랑-초록 < 깃허브 웹으로 보이기
+##### 세팅 < git Hub page < source 마스터(master branch)클릭 < 파랑->초록변경 < 깃허브 웹으로 보이기
 
 깃허브 웹사이트 + 폴더이름
+
 
 
