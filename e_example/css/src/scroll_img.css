@@ -2,7 +2,7 @@
 
 /*scroll_img.css*/
 #wrap{width: 100%; height: 100%;}
-#wrap>*{min-width: 1400px;}
+#wrap>*{min-width: 1400px; }
 h1{padding: 2rem; font-size: 4rem; text-align: center;}
 h2{width: 80%; height: auto; margin: auto; 
 	border-top: 1px solid #777; padding:2rem;
@@ -16,8 +16,8 @@ h2{width: 80%; height: auto; margin: auto;
 	text-transform: capitalize; letter-spacing: -0.18rem;}
 .fix_img{width: 70%; height: auto; min-height: 350px;
 	margin: auto; margin-top: 5rem; margin-bottom: 5rem;}
-.fix_img ~ p{width: 70%; height: auto; margin: auto;
- 	font-size: 2.5rem; font-weight: bold;
+.fix_img ~ p, .outer_wrap ~ p{width: 70%; height: auto; margin: auto;
+ 	font-size: 2.5rem; font-weight: bold; padding-bottom: 10rem; 
  	letter-spacing: -0.1rem; color: #777;
 	line-height: 1.1;}
 
@@ -29,17 +29,22 @@ h2{width: 80%; height: auto; margin: auto;
 
 
 #viewBox{width: 100%; height: auto; min-height: 150%; margin: auto;
-	margin-bottom: 3rem; }
-/*#viewBox{}*/
-#viewBox .title{position: relative; z-index: 100;}
-#viewBox .fix_img{position:relative;}
-#viewBox .fix_img>img{display: none; position:absolute; bottom: 0; left: 0; width: 100%; height: auto;}
+	margin-bottom: 3rem; padding-top: 15rem;}
+/*#viewBox{  }*/
+#viewBox .title{position: sticky; z-index: 100;}
+#viewBox .fix_img{position: sticky; height:800px; 
+	transform: translateY(-400px);
+	/* position:relative; */}
+#viewBox .fix_img>img{display: none; 
+	/* position:absolute; bottom: 0; left: 0; */ 
+	width: auto; height: 100%; margin: auto; 
+	margin-left: 50%; transform: translateX(-50%);}
 
 #sub_conBox{width: 100%; height: auto; min-height: 150%; margin: auto;
-	margin-bottom: 3rem; }
+	margin-bottom: 3rem; padding-bottom: 30rem;}
 
 #video_conBox{width: 100%; height: auto; min-height: 150%; margin: auto;
-	margin-bottom: 3rem; }
+	margin-bottom: 3rem; padding-bottom: 30rem;}
 #graph_conBox{width: 60%; height: auto; min-height: 150%; margin: auto;
 	margin-bottom: 3rem; padding: 3rem 2rem; box-sizing: border-box;
 	background-color: #f0f0f0;}

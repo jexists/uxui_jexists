@@ -4,12 +4,16 @@
 	const win = $(window);
 	const wrap = $('#wrap');
 	const viewBox = $('#viewBox');
-	viewBox.css({position:'fixed',top:0, backgroundColor:'#fff'});
-	viewBox.find('.title').css({position:'relative', top:0});
+	//viewBox.css({position:'fixed',top:0, backgroundColor:'#fff'});
+	//viewBox.find('.title').css({position:'relative', top:0});
 
+	viewBox.find('.fix_img').wrap('<div class="outer_wrap"></div>');
+	$('.outer_wrap').css({height:'2000px'});
+	viewBox.find('.fix_img').css({position:'sticky',top:'50px'});
 
-
-//이미지 답기
+	let fixImgOffset = viewBox.find('.fix_img').offset().top;
+	console.log(fixImgOffset);
+//이미지 담기
 	const viewFix = viewBox.find('.fix_img');
 	let url = '../img/laptop/';
 
@@ -32,14 +36,35 @@
 		let op = 1 -(thisS * 0.001); 
 		//Math.abs() = 절대값(무조건+)
 		if(op<0){op=0}
-		viewBox.find('.title').css({top: (-thisS/4)+'px',opacity: op})
+		viewBox.find('.title').css({top: (-thisS/3)+'px',opacity: op})
 		// console.log(op);
+
+//.fix_img 위치 고정인 것처럼 조금 변경
+	if(thisS >= fixImgOffset){
+		let i = thisS - fixImgOffset;
+		if (i > 400){i=400;}else if(i<0){i=0}
+		viewBox.find('.fix_img').css({transform:`translateY(${-400 + i}px)`});
+	//}
+
+
+
 //이미지 교체하기
-		let imgI = parseInt(thisS / 2000 * 121);
-		if(imgI >=121){imgI=121;}
+		 //if(thisS >= fixImgOffset){
+			// let imgI = parseInt((thisS - fixImgOffset) / 4);
+			let imgI = parseInt(i / 4);
+			if(imgI >=121){imgI=121;}else if(imgI < 0){imgI = 0}
 		console.log(imgI)
-		viewFix.children('img').eq(imgI).siblings().hide();
-		viewFix.children('img').eq(imgI).show();
+			viewFix.children('img').eq(imgI).siblings().hide();
+			viewFix.children('img').eq(imgI).show();
+		 }
+		/*
+		let imgI = parseInt(thisS / 2000 * 121);
+			if(imgI >=121){imgI=121;}
+		//console.log(imgI)
+			viewFix.children('img').eq(imgI).siblings().hide();
+			viewFix.children('img').eq(imgI).show();
+			*/
+		
 //이미지교체후 밑에 내용나오기
 		// let nowS;
 		// if(imgI >=121){
