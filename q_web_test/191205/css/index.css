@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+html,body{width: 100%; height: auto; font-family: arial,dotum,sans-serif;}
+*{padding:0; margin: 0; border: 0; outline: 0; list-style: none; text-decoration: none;
+ font-size: 20px;}
+a, button{color: inherit; font-family: inherit}
+header, article, nav, footer, section{display: block;}
+.hd{display: block; overflow: hidden; position:absolute; width: 0; height: 0;}
+
+#wrap{width: 1200px; height: auto; margin: auto;}
+#headBox {position:relative; z-index: 500; width: 100%; height: 100px; background-color: #fcc;}
+ h1{float: left; width: 150px; height: 100px; background-color: #fa0;}
+ #gnb{float: right; width: 400px; height: auto; min-height: 50px; margin-top: 50px; margin-right: 20px; background-color: #ccc;}
+#gnb>ul{width: 100%; height: 100%;}
+#gnb>ul:after{content: ""; display: block; clear:both;}
+#gnb>ul>li{float:left;width: 200px; height: 50px; text-align: center;}
+#gnb a{display: block; width: 100%; height: 50px;
+ line-height: 50px; background-color: #fff; border-bottom: 1px solid #777;}
+/*#gnb ol{display: none;}*/
+
+#headBox:after{content:" ";display: block;
+ position:absolute; top: 100%; left:0; z-index: -1;
+ width: 100%; height: 0; background-color: #333;
+ transition: height 400ms ease;}
+#headBox ol{height: 0; overflow: hidden;
+ transition: height 400ms ease;}
+#headBox:hover ol{/*display: blcok;*/ height: 170px;}
+#headBox:hover:after{height: 170px}
+
+
+#viewBox {position:relative; width: 100%; height: 300px; background-color: #acf;}
+.fixed_text{position: absolute; z-index: 100;
+ width: 800px; height: 50px; background-color: #777; color: #fff;
+bottom: 0; right: 0; text-align: center; font-size: 2rem; font-weight: bold; line-height: 50px; border-radius: 25px 0 0 25px;}
+.slide_wrap{width: 100%; height: 100%;}
+.slide_wrap>.slide{position:absolute; top: 0; left: 0;
+ width: 100%; height: 100%;
+ font-size: 3rem; box-sizing: border-box;
+ padding: 2rem; background-color: #dfdfdf;}
+
+
+
+#conBox {width: 100%; height: 200px; background-color: #caf;}
+#footBox {width: 100%; height: 100px; background-color: #ccc;}
