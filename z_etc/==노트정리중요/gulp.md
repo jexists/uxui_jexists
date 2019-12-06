@@ -1,5 +1,15 @@
 # GULP
 
+#### 참고 웹사이트
+
+```
+https://gulpjs.com/
+https://www.npmjs.com/
+https://yarnpkg.com/lang/en/
+```
+
+
+
 유명한 자동화도구: 젠킨스 / gulp
 
 ---
@@ -31,6 +41,12 @@
 >알아서 설치해 => npm install / yarn add
 
 ---
+
+
+
+
+
+
 
 
 
@@ -144,7 +160,7 @@ $touch .babelrc
 
 > 바벨 이러한 기능을 불러와서 적용하겠다[.?]
 
-```
+```javascript
 // .babelrc
 {
 	"presets":[
@@ -216,7 +232,7 @@ $yarn add -D "mk-dirs"
 
 순서 중요
 
-```
+```javascript
 //gulpfile.babel.js
 
 import gulp from "gulp";
@@ -252,7 +268,7 @@ export const make  = makeDir;
 
 #### 파이널
 
-```
+```javascript
 //gulpfile.babel.js
 
 import gulp from "gulp";
@@ -302,7 +318,7 @@ $gulp make
 $yarn add -D write
 ```
 
-```
+```javascript
 //gulpfile.babel.js
 
 import gulp from "gulp";
@@ -352,7 +368,7 @@ $gulp mkfile
 
 
 
-```
+```javascript
 //gulpfile.babel.js
 
 import gulp from "gulp";
@@ -406,7 +422,7 @@ export default myPublic;
 $gulp
 ```
 
-```
+```javascript
 //gulpfile.babel.js
 
 import gulp from "gulp";
@@ -469,7 +485,7 @@ const myPublic = gulp.series(makeDir, gulp.parallel(makefile));
 export default myPublic;
 ```
 
-```
+```javascript
 //gulpfile.babel.js
 //모듈불러오기 =========================================================
 import gulp from "gulp";
@@ -527,6 +543,27 @@ yarn add -D gulp-sass
 ```
 
 ```javascript
+//모듈 불러오기
+import gulp from "gulp";
+import gulpScss from "gulp-sass";
+// ================================
+/*영역, 위치, 파일 변수작성*/
+const url = {
+	before: "./public/source/"
+}
+// ================================
+/*기능 작성하기*/
+function FnScss(){
+ gulp.src()
+ 	 .pipe()
+ 	 .pipe( gulp.dest() )
+}
+// ================================
+/*외부에서 사용하기(내보내기)*/
+// export default myWeb;
+```
+
+```javascript
 //모듈불러오기 ============================
 import scss from"gulp-sass"; //SCSS사용
 //SCSS기능수행 ========================================================================
@@ -541,13 +578,14 @@ const scssOption ={
  	//소수점 계산시 몇자리까지 계산?
 	percision:6,
 	//컴파일시 주석처리 유무 (scss의 파일위치 주석으로 처리유무 scss:몇번째줄에 있다)
-	sourceComments:false,
+	sourceComments:false
 };
 
 //node-sass --watch --output-style compact scss --output css
 async function convertCss(){
 	gulp.src( url.source+'scss/**/*.scss' ) //만드는 현재 scss폴더에서
-	 .pipe( scss(scssOption).on('error', scss.logError) ) //사스옵션을 수행하고 에러나면 알려줘라
+	 .pipe( scss(scssOption).
+           on('error', scss.logError) ) //사스옵션을 수행하고 에러나면 알려줘라
 	 .pipe( gulp.dest(url.source+'css/') ) // 완성된 것을 css폴더에다가 넣어라
 }
 
@@ -570,10 +608,388 @@ $yarn add -D browser-sync
 $npm install -D browser-sync
 ```
 
-```
+```javascript
 import sync from "browser-sync"; //browser-sync 호출
 
 const browserSync = sync.create(); //실제 사용할 browser sync
+```
+
+
+
+
+
+---
+
+
+
+## Gulp - 다른폴더에서 사용할때 
+
+#### gulp 기본세팅
+
+1. 사용할 폴더에 기본세팅파일(package.json)
+
+```
+$yarn init -y
+$npm init -y
+```
+
+2. gulp 설치 (전역에 하나설치"설치완료", 사용할 폴더에 설치)
+
+   >node_modules 폴더내용과 함께 gulp 설치완료
+
+```
+$yarn add -D gulp
+$npm install -D gulp
+```
+
+3. gulpfile 생성 (gulpfile.babel.js 및 .babelrc)
+
+```
+touch gulpfile.babel.js .babelrc
+```
+
+4. 생선된 '.babelrc'에 내용추가 및 설치
+
+   > preset-react, polyfill(하위버전호환) 은 파일생성할때 필요(나중에 깔게됨)
+
+```javascript
+{
+	"presets":["@babel/preset-env"]
+}
+```
+
+```
+$yarn add -D @babel/preset-env
+$yarn add -D @babel/core
+$yarn add -D @babel/register
+
+$npm install -D @babel/preset-env
+//한번에 설치하기
+$yarn add -D @babel/{preset-env,core,register}
+```
+
+```
+//=================================================
+```
+
+#### SASS기능 수행하기
+
+1. 모듈 설치
+
+```
+$yarn add -D gulp-sass
+$npm install -D gulp-sass
+```
+
+2. 세부내용 세팅
+
+   >불러오기 'import gulpScss from"gulp-sass";
+   >
+   >옵션세팅...
+   >
+   >기능만들기(함수생성)
+   >
+   >외부에서 호출 가능 'export...'
+
+```javascript
+//모듈 불러오기
+import gulp from "gulp";
+import gulpScss from "gulp-sass" ;
+// ================================
+/*영역, 위치, 파일 변수작성*/
+const url = {
+	before: "./public/source/"
+}
+// ================================
+/*기능 작성하기*/
+const scssOption = {
+	outputStyle:'compact',
+	indentType:'tab',
+	indentWidth:2,
+	percision:6,
+	sourceComment:false
+}
+function FnScss(){
+ gulp.src( url.before+'scss/**/*.scss' )
+ 	 .pipe( gulpScss(scssOption)
+ 	 		.on('error', gulpScss.logError) )
+ 	 .pipe( gulp.dest( url.before+'css/') )
+}
+// ================================
+/*외부에서 사용하기(내보내기)*/
+export const scss = FnScss;
+```
+
+
+
+#### browser-sync
+
+1. 설치
+
+```
+$yarn add browser-sync
+$npm install browser-sync
+```
+
+2. 불러오기
+
+```javascript
+import gulpSync from "browser-sync";
+const gulpBrowser = gulpSync.create();
+```
+
+3. 세팅
+
+```javascript
+/*browser-sync 기능 작성하기*/
+function FnSync(){
+	gulpBrowser.init()
+}
+```
+
+```javascript
+/*browser-sync 기능 작성하기 - 파이널*/
+function FnSync(){
+	gulpBrowser.init({
+		server:{ baseDir:url.before }
+	})
+}
+```
+
+```javascript
+/*실시간 감지 기능 작성하기*/
+function FnWatch(){
+	gulp.watch(url.before+'**/*.html')
+}
+```
+
+4. 추가모듈1: gulp-cached ================= 여기까지 안해도됬음,,,
+
+```
+$yarn add gulp-cached
+```
+
+```javascript
+import gulpCached from "gulp-cached";
+function FnHtml(){
+	gulp.src(url.before+'**/*.html')
+		.pipe(gulpCached('htmlFiles'))
+		.pipe(gulpBrowser.reload({stream:true}));
+}
+```
+
+5. 추가모듈2: gulp-watch
+
+```
+$yarn add gulp-watch
+```
+
+```javascript
+import gulpWatch from "gulp-watch";
+//예전 것=== 주석
+function FnWatch(){
+ 	gulp.watch(url.before+'**/*.html', FnHtml)
+}
+//새로운 것====
+function FnWatch(){
+	gulpWatch(url.before+'**/*.html', FnHtml)
+}
+```
+
+6. 추가모듈3: polyfill
+
+@babel "최신버전을 깔아라" babel "그냥 깔아라"
+
+```
+$yarn add -D @babel/polyfill
+```
+
+7. 추가모듈 4: preset-react
+
+```
+$yarn add -D @babel/preset-react
+```
+
+8. 추가모듈 5: cli
+
+```
+$yarn add -D @babel/cli
+```
+
+9. 추가모듈 6: core-js@2
+
+```
+$yarn add core-js@2
+```
+
+
+
+===
+
+.babelrc
+
+```javascript
+{
+	"presets":[
+	 ["@babel/preset-env",{
+	 	"targets":{
+	 		"browsers":["last 2 chrome versions"]
+	 },
+	 "useBuiltIns":"usage"
+	}],
+	 "@babel/preset-react"	
+ ]
+}
+```
+
+
+
+```javascript
+//모듈 불러오기
+import gulp from "gulp";
+import corejs from "core-js";
+import gulpCached from "gulp-cached";
+import gulpWatch from "gulp-watch";
+import gulpScss from "gulp-sass";
+import gulpSync from "browser-sync";
+const gulpBrowser = gulpSync.create();
+
+// ================================
+/*영역, 위치, 파일 변수작성*/
+const url = {
+	before: "./public/source/"
+}
+
+// ================================
+/*function files*/
+/*SCSS 기능 작성하기*/
+const scssOption = {
+	outputStyle:'compact',
+	indentType:'tab',
+	indentWidth:2,
+	percision:6,
+	sourceComment:false
+};
+
+async function FnScss(){
+ gulp.src(url.before+'scss/**/*.scss')
+ 	 .pipe(gulpCached('scssFiles'))
+ 	 .pipe(gulpScss(scssOption).on('error', gulpScss.logError))
+ 	 .pipe(gulp.dest(url.before+'css/'))
+	 .pipe( gulpBrowser.reload({stream:true}) );
+}
+
+function FnHtml(){
+	gulp.src(url.before+'**/*.html')
+		.pipe(gulpCached('htmlFiles'))
+		.pipe(gulpBrowser.reload({stream:true}));
+}
+
+function FnJs(){
+	gulp.src(url.before+'js/**/*.js')
+		.pipe(gulpCached('jsFiles'))
+		.pipe(gulpBrowser.reload({stream:true}));
+}
+
+function FnCss(){
+	gulp.src(url.before+'css/**/*.css')
+		.pipe(gulpCached('cssFiles'))
+		.pipe(gulpBrowser.reload({stream:true}));
+}
+
+/*browser-sync 기능 작성하기*/
+function FnSync(){
+	gulpBrowser.init({
+		server:{ baseDir:url.before }
+	});
+}
+
+/*실시간 감지 기능 작성하기*/
+function FnWatch(){
+	gulpWatch(url.before+'**/*.html', FnHtml);
+	gulpWatch(url.before+'scss/**/*.scss', FnScss);
+	gulpWatch(url.before+'css/**/*.css', FnCss);
+	gulpWatch(url.before+'js/**/*.js', FnJs);
+}
+
+// ================================
+/*외부에서 사용하기(내보내기)*/
+export const scss = FnScss; //gulp scss
+export const server = FnSync; //gulp server
+
+const myWeb = gulp.series(
+	FnScss,
+	gulp.parallel(FnSync, FnWatch));
+export default myWeb;
+```
+
+
+
+
+
+
+
+#### 다시 구동하기
+
+```
+$yarn install
+$npm install
+```
+
+
+
+
+
+
+
+#### gulpfile.babel.js
+
+```javascript
+//모듈 불러오기
+import gulp from "gulp";
+import gulpScss from "gulp-sass";
+import gulpSync from "browser-sync";
+const gulpBrowser = gulpSync.create();
+// ================================
+/*영역, 위치, 파일 변수작성*/
+const url = {
+	before: "./public/source/"
+}
+// ================================
+/*SCSS 기능 작성하기*/
+const scssOption = {
+	outputStyle:'compact',
+	indentType:'tab',
+	indentWidth:2,
+	percision:6,
+	sourceComment:false
+}
+function FnScss(){
+ gulp.src( url.before+'scss/**/*.scss' )
+ 	 .pipe( gulpScss(scssOption)
+ 	 		.on('error', gulpScss.logError) )
+ 	 .pipe( gulp.dest( url.before+'css/') )
+}
+/*browser-sync 기능 작성하기*/
+function FnSync(){
+	gulpBrowser.init({
+		server:{ baseDir:url.before }
+	})
+}
+/*실시간 감지 기능 작성하기*/
+function FnHtml(){
+	gulp.src(url.before+'**/*.html')
+		.pipe(gulpBrowser.reload({stream:true}));
+}
+function FnWatch(){
+	gulp.watch(url.before+'**/*.html', FnHtml)
+}
+// ================================
+/*외부에서 사용하기(내보내기)*/
+export const scss = FnScss; //gulp scss
+export const server = FnSync; //gulp server
+const myWeb = gulp.parallel(FnSync, FnWatch);
+export default myWeb;
 ```
 
 
