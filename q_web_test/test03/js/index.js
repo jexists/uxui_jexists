@@ -22,10 +22,30 @@ nav.on('mouseleave',function(){
 var slideWrap = $('.slide_wrap');
 var slide =$('.slide');
 var i=0;
-slide.children('li').eq(i).siblings().hide();
+slide.eq(i).siblings().hide();
 
  setInterval(function(){
-  
+  i++;
+  if(i>2){i=0}
+  slide.eq(i).fadeIn();
+  slide.eq(i).siblings().fadeOut();
  },3000)
- 
+$('.golink').children('a').on('click',function(){
+  $('.message').show(); 
+ });
+    
+$('.message').children('a').on('click',function(){
+   $('.message').hide(); 
+});
+    
+$('.link').children('li').eq(0).children('a').on('click',function(){
+  $('.gallay').hide(function(){
+    $('.news').show();
+})
+  });
+$('.link').children('li').eq(1).children('a').on('click',function(){
+   $('.news').hide(function(){
+    $('.gallay').show();
+})
+});
 })(jQuery);
