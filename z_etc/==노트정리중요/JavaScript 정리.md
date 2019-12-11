@@ -1706,3 +1706,117 @@ this의 두가지
  </script>
 ```
 
+
+
+
+
+---
+
+**스코프(Scope)**
+
+```javascript
+var hello='hell';
+
+function sayH(){
+    var hello= 'hello in function';
+	console.log(hello);
+}
+
+console.log(hello); //hell
+sayH(); //hello in function
+console.log(hello);//hell
+//안에 있는 var을 지우면된다. 
+```
+
+```javascript
+let hello = "hell";
+
+function sayHell(){
+   hello = "new hello";
+}
+hello //"hell"
+sayHell(); //"new hello"
+```
+
+```javascript
+const hello = "hell";
+
+function sayHell(){
+   hello = "new hello";
+}
+hello //"hell"
+sayHell() //에러
+//VM3514:4 Uncaught TypeError: Assignment to constant variable.
+```
+
+```
+https://medium.com/@khwsc1/%EB%B2%88%EC%97%AD-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%8A%A4%EC%BD%94%ED%94%84%EC%99%80-%ED%81%B4%EB%A1%9C%EC%A0%80-javascript-scope-and-closures-8d402c976d19
+```
+
+
+
+```javascript
+let num = 12345;
+console.log(num); //12345
+console.log('num'); //문자로 인식,변수로인식X
+//숫자 혹 변수에는 따음표 사용X
+```
+
+```javascript
+let num = 'abc';
+num = 'xido';
+let xname = num;
+num = 'green';
+console.log(xname); //'xido'
+//green이라는 단어가 안나오고 xido가 나온다 이유:나중에 지정해서
+
+let arr = ['xido']; //배열
+arr[0] = 'green';
+let night = arr;
+arr[0]='half time'
+console.log(night[0]); //'half time'
+
+//참조변수: 같은 주소를 가르킨다.
+```
+
+배열 메소드 [참고][http://blog.302chanwoo.com/2017/08/javascript-array-method/]
+
+```javascript
+const ar = [];
+console.log(ar[5]); //undefined
+console.log(ar[5]+'10'); //undefined10
+
+//push: 뒤에 더하다 =====
+const ar = [];
+ar.push('apple');
+ar.push('xido');
+ar.push('ms');
+console.log(ar); //["apple", "xido", "ms"]
+//pop: 뒤 빼기 =====
+ar.pop();
+console.log(ar); //["apple", "xido"]
+console.log(ar.length); //2
+
+//concat:합치다 =====
+
+const ar = ['ms', 'yh', 'sh'];
+const ar2 = ['hj', 'hy'];
+let kr = ar.concat(ar2);
+console.log(kr); //["ms", "yh", "sh", "hj", "hy"]
+let kr2 = ar2.concat(ar);
+console.log(kr2); //["hj", "hy", "ms", "yh", "sh"]
+let kr3 = ar.concat(ar);
+console.log(kr3); //["ms", "yh", "sh", "ms", "yh", "sh"]
+
+// 이름순/가격순 등 재배치
+gr.sort();
+
+// 반전해서 재배치?
+gr.reverse();
+
+```
+
+
+
+
+
