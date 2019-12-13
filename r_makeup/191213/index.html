@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#wrap3{position:relative; width: 80%; height: 50px; margin: auto; background-color: #ccc;}
+		.menu{float:left; width: 70px; height: 100%; margin-left: 15%;
+			background-color: #fa0;}
+		.menu:hover{background-color: #f73;}
+		.menu:nth-child(1){margin-left: 0;}
+		.line{position: absolute; bottom:0; left: -20%;
+			width: 70px; height: 5px; background-color: #000;}
+	</style>
+</head>
+<body>
+<!-- 	<div id="wrap">
+	<div>
+		<ul>
+			<li>
+				<p>
+					<span>
+						<a href="#">버튼</a>
+					</span>
+				</p>
+			</li>
+		</ul>
+	</div>
+</div> -->
+
+<!-- <div id="wrap2">
+	<div>
+		<ul>
+			<li>01</li>
+			<li>02</li>
+			<li>03</li>
+			<li class="st">04</li>
+			<li>05</li>
+			<li>06</li>
+			<li>07</li>
+		</ul>
+	</div>
+</div> -->
+
+<div id="wrap3">
+	<div class="menu">메뉴1</div>
+	<div class="menu">메뉴2</div>
+	<div class="menu">메뉴3</div>
+
+	<div class="line"></div>
+
+</div>
+	
+	<p>날짜 만들기: <span></span></p>
+
+
+
+
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script>
+		(function($){
+			//alert('test')
+			// $('a').parent().css({backgroundColor:"#fa0"}); 
+							/*span만 선택*/
+			//$('a').parents().css({backgroundColor:"#fee"});
+							/*모든 부모&바디끝*/
+			//$('a').parents('#wrap').css({backgroundColor:"#fee"}); 
+							/*부모중 선택한 아이만 (wrap)*/
+			//$('a').parentsUntil('#wrap').css({backgroundColor:"#fee"}); 
+							/*wrap을 제외한 부모까지*/
+			//$('a').closest('#wrap').css({backgroundColor:"#fee"}); 
+							/*parents=closest 같은기능 (closest"사용불가 예정")*/
+
+			//$('li').eq(1).nextAll().css({color:"#f00"})
+							/*선택한 아이 바로 뒤 모든것들*/
+			//$('li').eq(1).nextUntil('.st').css({color:"#f00"})
+							/*.st 바로전까지 선택*/
+
+			//console.log(this); //window
+			//console.log($(this)) //[window] (객체/object)
+
+			const menu = $('.menu');
+			const menuOf = [];
+			const wrapOf = $('#wrap3').offset().left;
+
+
+			for(let i=0; i<menu.length; i++){
+				menuOf[i] = menu.eq(i).offset().left;
+			}
+
+			//console.log(menuOf);
+			//console.log(wrapOf);
+
+			menu.on('mouseenter',function(){
+				let i = $(this).index();
+				let myOf = (menuOf[i] - wrapOf) +'px';
+				$('.line').animate({left:myOf});
+			});
+
+			$('#wrap3').on('mouseleave',function(){
+				$('.line').animate({left:'-20%'});
+			})
+
+
+
+	})(jQuery);
+	</script>
+	<script>
+		const txt = document.querySelector('span');
+		const myM = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월']
+		const myW = ['일','월','화','수','목','금','토']
+
+		setInterval(function(){
+		 const date = new Date();
+		 let nowY = date.getFullYear(); //현재 연도
+		 let nowM = date.getMonth(); //0부터 시작해서 이상하게 나온댜 ㅠ (0=1월 / 0~11)
+		 let nowD = date.getDate(); //날짜는 1부터 잘나온다. (1~31)
+		 let nowW = date.getDay(); //숫자로 0부터 나온다. (0=일 / 0~6)
+		 let nowH = date.getHours();
+		 let nowMin = date.getMinutes();
+		 let nowS = date.getSeconds();
+		 let nowMil = date.getMilliseconds();
+		 //txt.innerText = "순수하게 입력"
+		 // if (nowMin<10){nowMin += "0"}else{nowMin};
+		 txt.innerText = nowY + '년 ' + myM[nowM] +" " + nowD + '일' + " " + myW[nowW] + " " +nowH + '시 ' + nowMin + "분 "+ nowS + '초 ' + parseInt(nowMil/100);
+		/*noM = 11이 나오는 이유 = 0부터 시작해서*/
+		// txt.style = '';
+		},100);
+	</script>
+</body>
+</html>
