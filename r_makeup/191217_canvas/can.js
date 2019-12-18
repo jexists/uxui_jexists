@@ -87,8 +87,9 @@ let graphGo = function(s){
         ctx.beginPath();
         ctx.lineWidth = 50;
         ctx.strokeStyle = '#f07';
+        ctx.lineCap = 'round';
         progressArc(++j);
-        
+
         ctx.stroke();
     }else{
         clearInterval();
