@@ -56,7 +56,8 @@
 
 
 
-	<script src="http://code.jquery.com/jquery.js"></script>
+	<!-- <script src="http://code.jquery.com/jquery.js"></script> -->
+	<script src="./base/jquery-3.4.1.min.js"></script>
 	<script>
 		(function($){
 			//alert('test')
@@ -88,8 +89,8 @@
 				menuOf[i] = menu.eq(i).offset().left;
 			}
 
-			//console.log(menuOf);
-			//console.log(wrapOf);
+			console.log(menuOf);
+			console.log(wrapOf);
 
 			menu.on('mouseenter',function(){
 				let i = $(this).index();
