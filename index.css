@@ -144,3 +144,11 @@ h3 {
 	text-transform: capitalize;
 	font-weight: bold;
 }
+
+.btn {
+	font-size: 0.75rem;
+}
+.card{
+	word-break: keep-all;
+	/*min-height: 200px;*/
+}

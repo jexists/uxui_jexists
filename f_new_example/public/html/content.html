@@ -28,7 +28,50 @@
   <!-- link touch ============================= -->
    <link rel="apple-touch-icon" href="../favicon.png">
 
-   <title>문서제목</title>
+   <title>슬라이드 예제</title>
+      <style>
+    a {text-decoration: none;}
+    body {margin: auto; width: 1100px; height: auto;}
+    h1 {padding: 1rem; border-bottom: 1px; 
+      text-align: center; 
+      width: 100%; height: 100%;}
+    h1 a {color: #333;}
+    h2 {text-indent: 50px;}
+    .bodyBox {width: 100%; min-width: 600px; max-width: 1100px;}
+    ul {margin: 0px; list-style: none;}
+    ul:after{content:" "; display: block; clear: both;}
+    ul > li {float: left; margin: 5px; 
+      width: 300px; height: 80px;
+      background-color: #fcc;
+      text-align: center; line-height: 80px;
+      border-width: 1px; border-style: solid; border-color: #777;   }
+    li:nth-child(1):hover{background: #777;}
+    ul > li >a{display: block; width: 100%; height: 100%; transition:all 300ms ease;}
+    ul > li > a:focus{background-color: #71c; color:#fff;}
+    ul > li > a:hover{background-color: #f60; color:#fff;}
+    li>a {font-weight: bold;}
+.center {
+    text-align: center;
+    margin: 50px 0;
+  }
+  .center a {
+    font-weight: bold;
+    color:#333;
+  }
+  .center a:hover { 
+    font-size: 1.1rem;
+    color: #35f;
+   }
+    @media screen and (max-width:700px) {
+    body{width:auto; min-width:650px;}
+  }
+
+  @media screen and (max-width:450px) {
+    body {width:auto; min-width:400px;}
+    .bodyBox{min-width:auto;}
+  }
+  footer {height: 100px;}
+  </style>
 </head>
 <body>
  <noscript>
@@ -40,8 +83,11 @@
 <!-- layout=================== -->
 <div id="wrap">
 	<header id="headBox">
-		<h1><a href="#">제목</a></h1>
-		<h2>목차</h2>
+		<h1><a href="#">슬라이드 & 아코디언 메뉴</a></h1>
+		<!-- <h2>목차</h2> --> 
+	</header>
+	<main id="contentBox">
+		<!-- <h2>부제</h2> -->
     <ul>
       <li><a href="./main.html">슬라이드 모음</a></li>
       <li><a href="./exercise.html">슬라이드 연습_01 - paulbassett</a></li>
@@ -53,12 +99,10 @@
       <li><a href="./test_02_answer.html">슬라이드테스트_02 답안지</a></li>
       <li><a href="./slide_indi_n_btn.html">슬라이드 인디케이터 &버튼</a></li>
     </ul>
-	</header>
-	<main id="contentBox">
-		<h2>부제</h2>
 	</main>
 	<footer id="footBox">
-		<h2>정보</h2>
+		<!-- <h2>정보</h2> -->
+    <p class="center"><a href="../../../index.html">예제파일을 이해했으면 다음 레벨의 내용으로 이동하도록 하겠습니다.</a></p>
 	</footer>
 </div>
 <!-- //headBox=================== -->
